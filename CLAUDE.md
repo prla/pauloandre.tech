@@ -31,7 +31,7 @@ python3 -m http.server 8000
 
 The page uses a deliberate editorial system. Preserve it when adding sections:
 
-- **Two fonts only**: `Google Sans Code` (monospace, used for the wordmark, headlines, italic taglines, big statements) and `Instrument Sans` (body, section subheads, lists).
+- **Two fonts, narrow roles**: `Instrument Sans` is the workhorse for everything — body, headings, wordmark, footer, italic taglines, the lot. `Google Sans Code` is reserved exclusively for the hero `<h1>` to set the page's signature; do not introduce it elsewhere.
 - **Color tokens** are CSS custom properties on `:root` — `--ink`, `--ink-soft`, `--cream`, `--blue`, `--copper`, `--rule`. Use these, don't hardcode hex values.
 - **Section rhythm**: each section opens with a numbered eyebrow (`<p class="eyebrow"><span class="num">0X</span> Label</p>`) — keep the numbering sequential when adding/reordering sections.
 - **Two-column editorial grid** (`.two-col`) — left column is a 280px label/eyebrow rail, right column is content. The mobile breakpoint at 720px collapses it.

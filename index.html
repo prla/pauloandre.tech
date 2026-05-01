@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paulo André — Product & Engineering Systems</title>
+<title>Paulo André — Find the constraint in your product & engineering system</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <style>
 :root {
@@ -29,7 +29,8 @@ body {
   color: var(--ink);
   font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -57,7 +58,7 @@ section.cream { background: var(--cream); }
   justify-content: space-between;
   align-items: baseline;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
@@ -65,16 +66,16 @@ section.cream { background: var(--cream); }
 /* Eyebrow label — small tracked uppercase in copper */
 .eyebrow {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copper);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .eyebrow .num {
   display: inline-block;
-  margin-right: 14px;
+  margin-right: 12px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -85,9 +86,9 @@ section.cream { background: var(--cream); }
   border-bottom: 1px solid var(--rule);
 }
 .top-bar .name {
-  font-family: 'Google Sans Code', monospace;
-  font-weight: 700;
-  font-size: 18px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
   color: var(--ink);
   letter-spacing: -0.01em;
   text-transform: none;
@@ -101,21 +102,22 @@ section.cream { background: var(--cream); }
 .top-nav a:hover { color: var(--ink); }
 .hero h1 {
   font-family: 'Google Sans Code', monospace;
-  font-weight: 700;
-  font-size: clamp(32px, 4.5vw, 56px);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  margin-bottom: 48px;
+  font-weight: 600;
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 40px;
+  max-width: 40ch;
 }
 .hero h1 em { font-style: italic; }
 .hero h1 br { display: block; }
 
 .hero .subline {
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.67;
-  max-width: 742px;
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.55;
+  max-width: 60ch;
   color: var(--ink-soft);
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 .hero .subline strong { color: var(--ink); font-weight: 500; }
 
@@ -166,18 +168,18 @@ section.cream { background: var(--cream); }
 .bullet-list { list-style: none; }
 .bullet-list li {
   position: relative;
-  padding: 6px 0 6px 32px;
-  font-size: clamp(17px, 1.4vw, 19px);
-  line-height: 1.45;
+  padding: 8px 0 8px 32px;
+  font-size: clamp(17px, 1.3vw, 19px);
+  line-height: 1.55;
   color: var(--ink);
 }
 .bullet-list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: calc(0.725em + 2px);
-  width: 8px;
-  height: 8px;
+  top: calc(0.78em + 2px);
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--copper);
 }
@@ -185,11 +187,12 @@ section.cream { background: var(--cream); }
 
 /* Inline italic closing tagline (used after a section's main content) */
 .closing-tagline {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-style: italic;
-  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 24px);
   line-height: 1.4;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   color: var(--ink-soft);
   margin-top: 32px;
 }
@@ -199,10 +202,10 @@ section.cream { background: var(--cream); }
 .section-title {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(28px, 3.2vw, 38px);
   line-height: 1.2;
-  letter-spacing: -0.01em;
-  max-width: 720px;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
   margin-bottom: 36px;
 }
 
@@ -216,11 +219,11 @@ section.cream { background: var(--cream); }
 /* Big statement */
 .statement { max-width: 24ch; }
 .statement h2 {
-  font-family: 'Google Sans Code', monospace;
-  font-weight: 700;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
   font-size: clamp(28px, 4vw, 48px);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 /* Numbered problem list */
@@ -240,8 +243,9 @@ section.cream { background: var(--cream); }
   padding-top: 4px;
 }
 .numbered li .n {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-style: italic;
+  font-weight: 500;
   font-size: 20px;
   color: var(--copper);
   font-variant-numeric: tabular-nums;
@@ -252,12 +256,12 @@ section.cream { background: var(--cream); }
 
 /* Pull quote inline */
 .pull {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(24px, 3vw, 40px);
   line-height: 1.2;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin: clamp(60px, 9vh, 120px) 0 0;
   max-width: 18ch;
 }
@@ -275,8 +279,9 @@ section.cream { background: var(--cream); }
 }
 .do-list li:first-child { border-top: 1px solid var(--rule); }
 .do-list li .idx {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-style: italic;
+  font-weight: 500;
   color: var(--copper);
   font-size: 16px;
   font-variant-numeric: tabular-nums;
@@ -309,26 +314,28 @@ section.cream { background: var(--cream); }
   border-radius: 4px;
 }
 .offer .tag {
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copper);
   margin-bottom: 20px;
 }
 .offer h3 {
-  font-family: 'Google Sans Code', monospace;
-  font-weight: 700;
-  font-size: clamp(24px, 2.6vw, 36px);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  margin-bottom: 20px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
 .offer p.lede {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--ink-soft);
-  margin-bottom: 36px;
-  max-width: 50ch;
+  margin-bottom: 40px;
+  max-width: 52ch;
 }
 .deliverables { list-style: none; border-top: 1px solid var(--rule); margin-bottom: 32px; }
 .deliverables li {
@@ -370,26 +377,28 @@ section.cream { background: var(--cream); }
 .snapshot .quote {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
-  font-size: clamp(22px, 2.2vw, 28px);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  margin-bottom: 32px;
+  font-size: clamp(21px, 2vw, 25px);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 28px;
 }
 .snapshot .row {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 140px 1fr;
   gap: 16px;
-  padding: 12px 0;
-  font-size: 15px;
-  line-height: 1.5;
+  padding: 14px 0;
+  font-size: 16px;
+  line-height: 1.55;
 }
 .snapshot .row + .row { border-top: 1px solid var(--rule); }
 .snapshot .row .k {
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copper);
-  padding-top: 4px;
+  padding-top: 5px;
 }
 .snapshot .row .v { color: var(--ink); }
 .snapshot .row.diagnosis .v { color: var(--ink-soft); }
@@ -410,7 +419,7 @@ section.cream { background: var(--cream); }
 }
 .posts li:first-child { border-top: 1px solid var(--rule); }
 .posts li .date {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-soft);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -418,11 +427,12 @@ section.cream { background: var(--cream); }
 .posts li .title {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
-  font-size: clamp(16px, 1.4vw, 18px);
-  line-height: 1.4;
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
 }
 .posts li .read {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-soft);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -454,10 +464,11 @@ section.cream { background: var(--cream); }
 .about .body { max-width: 720px; }
 .about .body p:not(.eyebrow) {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.67;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.6;
+  max-width: 56ch;
   color: var(--ink-soft);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .about .body p:not(.eyebrow) strong { color: var(--ink); font-weight: 500; }
 .about .body p:last-child { margin-bottom: 0; }
@@ -469,12 +480,13 @@ section.cream { background: var(--cream); }
 /* Final CTA */
 .final { border-top: 1px solid var(--rule); }
 .final h2 {
-  font-family: 'Google Sans Code', monospace;
-  font-weight: 700;
-  font-size: clamp(32px, 4.5vw, 56px);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 3.8vw, 48px);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin: 24px 0 56px;
+  max-width: 22ch;
 }
 .final h2 em { font-style: italic; }
 .final .ctas {
@@ -489,7 +501,7 @@ footer {
   padding: 32px var(--gutter);
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-soft);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -497,11 +509,42 @@ footer {
   gap: 12px;
 }
 footer .name-mark {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
   text-transform: none;
   letter-spacing: -0.01em;
   color: var(--ink);
-  font-size: 15px;
+  font-size: 16px;
+}
+
+/* Prose paragraphs inside two-col content blocks */
+.prose {
+  font-size: clamp(17px, 1.3vw, 19px);
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 62ch;
+  margin-bottom: 22px;
+}
+.prose:last-of-type { margin-bottom: 0; }
+
+/* Offer card — "You walk away with:" label and longer terms paragraph */
+.offer .walk-away {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+.offer .bullet-list { margin-bottom: 36px; }
+.offer .terms-prose {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
 }
 
 </style>
@@ -513,9 +556,9 @@ footer .name-mark {
   <div class="container top-bar">
     <span class="name">Paulo André</span>
     <nav class="top-nav">
-      <a href="#offer">Offer</a>
-      <a href="#thinking">Thinking</a>
+      <a href="#offer">Diagnostic</a>
       <a href="#about">About</a>
+      <a href="#thinking">Thinking</a>
     </nav>
   </div>
 </header>
@@ -523,133 +566,126 @@ footer .name-mark {
 <!-- 01. HERO -->
 <section class="hero">
   <div class="container">
-    <h1>AI raised expectations.<br>Most teams haven't <em>caught up</em>.<br>I help them close the gap.</h1>
-    <p class="subline"><strong>AI is amplifying whatever system you already have — for better or worse.</strong> I diagnose why product &amp; engineering teams aren't delivering, and fix the system underneath.</p>
-    <a href="#contact" class="btn">Book a call</a>
+    <h1>Your product &amp; engineering team is busy.<br>But the business still isn't<br><em>moving fast enough</em>.</h1>
+    <p class="subline"><strong>I help CEOs, CTOs, and VPs of Engineering find the real constraint in their product delivery system — and turn scattered activity into focused progress.</strong> Most teams don't need more tools, more meetings, or another process rollout. They need a clearer view of where work gets stuck, how decisions actually happen, and what to fix first.</p>
+    <a href="#offer" class="btn">See the 2-Day Diagnostic</a>
+    <a href="#contact" class="btn-ghost">Book a call →</a>
   </div>
 </section>
 
-<!-- 02. WHO THIS IS FOR -->
+<!-- 01. SYMPTOMS -->
 <section>
   <div class="container">
     <div class="two-col two-col--center" style="margin-bottom: 36px;">
       <div class="lead">
-        <p class="eyebrow"><span class="num">01</span> Who this is for</p>
+        <p class="eyebrow"><span class="num">01</span> You might be here if</p>
       </div>
-      <h2 class="section-title" style="margin-bottom: 0;">You feel the gap between what leadership expects and what the team actually ships.</h2>
+      <h2 class="section-title" style="margin-bottom: 0;">The team is working hard. The business can't feel it.</h2>
     </div>
     <div class="two-col">
       <div></div>
       <ul class="bullet-list">
-        <li>You're a VP of Engineering or CTO under delivery pressure.</li>
-        <li>AI is being pushed, but the results aren't there yet.</li>
-        <li>Your team feels busy, but output doesn't match expectations.</li>
-        <li>Not everyone is bought in — there's skepticism, or quiet resistance.</li>
-        <li>You sense the gap between leadership expectations and team reality.</li>
+        <li>Your team is working hard, but shipping feels slow or unpredictable.</li>
+        <li>Leadership expects more output, but the path to getting there is unclear.</li>
+        <li>Product, engineering, and business priorities keep drifting apart.</li>
+        <li>AI tools have increased activity, but not yet improved outcomes.</li>
+        <li>You suspect the problem isn't one person, but the system around the work.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- 03. THE PROBLEM -->
+<!-- 02. THE PROMISE -->
 <section>
   <div class="container">
     <div class="two-col two-col--center" style="margin-bottom: 36px;">
       <div class="lead">
-        <p class="eyebrow eyebrow--blue"><span class="num">02</span> The problem</p>
+        <p class="eyebrow eyebrow--blue"><span class="num">02</span> What I do</p>
       </div>
-      <h2 class="section-title" style="margin-bottom: 0;">More tools. More activity.<br>Less actually shipping.</h2>
-    </div>
-    <div class="two-col">
-      <div></div>
-      <ul class="bullet-list bullet-list--blue">
-        <li>Shipping feels slower despite more tools.</li>
-        <li>AI is being introduced, but behavior isn't really changing.</li>
-        <li>Priorities shift, but nothing really moves.</li>
-        <li>Teams are active, but not effective.</li>
-        <li>There's no clear, shared view of how work actually flows.</li>
-        <li>Decisions are made, but the system doesn't learn from them.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 04. WHAT I DO -->
-<section>
-  <div class="container">
-    <div class="two-col" style="margin-bottom: 36px; align-items: center;">
-      <div class="lead">
-        <p class="eyebrow"><span class="num">03</span> What I do</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">I focus on the system underneath the work.</h2>
+      <h2 class="section-title" style="margin-bottom: 0;">I find the constraint.</h2>
     </div>
     <div class="two-col">
       <div></div>
       <div>
-        <ul class="bullet-list">
-          <li><strong>Map decision-making</strong> — How priorities are actually being set.</li>
-          <li><strong>Map flow</strong> — Where work slows down or gets stuck.</li>
-          <li><strong>Make work visible</strong> — So reality, not opinion, drives decisions.</li>
-          <li><strong>Identify the key constraint</strong></li>
-          <li><strong>Add simple feedback loops</strong> — So the system improves over time.</li>
-          <li><strong>Define clear, actionable next moves</strong></li>
-        </ul>
-        <p class="closing-tagline">No frameworks. <em>Just clarity.</em></p>
+        <p class="prose">Most product and engineering teams don't fail because they lack effort. They fail because the system around the work is unclear — priorities shift, decisions blur, work piles up, bottlenecks hide, and nobody has a shared view of what's actually constraining progress.</p>
+        <p class="prose">AI makes this more urgent. It can increase output, but it doesn't fix unclear priorities, weak feedback loops, overloaded teams, or poor decision-making.</p>
+        <p class="prose">I help CEOs, CTOs, and VPs of Engineering diagnose the system, find the constraint, and make the next moves obvious.</p>
+        <p class="closing-tagline">The goal isn't better process. <em>It's more business progress from the team you already have.</em></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 05. ENTRY OFFER -->
+<!-- 03. ENTRY OFFER -->
 <section class="cream" id="offer">
   <div class="container">
-    <p class="eyebrow" style="text-align:center; margin-bottom: 48px;"><span class="num">04</span> Entry offer</p>
+    <p class="eyebrow" style="text-align:center; margin-bottom: 48px;"><span class="num">03</span> Entry offer</p>
     <div class="offer-wrap">
       <div class="offer">
         <p class="tag">Engagement</p>
-        <h3>2-Day Diagnostic</h3>
-        <p class="lede">A short, focused engagement to map your system and identify what's actually holding you back.</p>
-        <ul class="deliverables">
-          <li><span class="label">System map</span><span class="meta">How things actually work</span></li>
-          <li><span class="label">Top 3 breakdowns</span><span class="meta">Where the system loses energy</span></li>
-          <li><span class="label">Clear next steps</span><span class="meta">What to do on Monday</span></li>
+        <h3>2-Day Product &amp; Engineering Diagnostic</h3>
+        <p class="lede">A focused engagement for CEOs, CTOs, and VPs who need a clear read on why product delivery isn't translating into enough business progress. In two days, I help you identify the real constraint in your system and leave you with a practical action plan.</p>
+        <p class="walk-away">You walk away with:</p>
+        <ul class="bullet-list">
+          <li>A clear map of how work actually moves from idea to shipped outcome.</li>
+          <li>The top 3 constraints slowing the team down.</li>
+          <li>The decision, process, or operating habit most worth fixing first.</li>
+          <li>A short written diagnosis you can share with leadership.</li>
+          <li>Concrete next moves for the following 30 days.</li>
         </ul>
-        <p class="terms">Fixed scope · Paid · Two days, on-site or remote</p>
+        <p class="terms-prose">Fixed scope. Paid engagement. Remote or on-site. Designed to create clarity quickly, without turning into a long consulting project.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 06. PATTERN SNAPSHOTS -->
+<!-- 04. PATTERN SNAPSHOTS -->
 <section>
   <div class="container">
-    <p class="eyebrow"><span class="num">05</span> Pattern snapshots</p>
+    <p class="eyebrow"><span class="num">04</span> Patterns I see</p>
     <div class="snapshots">
       <div class="snapshot">
-        <p class="quote">"We're busy all the time, but delivery is unpredictable."</p>
-        <div class="row diagnosis"><span class="k">Diagnosis</span><span class="v">AI increased output, but bottlenecks stayed hidden.</span></div>
-        <div class="row"><span class="k">Outcome</span><span class="v">Made flow visible. Found the constraint. Delivery stabilized and improved week over week.</span></div>
-      </div>
-      <div class="snapshot">
-        <p class="quote">"We start a lot, but very little actually ships."</p>
-        <div class="row diagnosis"><span class="k">Diagnosis</span><span class="v">AI made it easier to start work, harder to finish it.</span></div>
-        <div class="row"><span class="k">Outcome</span><span class="v">Limited WIP. Exposed flow. Bottleneck surfaced. Throughput increased and stayed higher.</span></div>
+        <p class="quote">"The team starts too much and finishes too little."</p>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">Roadmap pressure creates too many parallel bets. AI tools make it easier to generate work, but the review, decision, QA, and release systems don't scale with it.</span></div>
+        <div class="row"><span class="k">What I look for</span><span class="v">WIP, handoffs, review queues, unclear ownership, decision latency, and whether "priority" actually means anything.</span></div>
+        <div class="row"><span class="k">Typical move</span><span class="v">Reduce parallel work, clarify decision rights, expose blocked work, and create a weekly operating rhythm around finished outcomes.</span></div>
       </div>
       <div class="snapshot">
         <p class="quote">"Everything feels urgent, but nothing really moves."</p>
-        <div class="row diagnosis"><span class="k">Diagnosis</span><span class="v">AI amplified noise but didn't clarify priorities.</span></div>
-        <div class="row"><span class="k">Outcome</span><span class="v">Made tradeoffs explicit. Added review loops. Fewer things, more progress, better decisions each cycle.</span></div>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">Priorities are being declared but not enforced. Every stakeholder gets to add work; no one gets to remove it. The team optimizes for not getting in trouble rather than for shipping.</span></div>
+        <div class="row"><span class="k">What I look for</span><span class="v">How often priorities change, how decisions get reopened, who has the authority to say no, and whether there's a forum where tradeoffs are made explicit.</span></div>
+        <div class="row"><span class="k">Typical move</span><span class="v">Make tradeoffs explicit, install a small set of priority rules, and create one place where the real list lives.</span></div>
       </div>
       <div class="snapshot">
-        <p class="quote">"We're trying to move forward, but the team isn't aligned behind it."</p>
-        <div class="row diagnosis"><span class="k">Diagnosis</span><span class="v">Change is being pushed, but the system doesn't make sense to everyone.</span></div>
-        <div class="row"><span class="k">Outcome</span><span class="v">Made the system visible. Grounded decisions in reality. Alignment improved, resistance dropped.</span></div>
+        <p class="quote">"We hired strong engineers and still don't ship enough."</p>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">The constraint isn't talent or effort — it's somewhere else in the system. Often it's product clarity, decision latency, or invisible queues between teams.</span></div>
+        <div class="row"><span class="k">What I look for</span><span class="v">Cycle time from decision to shipped outcome, how product specs get produced, how cross-team dependencies are coordinated, and where work waits.</span></div>
+        <div class="row"><span class="k">Typical move</span><span class="v">Surface the real bottleneck, redesign the handoffs around it, and stop adding pressure to a constraint that isn't the problem.</span></div>
+      </div>
+      <div class="snapshot">
+        <p class="quote">"AI is making more noise than progress."</p>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">AI tools are being adopted in parallel, without changing the system around them. Output goes up, but so does rework, review load, and decision fatigue.</span></div>
+        <div class="row"><span class="k">What I look for</span><span class="v">Where AI is actually being used, what it's replacing, what new bottlenecks it's creating downstream, and whether anyone is measuring the second-order effects.</span></div>
+        <div class="row"><span class="k">Typical move</span><span class="v">Stop measuring AI by activity. Connect adoption to a specific business outcome — fewer escalations, faster cycle time, less rework — and adjust the system accordingly.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07. THINKING -->
+<!-- 05. ABOUT -->
+<section class="cream" id="about">
+  <div class="container about">
+    <img src="images/paulo.png" alt="Paulo André" class="portrait">
+    <div class="body">
+      <p class="eyebrow"><span class="num">05</span> Why me</p>
+      <p>I’ve spent <strong>20+ years inside software organizations</strong> — as an engineer, Engineering Manager, Director, VP, CTO, and leadership coach.</p>
+      <p>I’ve been the person trying to ship under pressure. I’ve been the person translating business urgency into technical reality. I’ve been the person responsible for teams that were busy, talented, and still not producing the outcomes the company needed.</p>
+      <p>That’s why my work isn’t about imposing a framework. It’s about understanding the actual operating system of your product and engineering team — how priorities are set, how decisions get made, where work gets stuck, and what needs to change first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06. THINKING -->
 <section id="thinking">
   <div class="container">
     <div class="two-col" style="margin-bottom: 36px; align-items: center;">
@@ -684,26 +720,14 @@ footer .name-mark {
   </div>
 </section>
 
-<!-- 08. ABOUT -->
-<section class="cream" id="about">
-  <div class="container about">
-    <img src="images/paulo.png" alt="Paulo André" class="portrait">
-    <div class="body">
-      <p class="eyebrow"><span class="num">07</span> About me</p>
-      <p><strong>I’ve been an IC, Engineering Manager, Director, VP, CTO, and coach.</strong> I’ve seen how product &amp; engineering systems break: unclear decisions, invisible work, bottlenecks no one owns.</p>
-      <p>My focus now is simple: understand how the system actually works, and fix what’s holding it back.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 09. FINAL CTA -->
+<!-- 07. FINAL CTA -->
 <section class="final" id="contact">
   <div class="container">
-    <p class="eyebrow"><span class="num">08</span> Get in touch</p>
-    <h2>If this sounds <em>familiar</em>, reach out.</h2>
+    <p class="eyebrow"><span class="num">07</span> Get in touch</p>
+    <h2>If your team is busy but the business isn’t moving, <em>let’s talk</em>.</h2>
     <div class="ctas">
       <a href="#" class="btn">Book a call</a>
-      <a href="mailto:hello@example.com" class="btn-ghost">hello@example.com →</a>
+      <a href="mailto:paulo@pauloandre.tech" class="btn-ghost">paulo@pauloandre.tech →</a>
     </div>
   </div>
 </section>
