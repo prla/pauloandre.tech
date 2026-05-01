@@ -81,9 +81,56 @@ section.cream { background: var(--cream); }
 
 /* ---- HERO ---- */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-top: clamp(80px, 12vh, 144px);
   padding-bottom: clamp(100px, 16vh, 200px);
   border-bottom: 1px solid var(--rule);
+  isolation: isolate;
+}
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  will-change: transform;
+}
+.hero::before {
+  background: var(--copper);
+  width: 28vw;
+  height: 28vw;
+  max-width: 320px;
+  max-height: 320px;
+  top: 22%;
+  right: -4%;
+  opacity: 0.15;
+  animation: heroDriftA 18s ease-in-out infinite alternate;
+}
+.hero::after {
+  background: var(--blue);
+  width: 44vw;
+  height: 44vw;
+  max-width: 520px;
+  max-height: 520px;
+  bottom: -18%;
+  left: -6%;
+  opacity: 0.14;
+  animation: heroDriftB 22s ease-in-out infinite alternate;
+}
+@keyframes heroDriftA {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+}
+@keyframes heroDriftB {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(5%, -3%, 0) scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after { animation: none; }
 }
 .top-bar .name {
   font-family: 'Instrument Sans', sans-serif;
@@ -92,22 +139,24 @@ section.cream { background: var(--cream); }
   color: var(--ink);
   letter-spacing: -0.01em;
   text-transform: none;
+  white-space: nowrap;
 }
-.top-nav { display: flex; gap: clamp(20px, 2.5vw, 40px); }
+.top-nav { display: flex; gap: clamp(14px, 2.5vw, 40px); }
 .top-nav a {
   color: var(--ink-soft);
   text-decoration: none;
   transition: color 0.15s;
+  font-size: clamp(11px, 2.6vw, 13px);
 }
 .top-nav a:hover { color: var(--ink); }
 .hero h1 {
   font-family: 'Google Sans Code', monospace;
   font-weight: 600;
-  font-size: clamp(30px, 3.4vw, 46px);
+  font-size: clamp(32px, 4vw, 46px);
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 40px;
-  max-width: 40ch;
+  max-width: 900px;
 }
 .hero h1 em { font-style: italic; }
 .hero h1 br { display: block; }
@@ -161,7 +210,13 @@ section.cream { background: var(--cream); }
   letter-spacing: -0.01em;
 }
 @media (max-width: 720px) {
-  .two-col { grid-template-columns: 1fr; }
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .two-col .eyebrow { margin-bottom: 0; }
+  .two-col > div:empty { display: none; }
+  .two-col--center { margin-bottom: 40px; }
 }
 
 /* Bulleted list with copper dots */
@@ -210,7 +265,7 @@ section.cream { background: var(--cream); }
 }
 
 /* Two-col vertical alignment variant */
-.two-col--center { align-items: center; }
+.two-col--center { align-items: center; margin-bottom: 36px; }
 
 /* Accent-color variants */
 .eyebrow--blue { color: var(--blue); }
@@ -566,7 +621,7 @@ footer .name-mark {
 <!-- 01. HERO -->
 <section class="hero">
   <div class="container">
-    <h1>Your product &amp; engineering team is busy.<br>But the business still isn't<br><em>moving fast enough</em>.</h1>
+    <h1>Your product &amp; engineering team is busy. But the business still isn't <em>moving fast enough</em>.</h1>
     <p class="subline"><strong>I help CEOs, CTOs, and VPs of Engineering find the real constraint in their product delivery system — and turn scattered activity into focused progress.</strong> Most teams don't need more tools, more meetings, or another process rollout. They need a clearer view of where work gets stuck, how decisions actually happen, and what to fix first.</p>
     <a href="#offer" class="btn">See the 2-Day Diagnostic</a>
     <a href="#contact" class="btn-ghost">Book a call →</a>
@@ -576,7 +631,7 @@ footer .name-mark {
 <!-- 01. SYMPTOMS -->
 <section>
   <div class="container">
-    <div class="two-col two-col--center" style="margin-bottom: 36px;">
+    <div class="two-col two-col--center">
       <div class="lead">
         <p class="eyebrow"><span class="num">01</span> You might be here if</p>
       </div>
@@ -598,7 +653,7 @@ footer .name-mark {
 <!-- 02. THE PROMISE -->
 <section>
   <div class="container">
-    <div class="two-col two-col--center" style="margin-bottom: 36px;">
+    <div class="two-col two-col--center">
       <div class="lead">
         <p class="eyebrow eyebrow--blue"><span class="num">02</span> What I do</p>
       </div>
@@ -688,7 +743,7 @@ footer .name-mark {
 <!-- 06. THINKING -->
 <section id="thinking">
   <div class="container">
-    <div class="two-col" style="margin-bottom: 36px; align-items: center;">
+    <div class="two-col two-col--center">
       <div class="lead">
         <p class="eyebrow"><span class="num">06</span> Thinking</p>
       </div>
