@@ -619,6 +619,9 @@ footer {
   flex-wrap: wrap;
   gap: 12px;
 }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: var(--ink-soft); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; }
+.footer-links a:hover { color: var(--ink); }
 footer .name-mark {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
@@ -981,7 +984,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="read">Read →</span>
           </li>
         </ul>
-        <p class="substack-link"><a href="#">Hagakure on Substack →</a></p>
+        <p class="substack-link"><a href="https://hagakure.substack.com/">Hagakure on Substack →</a></p>
       </div>
     </div>
   </div>
@@ -1002,6 +1005,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <footer>
   <span class="name-mark">Paulo André</span>
+  <span class="footer-links">
+    <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </span>
   <span>© 2026 · All rights reserved</span>
 </footer>
 
