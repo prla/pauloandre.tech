@@ -682,6 +682,77 @@ footer .name-mark {
 }
 
 </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_jaKpCBZc0Hfd5SuvV7ZowLeI8rGtov27RMoHoUmyZcT', {
+  api_host: 'https://eu.i.posthog.com',
+  person_profiles: 'identified_only',
+  persistence: 'memory',
+  autocapture: false,
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Section viewed — fires once per section per page load
+  var sections = [
+    { el: document.getElementById('hero'),     name: 'hero' },
+    { el: document.getElementById('how'),      name: 'how_i_work' },
+    { el: document.getElementById('offer'),    name: 'offers' },
+    { el: document.getElementById('patterns'), name: 'patterns' },
+    { el: document.getElementById('about'),    name: 'about' },
+    { el: document.getElementById('contact'),  name: 'contact' },
+  ].filter(function (s) { return s.el; });
+
+  var sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var match = sections.find(function (s) { return s.el === entry.target; });
+      if (match) {
+        posthog.capture('section_viewed', { section: match.name });
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(function (s) { sectionObserver.observe(s.el); });
+
+  // Book a call clicks
+  document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var src = link.dataset.source || 'unknown';
+      posthog.capture('book_call_clicked', { source: src });
+      posthog.capture('outbound_click', { destination: 'calendar', source: src });
+    });
+  });
+
+  // Email clicks
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      posthog.capture('outbound_click', { destination: 'email' });
+    });
+  });
+
+  // Work with me click (hero only)
+  var workWithMe = document.querySelector('#hero a[href="#offer"]');
+  if (workWithMe) {
+    workWithMe.addEventListener('click', function () {
+      posthog.capture('work_with_me_clicked');
+    });
+  }
+
+  // Scroll depth — 25 / 50 / 75 / 90, each fires once
+  var depthThresholds = [25, 50, 75, 90];
+  var depthFired = {};
+  window.addEventListener('scroll', function () {
+    var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+    depthThresholds.forEach(function (d) {
+      if (pct >= d && !depthFired[d]) {
+        depthFired[d] = true;
+        posthog.capture('scroll_depth', { depth: d });
+      }
+    });
+  }, { passive: true });
+});
+</script>
 </head>
 <body>
 
@@ -699,14 +770,14 @@ footer .name-mark {
 </header>
 
 <!-- 01. HERO -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
         <h1>Your team is working hard.<br><em>The business can't feel it.</em></h1>
         <p class="subline">I help leadership teams diagnose why product &amp; engineering execution becomes slow, noisy, and unpredictable, even with capable people in place.</p>
         <a href="#offer" class="btn">Work with me</a>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener">Book a call →</a>
+        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener" data-source="hero">Book a call →</a>
       </div>
       <div class="hero-image">
         <img src="images/hero-diagram.png" alt="">
@@ -816,14 +887,14 @@ footer .name-mark {
       </div>
     </div>
     <div style="text-align: center; margin-top: clamp(48px, 6vw, 72px);">
-      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener">Book a call</a>
+      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener" data-source="engagements">Book a call</a>
       <a href="mailto:paulo@pauloandre.tech" class="btn-ghost">paulo@pauloandre.tech →</a>
     </div>
   </div>
 </section>
 
 <!-- 05. PATTERN SNAPSHOTS -->
-<section>
+<section id="patterns">
   <div class="container">
     <p class="eyebrow"><span class="num">05</span> Patterns I see</p>
     <h2 class="section-title" style="max-width: 32ch; margin-bottom: 56px;">You’ve probably blamed the team, the tools, or the process. <em>The problem is upstream of all three.</em></h2>
@@ -921,7 +992,7 @@ footer .name-mark {
     <p class="eyebrow"><span class="num">07</span> Get in touch</p>
     <h2>If your team is busy but the business isn’t moving, <em>let’s talk</em>.</h2>
     <div class="ctas">
-      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener">Book a call</a>
+      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener" data-source="contact">Book a call</a>
       <a href="mailto:paulo@pauloandre.tech" class="btn-ghost">paulo@pauloandre.tech →</a>
     </div>
   </div>
