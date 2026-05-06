@@ -149,14 +149,37 @@ section.cream { background: var(--cream); }
   font-size: clamp(11px, 2.6vw, 13px);
 }
 .top-nav a:hover { color: var(--ink); }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+.hero-text { min-width: 0; }
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.hero-image img {
+  width: 150%;
+  max-width: none;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+}
+@media (max-width: 800px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-image { display: none; }
+}
 .hero h1 {
-  font-family: 'Google Sans Code', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
-  font-size: clamp(32px, 4vw, 46px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin-bottom: 40px;
-  max-width: 900px;
 }
 .hero h1 em { font-style: italic; }
 .hero h1 br { display: block; }
@@ -164,7 +187,7 @@ section.cream { background: var(--cream); }
 .hero .subline {
   font-size: clamp(18px, 1.7vw, 21px);
   line-height: 1.55;
-  max-width: 60ch;
+  max-width: 52ch;
   color: var(--ink-soft);
   margin-bottom: 44px;
 }
@@ -358,15 +381,47 @@ section.cream { background: var(--cream); }
   .do-list li .why { grid-column: 2; padding-top: 8px; }
 }
 
+/* How I work — numbered step list */
+.how-list { list-style: none; }
+.how-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: clamp(17px, 1.3vw, 19px);
+  line-height: 1.55;
+  align-items: baseline;
+}
+.how-list li:first-child { border-top: 1px solid var(--rule); }
+.how-n {
+  font-family: 'Instrument Sans', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--copper);
+  padding-top: 3px;
+}
+.how-list li strong { font-weight: 500; }
+
 /* Entry offer card */
-.offer-wrap { display: flex; justify-content: center; }
+.offer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+}
 .offer {
   background: white;
   border: 1px solid var(--rule);
   padding: clamp(40px, 6vw, 72px);
-  max-width: 720px;
   width: 100%;
   border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .offer-wrap {
+    grid-template-columns: 1fr;
+  }
 }
 .offer .tag {
   font-family: 'Instrument Sans', sans-serif;
@@ -527,6 +582,7 @@ section.cream { background: var(--cream); }
 }
 .about .body p:not(.eyebrow) strong { color: var(--ink); font-weight: 500; }
 .about .body p:last-child { margin-bottom: 0; }
+.about .body .bullet-list li { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-soft); }
 @media (max-width: 720px) {
   .about { flex-direction: column; align-items: flex-start; }
   .about .portrait { width: 100%; max-width: 280px; height: auto; aspect-ratio: 280 / 373; }
@@ -592,6 +648,21 @@ footer .name-mark {
   color: var(--ink-soft);
   margin-bottom: 20px;
 }
+.offer .body-prose {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin-bottom: 24px;
+}
+.offer .body-prose:last-of-type { margin-bottom: 36px; }
+.offer .body-prose strong { color: var(--ink); font-weight: 500; }
+.offer .closing-tagline {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-size: clamp(18px, 1.5vw, 21px);
+  max-width: 56ch;
+}
 .offer .bullet-list { margin-bottom: 36px; }
 .offer .next-step {
   font-size: 16px;
@@ -630,10 +701,17 @@ footer .name-mark {
 <!-- 01. HERO -->
 <section class="hero">
   <div class="container">
-    <h1>Your product &amp; engineering team is busy. But the business still isn't <em>moving fast enough</em>.</h1>
-    <p class="subline"><strong>I help CEOs, CTOs, and VPs of Engineering find the real constraint in their product delivery system — and turn scattered activity into focused progress.</strong> Most teams don't need more tools, more meetings, or another process rollout. They need a clearer view of where work gets stuck, how decisions actually happen, and what to fix first.</p>
-    <a href="#offer" class="btn">See the 2-Day Diagnostic</a>
-    <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener">Book a call →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Your team is working hard.<br><em>The business can't feel it.</em></h1>
+        <p class="subline">I help leadership teams diagnose why product &amp; engineering execution becomes slow, noisy, and unpredictable, even with capable people in place.</p>
+        <a href="#offer" class="btn">Work with me</a>
+        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener">Book a call →</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-diagram.png" alt="">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -649,11 +727,11 @@ footer .name-mark {
     <div class="two-col">
       <div></div>
       <ul class="bullet-list">
-        <li>Your team is working hard, but shipping feels slow or unpredictable.</li>
-        <li>Leadership expects more output, but the path to getting there is unclear.</li>
-        <li>Product, engineering, and business priorities keep drifting apart.</li>
-        <li>AI tools have increased activity, but not yet improved outcomes.</li>
-        <li>You suspect the problem isn't one person, but the system around the work.</li>
+        <li>Delivery feels slower than it should, even when everyone is working hard.</li>
+        <li>You can't give leadership a confident forecast. Every commitment comes with caveats.</li>
+        <li>Priorities look aligned on Monday. By Friday, something has shifted.</li>
+        <li>People are accountable for tasks. Nobody feels fully responsible for the outcome.</li>
+        <li>You suspect the problem isn't the people, but you can't articulate what is.</li>
       </ul>
     </div>
   </div>
@@ -671,53 +749,93 @@ footer .name-mark {
     <div class="two-col">
       <div></div>
       <div>
-        <p class="prose">Most product and engineering teams don't fail because they lack effort. They fail because the system around the work is unclear — priorities shift, decisions blur, work piles up, bottlenecks hide, and nobody has a shared view of what's actually constraining progress.</p>
-        <p class="prose">AI makes this more urgent. It can increase output, but it doesn't fix unclear priorities, weak feedback loops, overloaded teams, or poor decision-making.</p>
-        <p class="prose">I help CEOs, CTOs, and VPs of Engineering diagnose the system, find the constraint, and make the next moves obvious.</p>
-        <p class="closing-tagline">The goal isn't better process. <em>It's more business progress from the team you already have.</em></p>
+        <p class="prose">When the system around the work breaks down, effort stops translating into progress. Priorities shift, decisions blur, work piles up, bottlenecks hide, and nobody has a clear picture of what's actually in the way.</p>
+        <p class="prose">AI sharpens this. For teams with a clear operating model, it's a real multiplier. For everyone else, it accelerates existing dysfunction: more throughput into the same bottlenecks, a wider gap between activity and outcomes.</p>
+        <p class="prose">I help CEOs, CTOs, and VPs of Engineering find what's actually in the way — and make the path forward clear.</p>
+        <p class="closing-tagline"><em>The business should be able to feel the difference.</em></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 03. ENTRY OFFER -->
+<!-- 03. HOW I WORK -->
+<section id="how">
+  <div class="container">
+    <div class="two-col two-col--center">
+      <div class="lead">
+        <p class="eyebrow"><span class="num">03</span> How I work</p>
+      </div>
+      <h2 class="section-title" style="margin-bottom: 0;">I look at the system as it actually operates. Then I say what I see.</h2>
+    </div>
+    <div class="two-col">
+      <div></div>
+      <ol class="how-list">
+        <li><span class="how-n">1</span><div><strong>Observe the system.</strong> How work actually moves, where decisions happen, and where things slow down or stop.</div></li>
+        <li><span class="how-n">2</span><div><strong>Talk to leadership and teams.</strong> What leadership believes is happening and what teams are actually experiencing are often two different things.</div></li>
+        <li><span class="how-n">3</span><div><strong>Find the real constraints.</strong> Friction, unclear ownership, broken trust, structural misalignment. Usually more than one thing.</div></li>
+        <li><span class="how-n">4</span><div><strong>Say what I see.</strong> Without softening it. The diagnosis is only useful if it's honest.</div></li>
+        <li><span class="how-n">5</span><div><strong>Focus on the highest-leverage changes.</strong> Two or three things that, if fixed, shift everything else.</div></li>
+        <li><span class="how-n">6</span><div><strong>Stay until it stabilizes.</strong> Diagnosis without implementation is just an expensive document.</div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 04. ENGAGEMENTS -->
 <section class="cream" id="offer">
   <div class="container">
-    <p class="eyebrow" style="text-align:center; margin-bottom: 48px;"><span class="num">03</span> Entry offer</p>
+    <p class="eyebrow" style="text-align:center; margin-bottom: 48px;"><span class="num">04</span> Engagements</p>
     <div class="offer-wrap">
       <div class="offer">
         <p class="tag">Engagement</p>
-        <h3>2-Day Product &amp; Engineering Diagnostic</h3>
-        <p class="lede">A focused engagement for CEOs, CTOs, and VPs who need a clear read on why product delivery isn't translating into enough business progress. In two days, I help you identify the real constraint in your system and leave you with a practical action plan.</p>
+        <h3>Product &amp; Engineering Diagnostic</h3>
+        <p class="body-prose">Execution slows down when it’s unclear what’s actually getting in the way. I identify the organizational, technical, and leadership patterns creating friction, and which changes are worth making first.</p>
         <p class="walk-away">You walk away with:</p>
         <ul class="bullet-list">
-          <li>A clear map of how work actually moves from idea to shipped outcome.</li>
-          <li>The top 3 constraints slowing the team down.</li>
-          <li>The decision, process, or operating habit most worth fixing first.</li>
-          <li>A short written diagnosis you can share with leadership.</li>
-          <li>Concrete next moves for the following 30 days.</li>
+          <li>The real constraints slowing execution</li>
+          <li>Hidden sources of organizational friction</li>
+          <li>A written diagnostic + intervention roadmap</li>
+          <li>Clear next steps for the next 30–90 days</li>
         </ul>
-        <p class="next-step">If the diagnosis reveals something worth fixing together, we can talk about what Phase 2 looks like. Most engagements continue with 4–8 weeks of embedded work on the highest-leverage fix. <strong>But the diagnostic stands on its own — you’ll walk away with a clear picture either way.</strong></p>
-        <p class="terms-prose">Fixed scope. Paid engagement. Remote or on-site. Designed to create clarity quickly, without turning into a long consulting project.</p>
+        <p class="terms-prose">Fixed scope. Typically completed in 2–4 weeks. Remote or on-site.</p>
       </div>
+      <div class="offer">
+        <p class="tag">Fractional leadership</p>
+        <h3>Fractional CTO / VP Engineering</h3>
+        <p class="body-prose">For organizations where product &amp; engineering execution is struggling despite having capable people in place.</p>
+        <p class="body-prose">I step into existing leadership structures to help diagnose organizational dysfunction, stabilize execution, improve decision-making, and restore coherence across product &amp; engineering.</p>
+        <p class="body-prose">The goal is to get product &amp; engineering working well again, under the pressure the organization is actually operating in.</p>
+        <p class="walk-away">Typical areas of focus:</p>
+        <ul class="bullet-list">
+          <li>Why execution has become slow, noisy, and unpredictable</li>
+          <li>Where leadership, teams, and incentives are misaligned</li>
+          <li>What’s creating friction and distrust across the organization</li>
+          <li>Which forms of complexity are silently slowing the business down</li>
+        </ul>
+        <p class="terms-prose">Typically 2–6 months depending on scope and organizational needs.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: clamp(48px, 6vw, 72px);">
+      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:paulo@pauloandre.tech" class="btn-ghost">paulo@pauloandre.tech →</a>
     </div>
   </div>
 </section>
 
-<!-- 04. PATTERN SNAPSHOTS -->
+<!-- 05. PATTERN SNAPSHOTS -->
 <section>
   <div class="container">
-    <p class="eyebrow"><span class="num">04</span> Patterns I see</p>
+    <p class="eyebrow"><span class="num">05</span> Patterns I see</p>
     <h2 class="section-title" style="max-width: 32ch; margin-bottom: 56px;">You’ve probably blamed the team, the tools, or the process. <em>The problem is upstream of all three.</em></h2>
     <div class="snapshots">
       <div class="snapshot">
         <p class="quote">"We adopted AI. PRs are up. The business doesn't feel it."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">The bottleneck moved — from writing code to everything around it. Review, decisions, QA, releases. The old process can't absorb the new throughput, and nobody can explain why velocity didn't change.</span></div>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">The bottleneck moved: from writing code to everything around it. Review, decisions, QA, releases. The old process can't absorb the new throughput, and nobody can explain why velocity didn't change.</span></div>
         <div class="row"><span class="k">What I look for</span><span class="v">Where AI is actually being used, what it's replacing, what new bottlenecks it's creating downstream, and whether anyone is measuring the second-order effects.</span></div>
         <div class="row"><span class="k">Typical move</span><span class="v">Stop measuring AI by activity. Connect adoption to a specific business outcome: fewer escalations, faster cycle time, less rework. Then adjust the system around it.</span></div>
       </div>
       <div class="snapshot">
-        <p class="quote">"The team starts too much and finishes too little."</p>
+        <p class="quote">"Everyone is busy. Everything is in progress. Nothing is actually done."</p>
         <div class="row diagnosis"><span class="k">What's happening</span><span class="v">Even with a clear plan, the team picks up new work before old work ships. Engineers context-switch all day. Code sits in review. Nothing crosses the finish line. Finishing isn't treated as the job.</span></div>
         <div class="row"><span class="k">What I look for</span><span class="v">WIP per engineer, age of open PRs, how long work sits in review, and whether anyone is accountable for items crossing the finish line versus starting.</span></div>
         <div class="row"><span class="k">Typical move</span><span class="v">Cap WIP. Make finishing the explicit goal of the week. Expose blocked work. Treat carry-over as a signal worth investigating, not a normal sprint outcome.</span></div>
@@ -730,7 +848,7 @@ footer .name-mark {
       </div>
       <div class="snapshot">
         <p class="quote">"We hired strong engineers and still don't ship enough."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">You hired strong engineers. They're stuck in a system that makes them slow: too many handoffs, too much waiting, too little ownership. The constraint isn't talent. It's the operating model around it.</span></div>
+        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">You hired strong engineers. They're stuck in a system that makes them slow: too many handoffs, too much waiting, too little ownership.</span></div>
         <div class="row"><span class="k">What I look for</span><span class="v">Cycle time from decision to shipped outcome, how product specs get produced, how cross-team dependencies are coordinated, and where work waits.</span></div>
         <div class="row"><span class="k">Typical move</span><span class="v">Surface the real bottleneck, redesign the handoffs around it, and stop adding pressure to a constraint that isn't the problem.</span></div>
       </div>
@@ -738,21 +856,29 @@ footer .name-mark {
   </div>
 </section>
 
-<!-- 05. ABOUT -->
+<!-- 06. ABOUT -->
 <section class="cream" id="about">
   <div class="container about">
     <img src="images/paulo.png" alt="Paulo André" class="portrait">
     <div class="body">
-      <p class="eyebrow"><span class="num">05</span> Why me</p>
-      <p>I’ve spent <strong>20+ years inside software organizations</strong>: as an engineer, Engineering Manager, Director, VP, CTO, and leadership coach.</p>
-      <p>Three of those years I spent <strong>coaching CTOs and VPs full-time</strong> through exactly these problems. Not just diagnosing what’s broken, but getting leaders to see it and act differently.</p>
-      <p>I’ve been the person trying to ship under pressure. I’ve been the person translating business urgency into technical reality. I’ve been the person responsible for teams that were busy, talented, and still not producing the outcomes the company needed.</p>
-      <p>That’s why my work isn’t about imposing a framework. It’s about understanding the actual operating system of your product and engineering team: how priorities are set, how decisions get made, where work gets stuck, and what needs to change first.</p>
+      <p class="eyebrow"><span class="num">06</span> Why me</p>
+      <p>For the last 20 years, I’ve repeatedly been brought into struggling technical organizations to figure out why things weren’t working, and help turn them around.</p>
+      <p>Across startups and larger companies, I’ve been strongest at:</p>
+      <ul class="bullet-list" style="margin-bottom: 24px;">
+        <li>identifying the real sources of friction and dysfunction,</li>
+        <li>surfacing problems others feel but can’t clearly explain,</li>
+        <li>restoring trust and clarity across teams,</li>
+        <li>increasing visibility into how product &amp; engineering actually operate,</li>
+        <li>and reconnecting technical teams with the rest of the business.</li>
+      </ul>
+      <p>The causes are usually tangled: technical debt, unclear ownership, leadership blind spots, people problems, weak communication, and teams slowly drowning in complexity.</p>
+      <p>My background spans software engineering, product &amp; engineering leadership, systems thinking, and executive coaching.</p>
+      <p><strong>I’m not a hype merchant, a transformation consultant, or a "10x AI productivity" salesman.</strong> I help leadership teams see clearly what’s breaking, and what to do about it.</p>
     </div>
   </div>
 </section>
 
-<!-- 06. THINKING — hidden until 3+ posts are live on Substack. Restore by un-commenting and changing the Get in touch eyebrow back to 07. -->
+<!-- 07. THINKING — hidden until 3+ posts are live on Substack. Restore by un-commenting, changing this eyebrow num to 07, and changing the Get in touch eyebrow to 08. -->
 <!--
 <section id="thinking">
   <div class="container">
@@ -789,10 +915,10 @@ footer .name-mark {
 </section>
 -->
 
-<!-- 06. FINAL CTA -->
+<!-- 07. FINAL CTA -->
 <section class="final" id="contact">
   <div class="container">
-    <p class="eyebrow"><span class="num">06</span> Get in touch</p>
+    <p class="eyebrow"><span class="num">07</span> Get in touch</p>
     <h2>If your team is busy but the business isn’t moving, <em>let’s talk</em>.</h2>
     <div class="ctas">
       <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener">Book a call</a>
