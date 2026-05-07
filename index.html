@@ -179,6 +179,16 @@ section.cream { background: var(--cream); }
 @media (max-width: 800px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-image { display: none; }
+  .hero {
+    padding-top: clamp(48px, 8vh, 80px);
+    padding-bottom: clamp(48px, 8vh, 80px);
+  }
+}
+@media (max-width: 560px) {
+  .site-header .top-bar { flex-wrap: wrap; gap: 8px 0; }
+  .top-nav { gap: 16px; }
+  .top-nav a { font-size: 11px; }
+  section { padding-top: clamp(56px, 8vh, 80px); padding-bottom: clamp(56px, 8vh, 80px); }
 }
 .hero h1 {
   font-family: 'Instrument Sans', sans-serif;
