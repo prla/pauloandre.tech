@@ -293,6 +293,21 @@ section.cream { background: var(--cream); }
 }
 .closing-tagline em { font-style: normal; color: var(--ink); }
 
+/* Case study — external voice / testimonial paragraph */
+.case-quote {
+  font-family: 'Instrument Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(19px, 1.5vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  border-left: 2px solid var(--copper);
+  padding: 4px 0 4px 24px;
+  margin: 32px 0 8px;
+  max-width: 56ch;
+}
+
 /* Section title — used when eyebrow sits alone in the left column */
 .section-title {
   font-family: 'Instrument Sans', sans-serif;
@@ -798,7 +813,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="hero-inner">
       <div class="hero-text">
         <h1>Your team is working hard.<br><em>The business can't feel it.</em></h1>
-        <p class="subline">I help CTOs, founders, CEOs, and operating partners when engineering is no longer simply &ldquo;slow,&rdquo; but the whole product-engineering system is starting to buckle under pressure: unclear priorities, too much WIP, AI confusion, weak execution loops, overloaded managers, and a CTO who needs a sharp right hand.</p>
+        <p class="subline">I help CTOs, founders, CEOs, and operating partners — at scaling startups and PE-backed or mid-market teams — when engineering is no longer simply &ldquo;slow,&rdquo; but the whole product-engineering system is starting to buckle under pressure: unclear priorities, too much WIP, AI confusion, weak execution loops, overloaded managers, and a CTO who needs a sharp right hand.</p>
         <a href="#offer" class="btn">Work with me</a>
         <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener" data-source="hero">Book a call →</a>
       </div>
@@ -967,10 +982,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="two-col">
       <div></div>
       <div>
-        <p class="prose">A B2B SaaS cold-outreach platform. I inherited an engineering team that had been led adversarially — walled off from the rest of the business, distrusted, barely shipping. The core product system was structurally wrong. Email open rates were in single digits.</p>
+        <p class="prose">A B2B SaaS cold-outreach platform. I inherited an engineering team that had been led adversarially — walled off from the rest of the business, distrusted, barely shipping. The core product system was structurally wrong for how the product was actually used. Email open rates were in single digits.</p>
         <p class="prose">I made the work visible and got it flowing first. That unlocked a full re-architecture delivered in roughly two months — and rebuilt how engineering worked with sales, customer success, and product.</p>
         <p class="prose">Open rates moved to a stable 40–50%. That changed the commercial envelope — sales could promise a different SLA, retention improved.</p>
-        <p class="prose">Customer success and other previously-alienated teams said, privately and publicly, that they'd never worked with a tech team that listened and shipped that fast.</p>
+        <p class="case-quote">Customer success and other previously-alienated teams said, privately and publicly: they'd never worked with a tech team that listened and shipped that fast.</p>
         <p class="closing-tagline"><em>The technical fix was a symptom. The constraint was the relationship.</em></p>
       </div>
     </div>
