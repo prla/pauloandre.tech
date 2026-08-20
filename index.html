@@ -196,6 +196,27 @@ main { flex: 1 0 auto; }
   object-position: 50% 20%;
 }
 
+/* ---- LOGO STRIP ---- */
+.logos { margin-top: clamp(48px, 9vh, 96px); }
+.logos-label {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.logos-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(28px, 4.5vw, 52px);
+}
+.logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: brightness(0) opacity(0.5);
+}
+[data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
+
 /* ---- WRITING LINE ---- */
 .writing {
   padding-top: clamp(28px, 5vh, 44px);
@@ -259,6 +280,12 @@ footer {
   .top-bar-right { gap: 16px; }
   .top-nav { gap: 16px; }
   .top-nav a { font-size: 13px; }
+  .logos-row {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    gap: 26px 44px;
+  }
 }
 </style>
 <script>
@@ -357,6 +384,15 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="hero-portrait">
         <img src="images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
       </div>
+      </div>
+      <div class="logos">
+        <p class="logos-label">I've worked with technology leaders from</p>
+        <div class="logos-row">
+          <img class="logo" src="images/logos/spotify.svg" alt="Spotify" loading="lazy" decoding="async">
+          <img class="logo" src="images/logos/hotjar.svg" alt="Hotjar" loading="lazy" decoding="async">
+          <img class="logo" src="images/logos/enigma.svg" alt="Enigma" loading="lazy" decoding="async">
+          <img class="logo" src="images/logos/adverity.svg" alt="Adverity" loading="lazy" decoding="async">
+        </div>
       </div>
     </div>
   </section>
