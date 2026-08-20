@@ -3,719 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paulo André — Find the constraint in your product & engineering system</title>
-<meta property="og:title" content="Paulo André — Fractional CTO / VP of Engineering">
-<meta property="og:description" content="Fractional CTO / VP of Engineering for Series A/B startups and PE-backed or mid-market businesses. I diagnose why product & engineering execution becomes slow, noisy, and unpredictable.">
-<meta property="og:image" content="https://pauloandre.tech/images/paulo.png">
+<title>Paulo André — Technology leadership when there's no playbook</title>
+<meta name="description" content="I work with CTOs, VPs of Engineering, and founders when the situation is messy, consequential, and the answer isn't obvious.">
+<link rel="canonical" href="https://pauloandre.tech">
+<meta property="og:title" content="Paulo André">
+<meta property="og:description" content="I work with CTOs, VPs of Engineering, and founders when the situation is messy, consequential, and the answer isn't obvious.">
+<meta property="og:image" content="https://pauloandre.tech/images/paulo.jpg">
 <meta property="og:url" content="https://pauloandre.tech">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pauloandre.tech/images/paulo.png">
+<meta name="twitter:title" content="Paulo André">
+<meta name="twitter:description" content="I work with CTOs, VPs of Engineering, and founders when the situation is messy, consequential, and the answer isn't obvious.">
+<meta name="twitter:image" content="https://pauloandre.tech/images/paulo.jpg">
+<meta name="theme-color" content="#FFFFFF" id="theme-color-meta">
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored === 'light' || stored === 'dark' ? stored : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <style>
 :root {
   --bg: #FFFFFF;
-  --cream: #F7F7F5;
   --ink: #1A1A1A;
   --ink-soft: #5C5C5C;
   --rule: #E5E5E2;
   --blue: #5384C1;
   --copper: #A37F60;
-  --max: 1180px;
-  --gutter: clamp(20px, 4vw, 64px);
+  --portrait-bg: #ECECE9;
+  --gutter: clamp(22px, 5vw, 56px);
+  --measure: 42rem; /* ~672px editorial line length */
 }
 
+[data-theme="dark"] {
+  --bg: #1B1814;
+  --ink: #ECE6D9;
+  --ink-soft: #A79E8E;
+  --rule: #2F2B25;
+  --blue: #8FB1D8;
+  --copper: #CD9974;
+  --portrait-bg: #1D1A16;
+}
+
+html { color-scheme: light dark; }
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.6;
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-section {
-  padding: clamp(80px, 12vh, 160px) var(--gutter);
-  scroll-margin-top: 80px;
-}
-section.cream { background: var(--cream); }
-.container { max-width: var(--max); margin: 0 auto; }
+.wrap { width: 100%; max-width: 60rem; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 
-/* Sticky header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  padding: clamp(18px, 2.5vh, 28px) var(--gutter);
-}
-.site-header .top-bar {
+/* ---- HEADER ---- */
+.site-header { padding-top: clamp(20px, 3vh, 32px); padding-bottom: clamp(20px, 3vh, 32px); }
+.top-bar {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+  align-items: center;
+  gap: 16px;
 }
-
-/* Eyebrow label — small tracked uppercase in copper */
-.eyebrow {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--copper);
-  margin-bottom: 24px;
-}
-.eyebrow .num {
-  display: inline-block;
-  margin-right: 12px;
-  font-variant-numeric: tabular-nums;
-}
-
-/* ---- HERO ---- */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding-top: clamp(80px, 12vh, 144px);
-  padding-bottom: clamp(100px, 16vh, 200px);
-  border-bottom: 1px solid var(--rule);
-  isolation: isolate;
-}
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  will-change: transform;
-}
-.hero::before {
-  background: var(--copper);
-  width: 28vw;
-  height: 28vw;
-  max-width: 320px;
-  max-height: 320px;
-  top: 22%;
-  right: -4%;
-  opacity: 0.15;
-  animation: heroDriftA 18s ease-in-out infinite alternate;
-}
-.hero::after {
-  background: var(--blue);
-  width: 44vw;
-  height: 44vw;
-  max-width: 520px;
-  max-height: 520px;
-  bottom: -18%;
-  left: -6%;
-  opacity: 0.14;
-  animation: heroDriftB 22s ease-in-out infinite alternate;
-}
-@keyframes heroDriftA {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(-4%, 3%, 0) scale(1.08); }
-}
-@keyframes heroDriftB {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(5%, -3%, 0) scale(1.1); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero::before,
-  .hero::after { animation: none; }
-}
-.top-bar .name {
-  font-family: 'Instrument Sans', sans-serif;
+.wordmark {
   font-weight: 600;
   font-size: 17px;
-  color: var(--ink);
   letter-spacing: -0.01em;
-  text-transform: none;
+  color: var(--ink);
   white-space: nowrap;
 }
-.top-nav { display: flex; gap: clamp(14px, 2.5vw, 40px); }
+.top-bar-right { display: flex; align-items: center; gap: clamp(16px, 3vw, 30px); }
+.top-nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 30px); }
 .top-nav a {
   color: var(--ink-soft);
-  text-decoration: none;
-  transition: color 0.15s;
-  font-size: clamp(11px, 2.6vw, 13px);
+  font-size: 14px;
+  transition: color 0.15s ease;
 }
-.top-nav a:hover { color: var(--ink); }
-.hero-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: clamp(40px, 6vw, 96px);
-  align-items: center;
-}
-.hero-text { min-width: 0; }
-.hero-image {
+.top-nav a:hover { color: var(--ink); text-decoration: none; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  margin: -6px -6px -6px 0;
+  color: var(--ink-soft);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  border-radius: 4px;
+  transition: color 0.15s ease;
 }
-.hero-image img {
-  width: 150%;
-  max-width: none;
-  height: auto;
-  display: block;
-  opacity: 0.92;
-}
-@media (max-width: 800px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-image { display: none; }
-  .hero {
-    padding-top: clamp(48px, 8vh, 80px);
-    padding-bottom: clamp(48px, 8vh, 80px);
-  }
-}
-@media (max-width: 560px) {
-  .site-header .top-bar { flex-wrap: wrap; gap: 8px 0; }
-  .top-nav { gap: 16px; }
-  .top-nav a { font-size: 11px; }
-  section { padding-top: clamp(56px, 8vh, 80px); padding-bottom: clamp(56px, 8vh, 80px); }
-}
-.hero h1 {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 600;
-  font-size: clamp(36px, 4.5vw, 56px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 40px;
-}
-.hero h1 em { font-style: italic; }
-.hero h1 br { display: block; }
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-.hero .subline {
+/* ---- HERO ---- */
+main { flex: 1 0 auto; }
+.hero { padding-top: clamp(48px, 9vh, 104px); padding-bottom: clamp(56px, 11vh, 128px); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+.hero-body { max-width: var(--measure); }
+
+.hero h1 {
+  font-family: 'Google Sans Code', 'Instrument Sans', monospace;
+  font-weight: 600;
+  font-size: clamp(31px, 4.3vw, 50px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+
+.hero p { margin-bottom: 22px; }
+.hero p.lead-in {
   font-size: clamp(18px, 1.7vw, 21px);
   line-height: 1.55;
-  max-width: 52ch;
-  color: var(--ink-soft);
-  margin-bottom: 44px;
-}
-.hero .subline strong { color: var(--ink); font-weight: 500; }
-
-.btn {
-  display: inline-block;
   color: var(--ink);
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 400;
-  font-size: clamp(15px, 1.4vw, 18px);
-  line-height: 1.6;
-  padding-top: 16px;
-  border-bottom: 1px solid var(--ink);
-  transition: opacity 0.2s;
 }
-.btn:hover { opacity: 0.65; text-decoration: none; }
-
-.btn-ghost {
-  display: inline-block;
-  color: var(--ink-soft);
-  padding-top: 16px;
-  font-size: clamp(15px, 1.4vw, 18px);
-  line-height: 1.6;
-  font-weight: 400;
-  margin-left: 32px;
-  border-bottom: 1px solid var(--rule);
-}
-.btn-ghost:hover { text-decoration: none; opacity: 0.65; color: var(--ink); }
-
-/* ---- TWO COLUMN EDITORIAL ---- */
-.two-col {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: clamp(40px, 6vw, 96px);
-  align-items: start;
-}
-.two-col .lead h2 {
-  font-family: 'Instrument Sans', sans-serif;
+.hero p.situation,
+.hero p.credential { color: var(--ink-soft); }
+.hero p.emphasis {
   font-weight: 500;
-  font-size: clamp(30px, 3.4vw, 42px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-@media (max-width: 720px) {
-  .two-col {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .two-col .eyebrow { margin-bottom: 0; }
-  .two-col > div:empty { display: none; }
-  .two-col--center { margin-bottom: 40px; }
-}
-
-/* Bulleted list with copper dots */
-.bullet-list { list-style: none; }
-.bullet-list li {
-  position: relative;
-  padding: 8px 0 8px 32px;
-  font-size: clamp(17px, 1.3vw, 19px);
-  line-height: 1.55;
   color: var(--ink);
-}
-.bullet-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: calc(0.78em + 2px);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--copper);
-}
-.bullet-list li strong { font-weight: 500; }
-
-/* Inline italic closing tagline (used after a section's main content) */
-.closing-tagline {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(20px, 1.8vw, 24px);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--ink-soft);
-  margin-top: 32px;
-}
-.closing-tagline em { font-style: normal; color: var(--ink); }
-
-/* Case study — external voice / testimonial paragraph */
-.case-quote {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(19px, 1.5vw, 22px);
+  font-size: clamp(18px, 1.7vw, 21px);
   line-height: 1.5;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  border-left: 2px solid var(--copper);
-  padding: 4px 0 4px 24px;
-  margin: 32px 0 8px;
-  max-width: 56ch;
-}
-
-/* Section title — used when eyebrow sits alone in the left column */
-.section-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.2vw, 38px);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  max-width: 22ch;
+  margin-top: 32px;
   margin-bottom: 36px;
 }
 
-/* Two-col vertical alignment variant */
-.two-col--center { align-items: center; margin-bottom: 36px; }
-
-/* Accent-color variants */
-.eyebrow--blue { color: var(--blue); }
-.bullet-list--blue li::before { background: var(--blue); }
-
-/* Big statement */
-.statement { max-width: 24ch; }
-.statement h2 {
-  font-family: 'Instrument Sans', sans-serif;
+.cta {
+  display: inline-block;
+  color: var(--ink);
+  font-size: clamp(17px, 1.5vw, 20px);
   font-weight: 500;
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ink);
+  transition: opacity 0.2s ease;
 }
+.cta:hover { opacity: 0.6; text-decoration: none; }
 
-/* Numbered problem list */
-.numbered {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px 64px;
-  margin-top: 64px;
-}
-.numbered li {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 16px;
-  font-size: 18px;
-  line-height: 1.5;
-  padding-top: 4px;
-}
-.numbered li .n {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 20px;
-  color: var(--copper);
-  font-variant-numeric: tabular-nums;
-}
-@media (max-width: 720px) {
-  .numbered { grid-template-columns: 1fr; gap: 24px; }
-}
-
-/* Pull quote inline */
-.pull {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(24px, 3vw, 40px);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin: clamp(60px, 9vh, 120px) 0 0;
-  max-width: 18ch;
-}
-.pull em { font-style: normal; }
-
-/* What I Do — three-column list */
-.do-list { list-style: none; }
-.do-list li {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 60px 1fr 2fr;
-  gap: 24px;
-  align-items: baseline;
-}
-.do-list li:first-child { border-top: 1px solid var(--rule); }
-.do-list li .idx {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--copper);
-  font-size: 16px;
-  font-variant-numeric: tabular-nums;
-}
-.do-list li .what {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(20px, 2vw, 26px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.do-list li .why {
-  font-size: 16px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-@media (max-width: 720px) {
-  .do-list li { grid-template-columns: 32px 1fr; gap: 12px; }
-  .do-list li .why { grid-column: 2; padding-top: 8px; }
-}
-
-/* How I work — numbered step list */
-.how-list { list-style: none; }
-.how-list li {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: clamp(17px, 1.3vw, 19px);
-  line-height: 1.55;
-  align-items: baseline;
-}
-.how-list li:first-child { border-top: 1px solid var(--rule); }
-.how-n {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--copper);
-  padding-top: 3px;
-}
-.how-list li strong { font-weight: 500; }
-
-/* Entry offer card */
-.offer-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(24px, 3vw, 40px);
-  align-items: start;
-}
-.offer {
-  background: white;
-  border: 1px solid var(--rule);
-  padding: clamp(40px, 6vw, 72px);
+.portrait {
   width: 100%;
+  max-width: 260px;
+  aspect-ratio: 900 / 857;
+  height: auto;
   border-radius: 4px;
-}
-@media (max-width: 768px) {
-  .offer-wrap {
-    grid-template-columns: 1fr;
-  }
-}
-.offer .tag {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--copper);
-  margin-bottom: 20px;
-}
-.offer h3 {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-}
-.offer p.lede {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin-bottom: 40px;
-  max-width: 52ch;
-}
-.deliverables { list-style: none; border-top: 1px solid var(--rule); margin-bottom: 32px; }
-.deliverables li {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  font-size: 17px;
-}
-.deliverables li .label { font-family: 'Instrument Sans', sans-serif; font-weight: 500; font-size: 19px; }
-.deliverables li .meta {
-  font-size: 13px;
-  color: var(--ink-soft);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: right;
-}
-.offer .terms {
-  font-size: 13px;
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* Pattern snapshots — separate cards, flexible count */
-.snapshots {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-}
-.snapshot {
-  background: var(--cream);
-  padding: clamp(36px, 4vw, 56px);
-  border-radius: 4px;
-}
-.snapshot .quote {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(21px, 2vw, 25px);
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  margin-bottom: 28px;
-}
-.snapshot .row {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 16px;
-  padding: 14px 0;
-  font-size: 16px;
-  line-height: 1.55;
-}
-.snapshot .row + .row { border-top: 1px solid var(--rule); }
-.snapshot .row .k {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--copper);
-  padding-top: 5px;
-}
-.snapshot .row .v { color: var(--ink); }
-.snapshot .row.diagnosis .v { color: var(--ink-soft); }
-@media (max-width: 720px) {
-  .snapshots { grid-template-columns: 1fr; }
-  .snapshot .row { grid-template-columns: 1fr; gap: 4px; }
-}
-
-/* Thinking section */
-.posts { list-style: none; }
-.posts li {
-  padding: 26px 0;
-  border-bottom: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 90px 1fr auto;
-  gap: 24px;
-  align-items: baseline;
-}
-.posts li:first-child { border-top: 1px solid var(--rule); }
-.posts li .date {
-  font-size: 13px;
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.posts li .title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(17px, 1.4vw, 19px);
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-}
-.posts li .read {
-  font-size: 13px;
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-@media (max-width: 720px) {
-  .posts li { grid-template-columns: 1fr; gap: 6px; }
-  .posts li .read { display: none; }
-}
-
-.substack-link {
-  margin-top: 36px;
-  font-size: clamp(15px, 1.4vw, 18px);
-}
-
-/* About section */
-.about {
-  display: flex;
-  align-items: center;
-  gap: clamp(40px, 8vw, 120px);
-}
-.about .portrait {
-  flex-shrink: 0;
-  width: 280px;
-  height: 373px;
-  border-radius: 4px;
-  background: #ECECE9;
+  background: var(--portrait-bg);
   object-fit: cover;
 }
-.about .body { max-width: 720px; }
-.about .body p:not(.eyebrow) {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: clamp(18px, 1.6vw, 21px);
-  line-height: 1.6;
-  max-width: 56ch;
-  color: var(--ink-soft);
-  margin-bottom: 24px;
-}
-.about .body p:not(.eyebrow) strong { color: var(--ink); font-weight: 500; }
-.about .body p:last-child { margin-bottom: 0; }
-.about .body .bullet-list li { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-soft); }
-@media (max-width: 720px) {
-  .about { flex-direction: column; align-items: flex-start; }
-  .about .portrait { width: 100%; max-width: 280px; height: auto; aspect-ratio: 280 / 373; }
-}
 
-/* Final CTA */
-.final { border-top: 1px solid var(--rule); }
-.final h2 {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: clamp(32px, 3.8vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 24px 0 56px;
-  max-width: 22ch;
-}
-.final h2 em { font-style: italic; }
-.final .ctas {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-footer {
+/* ---- WRITING LINE ---- */
+.writing {
+  padding-top: clamp(28px, 5vh, 44px);
+  padding-bottom: clamp(28px, 5vh, 44px);
   border-top: 1px solid var(--rule);
-  padding: 32px var(--gutter);
+}
+.writing p {
+  max-width: var(--measure);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.writing strong { color: var(--ink); font-weight: 500; }
+.writing .read-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--rule);
+}
+.writing .read-link:hover { border-color: var(--ink); text-decoration: none; }
+
+/* ---- FOOTER ---- */
+footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin-top: clamp(40px, 8vh, 96px);
+}
+.footer-bar {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-}
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: var(--ink-soft); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; }
-.footer-links a:hover { color: var(--ink); }
-footer .name-mark {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  font-size: 16px;
-}
-
-/* Prose paragraphs inside two-col content blocks */
-.prose {
-  font-size: clamp(17px, 1.3vw, 19px);
-  line-height: 1.65;
-  color: var(--ink);
-  max-width: 62ch;
-  margin-bottom: 22px;
-}
-.prose:last-of-type { margin-bottom: 0; }
-
-/* Offer card — "You walk away with:" label and longer terms paragraph */
-.offer .walk-away {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin-bottom: 20px;
 }
-.offer .body-prose {
-  font-size: 18px;
-  line-height: 1.6;
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
   color: var(--ink-soft);
-  max-width: 52ch;
-  margin-bottom: 24px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-.offer .body-prose:last-of-type { margin-bottom: 36px; }
-.offer .body-prose strong { color: var(--ink); font-weight: 500; }
-.offer .closing-tagline {
-  margin-top: 0;
-  margin-bottom: 32px;
-  font-size: clamp(18px, 1.5vw, 21px);
-  max-width: 56ch;
-}
-.offer .bullet-list { margin-bottom: 36px; }
-.offer .next-step {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 58ch;
-  margin-bottom: 32px;
-}
-.offer .next-step strong { color: var(--ink); font-weight: 500; }
-.offer .terms-prose {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 60ch;
-  border-top: 1px solid var(--rule);
-  padding-top: 24px;
-}
+.footer-links a:hover { color: var(--ink); }
 
+/* ---- RESPONSIVE ---- */
+@media (max-width: 720px) {
+  .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 40px); }
+  .hero-portrait { order: -1; }
+  .portrait { max-width: 128px; }
+}
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Mi Ri init Vi Gi Rr Wi Ji Bi capture calculateEventProperties tn register register_once register_for_session unregister unregister_for_session an getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync un identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty nn Xi createPersonProfile setInternalOrTestUser sn Hi cn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ki debug Lr rn getPageViewId captureTraceFeedback captureTraceMetric Di".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -729,29 +255,39 @@ posthog.init('phc_jaKpCBZc0Hfd5SuvV7ZowLeI8rGtov27RMoHoUmyZcT', {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Section viewed — fires once per section per page load
-  var sections = [
-    { el: document.getElementById('hero'),     name: 'hero' },
-    { el: document.getElementById('how'),      name: 'how_i_work' },
-    { el: document.getElementById('offer'),    name: 'offers' },
-    { el: document.getElementById('patterns'), name: 'patterns' },
-    { el: document.getElementById('case'),     name: 'case_study' },
-    { el: document.getElementById('about'),    name: 'about' },
-    { el: document.getElementById('contact'),  name: 'contact' },
-  ].filter(function (s) { return s.el; });
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeColorMeta = document.getElementById('theme-color-meta');
+  var THEME_COLORS = { light: '#FFFFFF', dark: '#1B1814' };
 
-  var sectionObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var match = sections.find(function (s) { return s.el === entry.target; });
-      if (match) {
-        posthog.capture('section_viewed', { section: match.name });
-        sectionObserver.unobserve(entry.target);
-      }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeColorMeta) themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+  }
+
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      posthog.capture('theme_toggled', { theme: next });
     });
-  }, { threshold: 0.3 });
+  }
 
-  sections.forEach(function (s) { sectionObserver.observe(s.el); });
+  if (window.matchMedia) {
+    var mql = window.matchMedia('(prefers-color-scheme: dark)');
+    var mqlHandler = function (e) {
+      try { if (localStorage.getItem('theme')) return; } catch (err) {}
+      applyTheme(e.matches ? 'dark' : 'light');
+    };
+    if (mql.addEventListener) mql.addEventListener('change', mqlHandler);
+    else if (mql.addListener) mql.addListener(mqlHandler);
+  }
 
   // Book a call clicks
   document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
@@ -761,308 +297,66 @@ document.addEventListener('DOMContentLoaded', function () {
       posthog.capture('outbound_click', { destination: 'calendar', source: src });
     });
   });
-
-  // Email clicks
-  document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      posthog.capture('outbound_click', { destination: 'email' });
-    });
-  });
-
-  // Work with me click (hero only)
-  var workWithMe = document.querySelector('#hero a[href="#offer"]');
-  if (workWithMe) {
-    workWithMe.addEventListener('click', function () {
-      posthog.capture('work_with_me_clicked');
-    });
-  }
-
-  // Scroll depth — 25 / 50 / 75 / 90, each fires once
-  var depthThresholds = [25, 50, 75, 90];
-  var depthFired = {};
-  window.addEventListener('scroll', function () {
-    var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
-    depthThresholds.forEach(function (d) {
-      if (pct >= d && !depthFired[d]) {
-        depthFired[d] = true;
-        posthog.capture('scroll_depth', { depth: d });
-      }
-    });
-  }, { passive: true });
 });
 </script>
 </head>
 <body>
 
-<!-- STICKY HEADER -->
 <header class="site-header">
-  <div class="container top-bar">
-    <span class="name">Paulo André</span>
-    <nav class="top-nav">
-      <a href="#offer">Work with me</a>
-      <a href="#about">About</a>
-      <a href="#contact">Get in touch</a>
-      <!-- <a href="#thinking">Thinking</a> -->
-    </nav>
+  <div class="wrap top-bar">
+    <span class="wordmark">Paulo André</span>
+    <div class="top-bar-right">
+      <nav class="top-nav">
+        <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
+        <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" target="_blank" rel="noopener" data-source="header">Talk to me</a>
+      </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- 01. HERO -->
-<section class="hero" id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1>Your team is working hard.<br><em>The business can't feel it.</em></h1>
-        <p class="subline">I help CTOs, founders, CEOs, and operating partners — at scaling startups and PE-backed or mid-market teams — when engineering is no longer simply &ldquo;slow,&rdquo; but the whole product-engineering system is starting to buckle under pressure: unclear priorities, too much WIP, AI confusion, weak execution loops, overloaded managers, and a CTO who needs a sharp right hand.</p>
-        <a href="#offer" class="btn">Work with me</a>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn-ghost" target="_blank" rel="noopener" data-source="hero">Book a call →</a>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-body">
+        <h1>The hardest problems in technology leadership don't have playbooks.</h1>
+        <p class="lead-in">I work with CTOs, VPs of Engineering, and founders when the situation is messy, consequential, and the answer isn't obvious.</p>
+        <p class="situation">A struggling organization. A difficult leadership decision. AI pressure from the board. A role that's outgrown you. A team you can't quite figure out. Or simply the feeling that something isn't working and you can't see it clearly from inside the system.</p>
+        <p class="credential">I've spent 20+ years building and leading technology organizations, and several years coaching the people who run them.</p>
+        <p class="emphasis">Bring me the problem you're thinking about when you should be sleeping.</p>
+        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="cta" target="_blank" rel="noopener" data-source="hero">Let's talk →</a>
       </div>
-      <div class="hero-image">
-        <img src="images/hero-diagram.png" alt="">
+      <div class="hero-portrait">
+        <img src="images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 01. SYMPTOMS -->
-<section>
-  <div class="container">
-    <div class="two-col two-col--center">
-      <div class="lead">
-        <p class="eyebrow"><span class="num">01</span> You might be here if</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">The team is working hard. The business can't feel it.</h2>
+  <section class="writing">
+    <div class="wrap">
+      <p><strong>I also write Hagakure</strong> — essays about technology, leadership, organizations, and making sense of an increasingly strange industry.</p>
+      <a href="https://hagakure.substack.com/" class="read-link" target="_blank" rel="noopener">Read Hagakure →</a>
     </div>
-    <div class="two-col">
-      <div></div>
-      <ul class="bullet-list">
-        <li>Delivery feels slower than it should, even when everyone is working hard.</li>
-        <li>You can't give leadership a confident forecast. Every commitment comes with caveats.</li>
-        <li>Priorities look aligned on Monday. By Friday, something has shifted.</li>
-        <li>AI has accelerated output but delivery feels more chaotic, not less.</li>
-        <li>People are accountable for tasks. Nobody feels fully responsible for the outcome.</li>
-        <li>You suspect the problem isn't the people, but you can't articulate what is.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 02. THE PROMISE -->
-<section>
-  <div class="container">
-    <div class="two-col two-col--center">
-      <div class="lead">
-        <p class="eyebrow eyebrow--blue"><span class="num">02</span> What I do</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">I find the constraint.</h2>
-    </div>
-    <div class="two-col">
-      <div></div>
-      <div>
-        <p class="prose">When the system around the work breaks down, effort stops translating into progress. Priorities shift, decisions blur, work piles up, bottlenecks hide, and nobody has a clear picture of what's actually in the way.</p>
-        <p class="prose">AI sharpens this. For teams with a clear operating model, it's a real multiplier. For everyone else, it accelerates existing dysfunction: more throughput into the same bottlenecks, a wider gap between activity and outcomes.</p>
-        <p class="prose">I help CEOs, CTOs, and VPs of Engineering find what's actually in the way and make the path forward clear.</p>
-        <p class="prose">The aim isn't more output. It's engineering the business can plan revenue around — a value lever, not a cost centre, on a timeline that pays for itself.</p>
-        <p class="prose">My coaching background is why the changes stick. Teams that understand why the system works keep running it after I leave.</p>
-        <p class="closing-tagline"><em>The business should be able to feel the difference.</em></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03. HOW I WORK -->
-<section id="how">
-  <div class="container">
-    <div class="two-col two-col--center">
-      <div class="lead">
-        <p class="eyebrow"><span class="num">03</span> How I work</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">I look at the system as it actually operates. Then I say what I see.</h2>
-    </div>
-    <div class="two-col">
-      <div></div>
-      <ol class="how-list">
-        <li><span class="how-n">1</span><div><strong>Observe the system.</strong> How work actually moves, where decisions happen, and where things slow down or stop.</div></li>
-        <li><span class="how-n">2</span><div><strong>Talk to leadership and teams.</strong> What leadership believes is happening and what teams are actually experiencing are often two different things.</div></li>
-        <li><span class="how-n">3</span><div><strong>Find the real constraints.</strong> Friction, unclear ownership, broken trust, structural misalignment. Usually more than one thing.</div></li>
-        <li><span class="how-n">4</span><div><strong>Say what I see.</strong> Without softening it. The diagnosis is only useful if it's honest.</div></li>
-        <li><span class="how-n">5</span><div><strong>Focus on the highest-leverage changes.</strong> Two or three things that, if fixed, shift everything else.</div></li>
-        <li><span class="how-n">6</span><div><strong>Stay until it stabilizes.</strong> The team needs to understand why the system works, not just how to follow it. That's what makes the change last.</div></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- 04. ENGAGEMENTS -->
-<section class="cream" id="offer">
-  <div class="container">
-    <p class="eyebrow" style="text-align:center; margin-bottom: 48px;"><span class="num">04</span> Engagements</p>
-    <div class="offer-wrap">
-      <div class="offer">
-        <p class="tag">Engagement</p>
-        <h3>Product &amp; Engineering Diagnostic</h3>
-        <p class="body-prose">Execution slows down when it’s unclear what’s actually getting in the way. I identify the organizational, technical, and leadership patterns creating friction, and which changes are worth making first.</p>
-        <p class="body-prose">It also works as a pre-hire bridge or independent assessment — post-acquisition, between CTOs, or when a non-technical founder needs to evaluate an inherited team before committing to a permanent hire.</p>
-        <p class="walk-away">You walk away with:</p>
-        <ul class="bullet-list">
-          <li>The real constraints slowing execution</li>
-          <li>Hidden sources of organizational friction</li>
-          <li>A written diagnostic + intervention roadmap</li>
-          <li>Clear next steps for the next 30–90 days</li>
-        </ul>
-        <p class="terms-prose">Most engagements start with a 2–4 week Product &amp; Engineering Diagnostic. If there is a fit, I can then stay on as fractional CTO or VP of Engineering — depending on what the system needs.</p>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener" data-source="diagnostic" style="margin-top: 32px;">Book a call</a>
-      </div>
-      <div class="offer">
-        <p class="tag">Fractional leadership</p>
-        <h3>Fractional CTO / VP of Engineering</h3>
-        <p class="body-prose">For Series A/B startups (10–40 engineers) and PE-backed or mid-market businesses modernizing an under-invested engineering function. Two registers, same person, depending on what the system needs.</p>
-        <p class="body-prose"><strong>As Fractional CTO</strong> — the strategic brain in the room when the founder is stretched or the CTO needs a senior counterpart for the bets that matter: AI posture, architecture, build vs. buy, hiring shape. Ongoing partnership, a few hours a week.</p>
-        <p class="body-prose"><strong>As Fractional VP Engineering</strong> — hands-on operator installing the execution system when delivery has become slow, noisy, and hard to predict. Clear ownership, visible work, tight feedback loops, and the operating rhythm that makes delivery predictable. Time-bounded, 3–6 months.</p>
-        <p class="body-prose">In both, I build internal capability so the team runs it without me. The engagement ends when it’s no longer needed.</p>
-        <p class="walk-away">What gets installed or sharpened:</p>
-        <ul class="bullet-list">
-          <li>Strategic clarity on the bets that matter (AI, architecture, hiring shape)</li>
-          <li>Delivery rhythm and execution predictability</li>
-          <li>Ownership clarity and team accountability</li>
-          <li>Feedback loops from shipping to learning</li>
-          <li>Reduced chaos from AI adoption and context-switching</li>
-          <li>Leadership alignment between CTO and delivery layer</li>
-        </ul>
-        <p class="terms-prose">Fractional CTO: ongoing, a few hours a week. Fractional VP Engineering: typically 3–6 months. In both, the goal is to make the role unnecessary.</p>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener" data-source="fractional_leadership" style="margin-top: 32px;">Book a call</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05. PATTERN SNAPSHOTS -->
-<section id="patterns">
-  <div class="container">
-    <p class="eyebrow"><span class="num">05</span> Patterns I see</p>
-    <h2 class="section-title" style="max-width: 32ch; margin-bottom: 56px;">You’ve probably blamed the team, the tools, or the process. <em>The problem is upstream of all three.</em></h2>
-    <div class="snapshots">
-      <div class="snapshot">
-        <p class="quote">"We adopted AI. PRs are up. The business doesn't feel it."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">The bottleneck moved: from writing code to everything around it. Review, decisions, QA, releases. The old process can't absorb the new throughput, and nobody can explain why velocity didn't change.</span></div>
-        <div class="row"><span class="k">What I look for</span><span class="v">Where AI is actually being used, what it's replacing, what new bottlenecks it's creating downstream, and whether anyone is measuring the second-order effects.</span></div>
-        <div class="row"><span class="k">Typical move</span><span class="v">Stop measuring AI by activity. Connect adoption to a specific business outcome: fewer escalations, faster cycle time, less rework. Then adjust the system around it.</span></div>
-      </div>
-      <div class="snapshot">
-        <p class="quote">"Everyone is busy. Everything is in progress. Nothing is actually done."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">Even with a clear plan, the team picks up new work before old work ships. Engineers context-switch all day. Code sits in review. Nothing crosses the finish line. Finishing isn't treated as the job.</span></div>
-        <div class="row"><span class="k">What I look for</span><span class="v">WIP per engineer, age of open PRs, how long work sits in review, and whether anyone is accountable for items crossing the finish line versus starting.</span></div>
-        <div class="row"><span class="k">Typical move</span><span class="v">Cap WIP. Make finishing the explicit goal of the week. Expose blocked work. Treat carry-over as a signal worth investigating, not a normal sprint outcome.</span></div>
-      </div>
-      <div class="snapshot">
-        <p class="quote">"Every week, the priorities change. We can never plan."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">The roadmap looks fine on Monday and looks different by Friday. Stakeholders inject new urgency mid-cycle, and the team rebuilds the plan instead of executing it. Strategy is a moving target. The team isn't slow at execution; they're optimizing for a goal that keeps moving.</span></div>
-        <div class="row"><span class="k">What I look for</span><span class="v">How often the plan changes, who is allowed to change it, what counts as "urgent," and whether anyone is accountable for the cumulative cost of context switching.</span></div>
-        <div class="row"><span class="k">Typical move</span><span class="v">Establish a rule for what can interrupt the plan and what cannot. Make the cost of mid-cycle changes visible. Give the team a stable horizon they can actually plan against.</span></div>
-      </div>
-      <div class="snapshot">
-        <p class="quote">"We hired strong engineers and still don't ship enough."</p>
-        <div class="row diagnosis"><span class="k">What's happening</span><span class="v">You hired strong engineers. They're stuck in a system that makes them slow: too many handoffs, too much waiting, too little ownership.</span></div>
-        <div class="row"><span class="k">What I look for</span><span class="v">Cycle time from decision to shipped outcome, how product specs get produced, how cross-team dependencies are coordinated, and where work waits.</span></div>
-        <div class="row"><span class="k">Typical move</span><span class="v">Surface the real bottleneck, redesign the handoffs around it, and stop adding pressure to a constraint that isn't the problem.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06. CASE STUDY -->
-<section id="case">
-  <div class="container">
-    <div class="two-col two-col--center">
-      <div class="lead">
-        <p class="eyebrow"><span class="num">06</span> In practice</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">When the constraint is between engineering and the business.</h2>
-    </div>
-    <div class="two-col">
-      <div></div>
-      <div>
-        <p class="prose">A B2B SaaS cold-outreach platform. I inherited an engineering team that had been led adversarially — walled off from the rest of the business, distrusted, barely shipping. The core product system was structurally wrong for how the product was actually used. Email open rates were in single digits.</p>
-        <p class="prose">I made the work visible and got it flowing first. That unlocked a full re-architecture delivered in roughly two months — and rebuilt how engineering worked with sales, customer success, and product.</p>
-        <p class="prose">Open rates moved to a stable 40–50%. That changed the commercial envelope — sales could promise a different SLA, retention improved.</p>
-        <p class="case-quote">Customer success and other previously-alienated teams said, privately and publicly: they'd never worked with a tech team that listened and shipped that fast.</p>
-        <p class="closing-tagline"><em>The technical fix was a symptom. The constraint was the relationship.</em></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07. ABOUT -->
-<section class="cream" id="about">
-  <div class="container about">
-    <img src="images/paulo.png" alt="Paulo André" class="portrait">
-    <div class="body">
-      <p class="eyebrow"><span class="num">07</span> Why me</p>
-      <p>For the last decade, I’ve repeatedly been brought into struggling technical organizations to figure out why things weren’t working, and help turn them around. I’m consistently strongest at identifying the real sources of friction, surfacing what others feel but can’t clearly explain, and restoring execution coherence across product and engineering.</p>
-      <p>That work has spanned teams from ~10 to 200+ engineers, through HelloFresh's IPO and TourRadar's post-Series-C scaling — at scale and through institutional transitions, not only at the early stage.</p>
-      <p>My background spans software engineering, product &amp; engineering leadership, and systems thinking. From 2021 to 2024, I coached startup founders, CTOs, and VPs of Engineering full-time, not as a side practice, but as the main work. The technical knowledge gets you in the room. The coaching is what makes the change outlast the engagement.</p>
-      <p><strong>I’m not a hype merchant, a transformation consultant, or a "10x AI productivity" salesman.</strong> I help leadership teams see clearly what’s breaking, and what to do about it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- THINKING — hidden until 3+ posts are live on Substack. Restore by un-commenting, choosing a slot in the section sequence (likely between Case study at 06 and Why me at 07), and renumbering subsequent sections accordingly. -->
-<!--
-<section id="thinking">
-  <div class="container">
-    <div class="two-col two-col--center">
-      <div class="lead">
-        <p class="eyebrow"><span class="num">06</span> Thinking</p>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 0;">I write about how product &amp; engineering systems actually work.</h2>
-    </div>
-    <div class="two-col">
-      <div></div>
-      <div>
-        <ul class="posts">
-          <li>
-            <span class="date">Mar 2026</span>
-            <span class="title">The constraint you can't see is the one running your roadmap.</span>
-            <span class="read">Read →</span>
-          </li>
-          <li>
-            <span class="date">Feb 2026</span>
-            <span class="title">AI didn't break your team. It revealed where you already were.</span>
-            <span class="read">Read →</span>
-          </li>
-          <li>
-            <span class="date">Jan 2026</span>
-            <span class="title">Why the same priority meetings keep producing different priorities.</span>
-            <span class="read">Read →</span>
-          </li>
-        </ul>
-        <p class="substack-link"><a href="https://hagakure.substack.com/">Hagakure on Substack →</a></p>
-      </div>
-    </div>
-  </div>
-</section>
--->
-
-<!-- 08. FINAL CTA -->
-<section class="final" id="contact">
-  <div class="container">
-    <p class="eyebrow"><span class="num">08</span> Get in touch</p>
-    <h2>If your team is busy but the business isn’t moving, <em>let’s talk</em>.</h2>
-    <p style="font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: var(--ink-soft); margin-bottom: 48px; max-width: 52ch;">If this sounds like a company you’re building, leading, investing in, or advising, I’d be happy to talk.</p>
-    <div class="ctas">
-      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="btn" target="_blank" rel="noopener" data-source="contact">Book a call</a>
-      <a href="mailto:paulo@pauloandre.tech" class="btn-ghost">paulo@pauloandre.tech →</a>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
-  <span class="name-mark">Paulo André</span>
-  <span class="footer-links">
-    <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Substack</a>
-  </span>
-  <span>© 2026 · All rights reserved</span>
+  <div class="wrap footer-bar">
+    <span>Paulo André · Berlin</span>
+    <span class="footer-links">
+      <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
+    </span>
+  </div>
 </footer>
 
 </body>
