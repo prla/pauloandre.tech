@@ -215,6 +215,12 @@ main { flex: 1 0 auto; }
   display: block;
   filter: brightness(0) opacity(0.5);
 }
+/* Per-logo optical balancing — icon+wordmark marks need a touch more height
+   to match the cap-height of the pure wordmarks. */
+.logo[alt="Spotify"] { height: 25px; }
+.logo[alt="Hotjar"] { height: 25px; }
+.logo[alt="Enigma"] { height: 20px; }
+.logo[alt="Adverity"] { height: 22px; }
 [data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
 
 /* ---- WRITING LINE ---- */
