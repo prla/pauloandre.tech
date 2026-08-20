@@ -103,6 +103,13 @@ a:hover { text-decoration: underline; }
   transition: color 0.15s ease;
 }
 .top-nav a:hover { color: var(--ink); text-decoration: none; }
+.top-nav a.nav-cta {
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--ink);
+}
+.top-nav a.nav-cta:hover { opacity: 0.6; text-decoration: none; }
 
 /* Theme toggle */
 .theme-toggle {
@@ -310,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <nav class="top-nav">
         <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Substack</a>
         <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" target="_blank" rel="noopener" data-source="header">Talk to me</a>
+        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="nav-cta" target="_blank" rel="noopener" data-source="header">Talk to me</a>
       </nav>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
