@@ -129,21 +129,22 @@ a:hover { text-decoration: underline; }
 /* ---- HERO ---- */
 main { flex: 1 0 auto; }
 .hero { padding-top: clamp(48px, 9vh, 104px); padding-bottom: clamp(56px, 11vh, 128px); }
-.hero-grid {
+.hero-cols {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 320px);
   gap: clamp(40px, 6vw, 80px);
-  align-items: center;
+  align-items: start;
+  margin-top: clamp(40px, 6vh, 64px);
 }
 .hero-body { max-width: var(--measure); }
 
 .hero h1 {
   font-family: 'Google Sans Code', 'Instrument Sans', monospace;
   font-weight: 600;
-  font-size: clamp(31px, 4.3vw, 50px);
-  line-height: 1.12;
+  font-size: clamp(33px, 5vw, 58px);
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 32px;
+  max-width: 24ch;
   text-wrap: balance;
 }
 
@@ -177,12 +178,12 @@ main { flex: 1 0 auto; }
 
 .portrait {
   width: 100%;
-  max-width: 260px;
-  aspect-ratio: 900 / 857;
+  aspect-ratio: 1 / 1;
   height: auto;
-  border-radius: 4px;
+  border-radius: 50%;
   background: var(--portrait-bg);
   object-fit: cover;
+  object-position: 50% 20%;
 }
 
 /* ---- WRITING LINE ---- */
@@ -326,9 +327,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <main>
   <section class="hero">
-    <div class="wrap hero-grid">
+    <div class="wrap">
+      <h1>The hardest problems in technology leadership don't have playbooks.</h1>
+      <div class="hero-cols">
       <div class="hero-body">
-        <h1>The hardest problems in technology leadership don't have playbooks.</h1>
         <p class="lead-in">I work with CTOs, VPs of Engineering, and founders when the situation is messy, consequential, and the answer isn't obvious.</p>
         <p class="situation">A struggling organization. A difficult leadership decision. AI pressure from the board. A role that's outgrown you. A team you can't quite figure out. Or simply the feeling that something isn't working and you can't see it clearly from inside the system.</p>
         <p class="credential">I've spent 20+ years building and leading technology organizations, and several years coaching the people who run them.</p>
@@ -337,6 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <div class="hero-portrait">
         <img src="images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
+      </div>
       </div>
     </div>
   </section>
