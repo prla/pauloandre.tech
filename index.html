@@ -157,6 +157,8 @@ main { flex: 1 0 auto; }
   max-width: 24ch;
   text-wrap: balance;
 }
+/* Mobile-only line break before the closing clause (see media query) */
+.hero h1 .h1-break { display: none; }
 
 .hero p { margin-bottom: 22px; }
 .hero p.lead-in {
@@ -280,6 +282,13 @@ footer {
   .hero-cols { grid-template-columns: 1fr; gap: clamp(24px, 5vw, 36px); }
   .hero-portrait { order: -1; display: flex; justify-content: center; }
   .portrait { max-width: 148px; }
+  .hero h1 {
+    font-size: clamp(23px, 6.2vw, 32px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .hero h1 .h1-break { display: inline; }
 }
 
 @media (max-width: 560px) {
@@ -379,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <main>
   <section class="hero">
     <div class="wrap">
-      <h1>The hardest problems in technology leadership don't have playbooks.</h1>
+      <h1>The hardest problems in technology leadership <br class="h1-break">don't have playbooks.</h1>
       <div class="hero-cols">
       <div class="hero-body">
         <p class="lead-in">I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.</p>
