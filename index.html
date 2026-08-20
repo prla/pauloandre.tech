@@ -100,6 +100,7 @@ a:hover { text-decoration: underline; }
 .top-nav a {
   color: var(--ink-soft);
   font-size: 14px;
+  white-space: nowrap;
   transition: color 0.15s ease;
 }
 .top-nav a:hover { color: var(--ink); text-decoration: none; }
@@ -246,9 +247,16 @@ footer {
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 720px) {
-  .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 40px); }
-  .hero-portrait { order: -1; }
-  .portrait { max-width: 128px; }
+  .hero-cols { grid-template-columns: 1fr; gap: clamp(24px, 5vw, 36px); }
+  .hero-portrait { order: -1; display: flex; justify-content: center; }
+  .portrait { max-width: 148px; }
+}
+
+@media (max-width: 560px) {
+  .top-bar { flex-wrap: wrap; gap: 12px 0; }
+  .top-bar-right { gap: 16px; }
+  .top-nav { gap: 16px; }
+  .top-nav a { font-size: 13px; }
 }
 </style>
 <script>
