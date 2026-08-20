@@ -4,12 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Paulo André's personal landing page (pauloandre.tech) — a single static HTML file pitching a "2-Day Diagnostic" consulting offer to VPs of Engineering and CTOs. No build step, no framework, no package manager.
+Paulo André's personal landing page (pauloandre.tech) — a single static HTML file. It has one job: get the right visitor (CTOs, VPs of Engineering, technical founders) to think "I want to talk to this person" and book a call.
+
+Positioning: **"The hardest problems in technology leadership don't have playbooks."** Not a consulting site — no packages, offers, methodology, or feature sections. The writing is the interface. Deletion is the strategy; resist adding sections.
+
+No build step, no framework, no package manager.
 
 ## Repository contents
 
-- `index.html` — the entire site: markup + inline `<style>` block. All CSS lives here.
-- `images/` — static assets (currently just `paulo.png`).
+- `index.html` — the entire site: markup, an inline `<style>` block, and an inline `<script>` block. All CSS and JS live here.
+- `images/` — static assets. `paulo.jpg` is the optimized portrait used by the page and OG tags (900px, ~100KB). Keep images web-optimized; don't commit multi-MB originals.
 
 There is no `package.json`, no `node_modules`, no test suite, no CI. Editing the site means editing `index.html` directly.
 
@@ -21,23 +25,44 @@ Open the file in a browser:
 open index.html
 ```
 
-Or serve locally if you need a real HTTP origin (e.g., to test the Google Fonts preconnect or a future asset path):
+Or serve locally if you need a real HTTP origin (e.g., to test the Google Fonts preconnect or an asset path):
 
 ```bash
 python3 -m http.server 8000
 ```
 
-## Editorial / design conventions
+## Page structure
 
-The page uses a deliberate editorial system. Preserve it when adding sections:
+One desktop viewport, roughly. In order:
 
-- **Two fonts, narrow roles**: `Instrument Sans` is the workhorse for everything — body, headings, wordmark, footer, italic taglines, the lot. `Google Sans Code` is reserved exclusively for the hero `<h1>` to set the page's signature; do not introduce it elsewhere.
-- **Color tokens** are CSS custom properties on `:root` — `--ink`, `--ink-soft`, `--cream`, `--blue`, `--copper`, `--rule`. Use these, don't hardcode hex values.
-- **Section rhythm**: each section opens with a numbered eyebrow (`<p class="eyebrow"><span class="num">0X</span> Label</p>`) — keep the numbering sequential when adding/reordering sections.
-- **Two-column editorial grid** (`.two-col`) — left column is a 280px label/eyebrow rail, right column is content. The mobile breakpoint at 720px collapses it.
-- **Accent colors carry meaning**: copper (`--copper`) for "what I do / who I am", blue (`--blue`) for "the problem". Bullet variants like `.bullet-list--blue` swap the dot color.
-- Cream-background sections (`.cream` / `#offer`, `#about`) alternate with white to break up the page — keep that alternation if adding sections.
+1. **Header** — wordmark left; Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right.
+2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside.
+3. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
+4. **Footer** — "Paulo André · Berlin" and LinkedIn / Hagakure.
+
+## Design conventions
+
+Extremely restrained, editorial rather than SaaS. Preserve this when editing:
+
+- **Two fonts, narrow roles**: `Instrument Sans` is the workhorse for everything. `Google Sans Code` is reserved exclusively for the hero `<h1>` to set the page's signature; do not introduce it elsewhere.
+- **Color tokens** are CSS custom properties on `:root` (with a `[data-theme="dark"]` override) — `--ink`, `--ink-soft`, `--bg`, `--rule`, `--blue`, `--copper`, `--portrait-bg`. Use these, never hardcode hex values.
+- **Editorial measure**: body copy stays within `--measure` (~672px). Strong contrast — body text is `--ink`, not faint gray.
+- **One dominant action**: the "Let's talk →" CTA in the hero. A second, quiet "Talk to me" in the header is fine. Clean text/underline treatment, never a big colored SaaS button.
+- No gradients, cards, feature grids, icons (except the theme-toggle glyph), stock imagery, or animation beyond subtle hover states.
+
+## Integrations (don't break these)
+
+- **Booking link**: `https://calendar.app.google/jKuzeph3c6ndobgM8` — every CTA points here. Clicks fire a PostHog `book_call_clicked` event via the `data-source` attribute.
+- **Analytics**: PostHog, initialized inline (`api_host: t.pauloandre.tech`). Also tracks `theme_toggled`.
+- **Theme toggle**: light/dark, persisted to `localStorage`, respects `prefers-color-scheme`. An inline `<head>` script sets the theme before paint to avoid a flash.
+- **External links**: LinkedIn (`/in/paulorlandre/`) and Hagakure (`hagakure.substack.com`).
+
+## Requirements when editing
+
+- Excellent Lighthouse performance, semantic HTML, accessible contrast and focus states.
+- Basic SEO + OpenGraph metadata kept in sync with positioning.
+- No unnecessary JS or dependencies. Keep it small and maintainable.
 
 ## Content tone
 
-The copy is written in Paulo's voice: direct, no jargon, no frameworks-speak, short sentences. If you're rewriting copy, match that — don't add filler like "leverage," "synergy," or hedging phrases.
+Paulo's voice: direct, no jargon, no frameworks-speak, short sentences. If you rewrite copy, match that — no filler like "leverage," "synergy," or hedging phrases.
