@@ -14,8 +14,11 @@ No build step, no framework, no package manager.
 
 - `index.html` — the entire site: markup, an inline `<style>` block, and an inline `<script>` block. All CSS and JS live here.
 - `images/` — static assets. `paulo.jpg` is the optimized portrait used by the page and OG tags (900px, ~100KB). Keep images web-optimized; don't commit multi-MB originals.
+- `404.html` — custom error page, auto-served by Netlify (zero-config, filename convention) with a real 404 status for any nonexistent path.
+- `llms.txt` — machine-readable site summary for AI crawlers/agents.
+- `netlify/edge-functions/agent-404.js` — the one piece of server-side logic in this repo. Runs on every request; passes 200s through untouched. On a 404, negotiates on the `Accept` header: returns a short literal-markdown body (`text/markdown`) to requests that ask for it, otherwise passes through `404.html` with `Vary: Accept, Accept-Encoding` added. Zero-config (Netlify auto-discovers the file via the exported `config.path`), no bundler, no `netlify.toml` needed.
 
-There is no `package.json`, no `node_modules`, no test suite, no CI. Editing the site means editing `index.html` directly.
+There is no `package.json`, no `node_modules`, no test suite, no CI, no bundler. Editing the site means editing `index.html` directly. The edge function above is deliberately the sole exception to "no server-side logic" — keep it that way; don't grow it into a framework.
 
 ## Previewing changes
 
