@@ -222,8 +222,19 @@ main { flex: 1 0 auto; }
 .logos { margin-top: clamp(48px, 9vh, 96px); }
 .logos-label {
   font-size: 14px;
+  font-weight: 400;
   color: var(--ink-soft);
   margin-bottom: 24px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .logos-row {
   display: flex;
@@ -422,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       </div>
       <div class="logos">
-        <p class="logos-label">I've worked with technology leaders from companies like</p>
+        <h2 class="logos-label">I've worked with technology leaders from companies like</h2>
         <div class="logos-row">
           <img class="logo" src="images/logos/spotify.svg" alt="Spotify" loading="lazy" decoding="async">
           <img class="logo" src="images/logos/hotjar.svg" alt="Hotjar" loading="lazy" decoding="async">
@@ -437,6 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <section class="writing">
     <div class="wrap">
+      <h2 class="sr-only">Writing</h2>
       <p><strong>I also write The Hagakure</strong> — essays about technology, leadership, organizations, and making sense of an increasingly strange industry.</p>
       <a href="https://hagakure.substack.com/" class="read-link" target="_blank" rel="noopener">Read The Hagakure →</a>
     </div>
