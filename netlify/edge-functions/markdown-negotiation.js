@@ -5,7 +5,7 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.
+I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.
 
 Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.
 
@@ -18,6 +18,18 @@ I've spent 20+ years building and leading technology organizations. Sometimes it
 ## Companies I've worked with
 
 Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS
+
+## For your leadership team
+
+For CTOs, VPs of Engineering, founders, and People leads thinking about this for more than one person.
+
+**Make your managers better. Get your own time back.**
+
+I work across the layer — new managers building the fundamentals, experienced managers and directors sharpening judgment on hard people and organizational calls, senior leaders navigating ambiguity and consequential transitions.
+
+Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. You're not buying individual development — you're raising the capability of your whole management system, for roughly the cost of one more engineer.
+
+[Let's talk about your team →](https://calendar.app.google/jKuzeph3c6ndobgM8)
 
 ## Writing
 

@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paulo André — Technology leadership when there's no playbook</title>
-<meta name="description" content="I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.">
+<meta name="description" content="I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.">
 <link rel="canonical" href="https://pauloandre.tech">
 <meta property="og:title" content="Paulo André">
-<meta property="og:description" content="I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.">
+<meta property="og:description" content="I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.">
 <meta property="og:image" content="https://pauloandre.tech/images/paulo.jpg">
 <meta property="og:url" content="https://pauloandre.tech">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Paulo André">
-<meta name="twitter:description" content="I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.">
+<meta name="twitter:description" content="I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.">
 <meta name="twitter:image" content="https://pauloandre.tech/images/paulo.jpg">
 <meta name="theme-color" content="#FFFFFF" id="theme-color-meta">
 <script type="application/ld+json">
@@ -24,7 +24,7 @@
   "url": "https://pauloandre.tech",
   "image": "https://pauloandre.tech/images/paulo.jpg",
   "jobTitle": "Technology Leadership Coach & Advisor",
-  "description": "I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.",
+  "description": "I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Berlin",
@@ -74,9 +74,13 @@
   --portrait-bg: #1D1A16;
 }
 
-html { color-scheme: light dark; }
+html { color-scheme: light dark; scroll-behavior: smooth; }
 [data-theme="light"] { color-scheme: light; }
 [data-theme="dark"] { color-scheme: dark; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -257,6 +261,39 @@ main { flex: 1 0 auto; }
 .logo[alt="Adverity"] { height: 22px; }
 [data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
 
+/* ---- FOR YOUR LEADERSHIP TEAM ---- */
+.leadership {
+  padding-top: clamp(32px, 6vh, 56px);
+  padding-bottom: clamp(32px, 6vh, 56px);
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 24px;
+}
+.leadership .wrap { max-width: var(--measure); }
+.leadership h2 {
+  font-weight: 600;
+  font-size: clamp(21px, 2.4vw, 26px);
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+.leadership p.audience {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.leadership p.emphasis {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.leadership p {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+
 /* ---- WRITING LINE ---- */
 .writing {
   padding-top: clamp(28px, 5vh, 44px);
@@ -270,7 +307,7 @@ main { flex: 1 0 auto; }
   color: var(--ink-soft);
 }
 .writing strong { color: var(--ink); font-weight: 500; }
-.writing .read-link {
+.read-link {
   display: inline-block;
   margin-top: 14px;
   color: var(--ink);
@@ -278,7 +315,7 @@ main { flex: 1 0 auto; }
   padding-bottom: 2px;
   border-bottom: 1px solid var(--rule);
 }
-.writing .read-link:hover { border-color: var(--ink); text-decoration: none; }
+.read-link:hover { border-color: var(--ink); text-decoration: none; }
 
 /* ---- FOOTER ---- */
 footer {
@@ -324,8 +361,8 @@ footer {
 
 @media (max-width: 560px) {
   .top-bar { flex-wrap: wrap; gap: 12px 0; }
-  .top-bar-right { gap: 16px; }
-  .top-nav { gap: 16px; }
+  .top-bar-right { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+  .top-nav { gap: 10px 16px; flex-wrap: wrap; }
   .top-nav a { font-size: 13px; }
   .logos-row {
     display: grid;
@@ -399,6 +436,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <span class="wordmark">Paulo André</span>
     <div class="top-bar-right">
       <nav class="top-nav">
+        <a href="#for-teams">For teams</a>
         <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
         <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="nav-cta" target="_blank" rel="noopener" data-source="header">Talk to me</a>
@@ -422,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <h1>The hardest problems in technology leadership <br class="h1-break">don't have playbooks.</h1>
       <div class="hero-cols">
       <div class="hero-body">
-        <p class="lead-in">I coach and advise CTOs, VPs of Engineering, and founders dealing with difficult leadership and organizational problems.</p>
+        <p class="lead-in">I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.</p>
         <p class="situation">Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.</p>
         <p class="credential">I've spent 20+ years building and leading technology organizations. Sometimes it helps to have someone who's seen a lot of this before in your corner.</p>
         <p class="emphasis">What's keeping you awake at night?</p>
@@ -443,6 +481,17 @@ document.addEventListener('DOMContentLoaded', function () {
           <img class="logo" src="images/logos/amboss.svg" alt="AMBOSS" loading="lazy" decoding="async">
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="leadership" id="for-teams">
+    <div class="wrap">
+      <h2>For your leadership team</h2>
+      <p class="audience">For CTOs, VPs of Engineering, founders, and People leads thinking about this for more than one person.</p>
+      <p class="emphasis">Make your managers better. Get your own time back.</p>
+      <p>I work across the layer — new managers building the fundamentals, experienced managers and directors sharpening judgment on hard people and organizational calls, senior leaders navigating ambiguity and consequential transitions.</p>
+      <p>Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. You're not buying individual development — you're raising the capability of your whole management system, for roughly the cost of one more engineer.</p>
+      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="read-link" target="_blank" rel="noopener" data-source="leadership-team">Let's talk about your team →</a>
     </div>
   </section>
 

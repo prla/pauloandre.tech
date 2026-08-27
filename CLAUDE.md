@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Paulo André's personal landing page (pauloandre.tech) — a single static HTML file. It has one job: get the right visitor (CTOs, VPs of Engineering, technical founders) to think "I want to talk to this person" and book a call.
+Paulo André's personal landing page (pauloandre.tech) — a single static HTML file. It has one job: get the right visitor (engineering leaders, from new managers to CTOs, VPs of Engineering, and founders) to think "I want to talk to this person" and book a call. A secondary job: give org buyers (CTOs, VPs Eng, founders, People leads) considering Paulo for multiple leaders a clear, concise case — see the "For your leadership team" section.
 
-Positioning: **"The hardest problems in technology leadership don't have playbooks."** Not a consulting site — no packages, offers, methodology, or feature sections. The writing is the interface. Deletion is the strategy; resist adding sections.
+Positioning: **"The hardest problems in technology leadership don't have playbooks."** Not a consulting site — no packages, offers, methodology, or feature sections. The writing is the interface. Deletion is the strategy; resist adding sections. The "For your leadership team" section is the one deliberate exception — it exists because org buyers are a distinct audience with a distinct question (leverage across a management layer, not individual coaching), not because the one-section-at-a-time discipline has loosened. Don't add more.
 
 No build step, no framework, no package manager.
 
@@ -36,12 +36,13 @@ python3 -m http.server 8000
 
 ## Page structure
 
-One desktop viewport, roughly. In order:
+In order:
 
-1. **Header** — wordmark left; Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right.
-2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside.
-3. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
-4. **Footer** — "Paulo André · Berlin" and LinkedIn / Hagakure.
+1. **Header** — wordmark left; For teams / Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right. "For teams" is an in-page anchor (`#for-teams`), not a route.
+2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside, followed by the logo strip (credibility content).
+3. **For your leadership team** (`#for-teams`) — the org-buyer section. Audience line, a bolded central-idea line, two short paragraphs, one quiet CTA. Keep this to ~100–150 words; it should read as an aside from the same person talking, not a sales section.
+4. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
+5. **Footer** — "Paulo André · Berlin" and LinkedIn / Hagakure.
 
 ## Design conventions
 
