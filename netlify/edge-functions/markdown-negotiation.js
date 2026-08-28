@@ -1,11 +1,11 @@
 // Serves a clean-Markdown representation of the homepage (and the 404
 // page) to requests that prefer text/markdown over text/html, per
 // https://acceptmarkdown.com. Keep HOME_MARKDOWN in sync with the hero
-// copy in index.html by hand — there's no build step to generate it.
+// copy in index.html by hand. There's no build step to generate it.
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I coach and advise engineering leaders — from new managers to CTOs and founders — dealing with difficult leadership and organizational problems.
+I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.
 
 Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.
 
@@ -25,15 +25,15 @@ For CTOs, VPs of Engineering, founders, and People leads thinking about this for
 
 **Make your managers better. Get your own time back.**
 
-I work across the layer — new managers building the fundamentals, experienced managers and directors sharpening judgment on hard people and organizational calls, senior leaders navigating ambiguity and consequential transitions.
+I work across the whole layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
 
-Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. You're not buying individual development — you're raising the capability of your whole management system, for roughly the cost of one more engineer.
+Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. It costs about the same as hiring one more engineer, and it compounds across everyone they manage.
 
 [Let's talk about your team →](https://calendar.app.google/jKuzeph3c6ndobgM8)
 
 ## Writing
 
-I also write **The Hagakure** — essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
+I also write **The Hagakure**: essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
 
 [Read The Hagakure →](https://hagakure.substack.com/)
 
@@ -43,12 +43,12 @@ Paulo André · Berlin
 [LinkedIn](https://www.linkedin.com/in/paulorlandre/) · [Hagakure](https://hagakure.substack.com/)
 `;
 
-const NOT_FOUND_MARKDOWN = `# 404 — Not found
+const NOT_FOUND_MARKDOWN = `# 404: Not found
 
-This page doesn't exist. This is a single-page site — there's nothing else under this domain.
+This page doesn't exist. This is a single-page site. There's nothing else under this domain.
 
-- [pauloandre.tech](https://pauloandre.tech/) — the actual site
-- [/llms.txt](https://pauloandre.tech/llms.txt) — machine-readable summary
+- [pauloandre.tech](https://pauloandre.tech/): the actual site
+- [/llms.txt](https://pauloandre.tech/llms.txt): machine-readable summary
 `;
 
 function parseAccept(header) {
@@ -95,8 +95,8 @@ function notAcceptable() {
 }
 
 // mdQ strictly greater than htmlQ means the client explicitly asked for
-// markdown at a higher (or sole) preference. A tie — e.g. plain "Accept:
-// */*" from curl or a generic bot — keeps serving HTML, since that's this
+// markdown at a higher (or sole) preference. A tie (e.g. plain "Accept:
+// */*" from curl or a generic bot) keeps serving HTML, since that's this
 // site's default representation.
 function negotiate(accept, { markdown, status, htmlResponse }) {
   const mdQ = acceptQuality(accept, "text/markdown");
