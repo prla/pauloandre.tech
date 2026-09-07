@@ -5,7 +5,7 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.
+I work with engineering leaders and organizations dealing with difficult leadership and organizational problems.
 
 Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.
 
@@ -13,7 +13,7 @@ I've spent 20+ years building and leading technology organizations. Sometimes it
 
 **What's keeping you awake at night?**
 
-[Let's talk →](https://calendar.app.google/jKuzeph3c6ndobgM8)
+[Let's talk →](https://calendly.com/paulo-andre/30min)
 
 ## Companies I've worked with
 
@@ -29,7 +29,17 @@ I work across the whole layer: new managers who still need the fundamentals, dir
 
 Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. It costs about the same as hiring one more engineer, and it compounds across everyone they manage.
 
-[Let's talk about your team →](https://calendar.app.google/jKuzeph3c6ndobgM8)
+[Let's talk about your team →](https://calendly.com/paulo-andre/30min)
+
+## When you need someone to step in
+
+**I build the leadership layer an engineering organization is missing, then make myself unnecessary.**
+
+Sometimes coaching isn't enough and the organization itself needs work. I step in as interim CTO or VP of Engineering when a company has outgrown its structure, too much depends on the CEO or a handful of people, or the management layer simply isn't there yet.
+
+The job is to diagnose what's actually happening, put the right leadership structure in place, develop the people who can carry it forward, and get the organization operating without me, recruiting and onboarding a permanent leader when needed. Usually a focused engagement measured in months, not years.
+
+[Let's talk about your situation →](https://calendly.com/paulo-andre/30min)
 
 ## Writing
 

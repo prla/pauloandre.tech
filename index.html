@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paulo André · Technology leadership when there's no playbook</title>
-<meta name="description" content="I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.">
+<meta name="description" content="I coach engineering leaders, advise leadership teams, and step in as interim CTO or VP of Engineering when organizations need it.">
 <link rel="canonical" href="https://pauloandre.tech">
 <meta property="og:title" content="Paulo André">
-<meta property="og:description" content="I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.">
+<meta property="og:description" content="I coach engineering leaders, advise leadership teams, and step in as interim CTO or VP of Engineering when organizations need it.">
 <meta property="og:image" content="https://pauloandre.tech/images/paulo.jpg">
 <meta property="og:url" content="https://pauloandre.tech">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Paulo André">
-<meta name="twitter:description" content="I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.">
+<meta name="twitter:description" content="I coach engineering leaders, advise leadership teams, and step in as interim CTO or VP of Engineering when organizations need it.">
 <meta name="twitter:image" content="https://pauloandre.tech/images/paulo.jpg">
 <meta name="theme-color" content="#FFFFFF" id="theme-color-meta">
 <script type="application/ld+json">
@@ -23,8 +23,8 @@
   "name": "Paulo André",
   "url": "https://pauloandre.tech",
   "image": "https://pauloandre.tech/images/paulo.jpg",
-  "jobTitle": "Technology Leadership Coach & Advisor",
-  "description": "I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.",
+  "jobTitle": "Technology Leadership Coach, Advisor & Interim Executive",
+  "description": "I coach engineering leaders, advise leadership teams, and step in as interim CTO or VP of Engineering when organizations need it.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Berlin",
@@ -261,33 +261,38 @@ main { flex: 1 0 auto; }
 .logo[alt="Adverity"] { height: 22px; }
 [data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
 
-/* ---- FOR YOUR LEADERSHIP TEAM ---- */
-.leadership {
+/* ---- FOR YOUR LEADERSHIP TEAM / INTERIM LEADERSHIP ---- */
+.leadership,
+.interim {
   padding-top: clamp(32px, 6vh, 56px);
   padding-bottom: clamp(32px, 6vh, 56px);
   border-top: 1px solid var(--rule);
   scroll-margin-top: 24px;
 }
-.leadership h2 {
+.leadership h2,
+.interim h2 {
   max-width: var(--measure);
   font-weight: 600;
   font-size: clamp(21px, 2.4vw, 26px);
   letter-spacing: -0.01em;
   margin-bottom: 18px;
 }
-.leadership p.audience {
+.leadership p.audience,
+.interim p.audience {
   font-size: 14px;
   color: var(--ink-soft);
   margin-bottom: 18px;
 }
-.leadership p.emphasis {
+.leadership p.emphasis,
+.interim p.emphasis {
   font-weight: 500;
   color: var(--ink);
   font-size: clamp(18px, 1.7vw, 21px);
   line-height: 1.5;
   margin-bottom: 20px;
 }
-.leadership p {
+.leadership p,
+.interim p {
   max-width: var(--measure);
   font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.6;
@@ -420,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Book a call clicks
-  document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (link) {
     link.addEventListener('click', function () {
       var src = link.dataset.source || 'unknown';
       posthog.capture('book_call_clicked', { source: src });
@@ -438,9 +443,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="top-bar-right">
       <nav class="top-nav">
         <a href="#for-teams">For teams</a>
+        <a href="#interim">Interim</a>
         <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
         <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="nav-cta" target="_blank" rel="noopener" data-source="header">Talk to me</a>
+        <a href="https://calendly.com/paulo-andre/30min" class="nav-cta" target="_blank" rel="noopener" data-source="header">Talk to me</a>
       </nav>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -461,11 +467,11 @@ document.addEventListener('DOMContentLoaded', function () {
       <h1>The hardest problems in technology leadership <br class="h1-break">don't have playbooks.</h1>
       <div class="hero-cols">
       <div class="hero-body">
-        <p class="lead-in">I coach and advise engineering leaders, from new managers to CTOs and founders, dealing with difficult leadership and organizational problems.</p>
+        <p class="lead-in">I work with engineering leaders and organizations dealing with difficult leadership and organizational problems.</p>
         <p class="situation">Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.</p>
         <p class="credential">I've spent 20+ years building and leading technology organizations. Sometimes it helps to have someone who's seen a lot of this before in your corner.</p>
         <p class="emphasis">What's keeping you awake at night?</p>
-        <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="cta" target="_blank" rel="noopener" data-source="hero">Let's talk →</a>
+        <a href="https://calendly.com/paulo-andre/30min" class="cta" target="_blank" rel="noopener" data-source="hero">Let's talk →</a>
       </div>
       <div class="hero-portrait">
         <img src="images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
@@ -492,7 +498,17 @@ document.addEventListener('DOMContentLoaded', function () {
       <p class="emphasis">Make your managers better. Get your own time back.</p>
       <p>I work across the whole layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.</p>
       <p>Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. It costs about the same as hiring one more engineer, and it compounds across everyone they manage.</p>
-      <a href="https://calendar.app.google/jKuzeph3c6ndobgM8" class="read-link" target="_blank" rel="noopener" data-source="leadership-team">Let's talk about your team →</a>
+      <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="leadership-team">Let's talk about your team →</a>
+    </div>
+  </section>
+
+  <section class="interim" id="interim">
+    <div class="wrap">
+      <h2>When you need someone to step in</h2>
+      <p class="emphasis">I build the leadership layer an engineering organization is missing, then make myself unnecessary.</p>
+      <p>Sometimes coaching isn't enough and the organization itself needs work. I step in as interim CTO or VP of Engineering when a company has outgrown its structure, too much depends on the CEO or a handful of people, or the management layer simply isn't there yet.</p>
+      <p>The job is to diagnose what's actually happening, put the right leadership structure in place, develop the people who can carry it forward, and get the organization operating without me, recruiting and onboarding a permanent leader when needed. Usually a focused engagement measured in months, not years.</p>
+      <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim">Let's talk about your situation →</a>
     </div>
   </section>
 
