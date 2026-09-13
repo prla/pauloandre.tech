@@ -38,7 +38,7 @@ python3 -m http.server 8000
 
 In order:
 
-1. **Header** — wordmark left; For teams / Interim / Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right. "For teams" and "Interim" are in-page anchors (`#for-teams`, `#interim`), not routes — both point into the section below.
+1. **Header** — wordmark left; Ways to work / Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right. "Ways to work" is an in-page anchor (`#work-together`), not a route — it points at the section below.
 2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside, followed by the logo strip (credibility content).
 3. **Three ways to work together** (`#work-together`) — one section, three stacked modes in increasing order of scope: **01 With you** (`#with-you`, 1:1 coaching/advisory), **02 With your leaders** (`#for-teams`, developing a whole management layer), **03 Inside the organization** (`#interim`, advisory/diagnosis up to interim CTO/VP Engineering). Each mode is a subtle numbered label (visually decorative, with a screen-reader-only text label), a headline, one to three short paragraphs, and one quiet CTA. Interim CTO/VP Engineering is the most intensive version of mode 03, not a separate standalone section — don't split it back out.
 4. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
