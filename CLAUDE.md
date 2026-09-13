@@ -42,7 +42,7 @@ In order:
 2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside, followed by the logo strip (credibility content).
 3. **Three ways to work together** (`#work-together`) — one section, three stacked modes in increasing order of scope: **01 With you** (`#with-you`, 1:1 coaching/advisory), **02 With your leaders** (`#for-teams`, developing a whole management layer), **03 Inside the organization** (`#interim`, advisory/diagnosis up to interim CTO/VP Engineering). Each mode is a subtle numbered label (visually decorative, with a screen-reader-only text label), a headline, one to three short paragraphs, and one quiet CTA. Interim CTO/VP Engineering is the most intensive version of mode 03, not a separate standalone section — don't split it back out.
 4. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
-5. **Footer** — "Paulo André · Berlin" and LinkedIn / Hagakure.
+5. **Footer** — "© [year] Paulo André" and LinkedIn / Hagakure.
 
 ## Design conventions
 

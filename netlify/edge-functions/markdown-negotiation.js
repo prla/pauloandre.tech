@@ -61,7 +61,7 @@ I also write **The Hagakure**: essays about technology, leadership, organization
 
 ---
 
-Paulo André · Berlin
+© 2026 Paulo André
 [LinkedIn](https://www.linkedin.com/in/paulorlandre/) · [Hagakure](https://hagakure.substack.com/)
 `;
 
