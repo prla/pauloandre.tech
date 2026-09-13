@@ -1,6 +1,6 @@
 # Paulo André
 
-> I work with engineering leaders and organizations dealing with difficult leadership and organizational problems, as a coach, an advisor, or stepping in as interim CTO or VP of Engineering.
+> I work with technology leaders and organizations dealing with difficult leadership and organizational problems, as a coach, an advisor, or stepping in as interim CTO or VP of Engineering.
 
 The homepage is the whole pitch. About, Contact, and Privacy exist as reference pages. They don't add new claims beyond what's on the homepage.
 

@@ -5,7 +5,7 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I work with engineering leaders and organizations dealing with difficult leadership and organizational problems.
+I work with technology leaders and organizations dealing with difficult leadership and organizational problems.
 
 Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.
 
@@ -33,7 +33,7 @@ Sometimes that's coaching. Sometimes it's advice from someone who has sat in the
 
 ### 02 — With your leaders
 
-**Make your managers better. Get your own time back.**
+**Build a stronger leadership layer.**
 
 I work across the whole leadership layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
 
