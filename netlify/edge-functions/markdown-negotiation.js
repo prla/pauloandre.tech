@@ -19,25 +19,37 @@ I've spent 20+ years building and leading technology organizations. Sometimes it
 
 Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS
 
-## For your leadership team
+## Three ways to work together
 
-For CTOs, VPs of Engineering, founders, and People leads thinking about this for more than one person.
+### 01 — With you
+
+**A thinking partner for the decisions you can't delegate.**
+
+I work one-to-one with CTOs, VPs, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.
+
+Sometimes that's coaching. Sometimes it's advice from someone who has sat in the seat. Usually it's some combination of both.
+
+[Let's talk about what's going on →](https://calendly.com/paulo-andre/30min)
+
+### 02 — With your leaders
 
 **Make your managers better. Get your own time back.**
 
-I work across the whole layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
+I work across the whole leadership layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
 
-Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. It costs about the same as hiring one more engineer, and it compounds across everyone they manage.
+Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do.
 
 [Let's talk about your team →](https://calendly.com/paulo-andre/30min)
 
-## When you need someone to step in
+### 03 — Inside the organization
 
-**I build the leadership layer an engineering organization is missing, then make myself unnecessary.**
+**Sometimes the problem isn't one person.**
 
-Sometimes coaching isn't enough and the organization itself needs work. I step in as interim CTO or VP of Engineering when a company has outgrown its structure, too much depends on the CEO or a handful of people, or the management layer simply isn't there yet.
+I work directly with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, structural problems, a founder bottleneck, delivery that has stopped working, or a transition the existing team can't navigate alone.
 
-The job is to diagnose what's actually happening, put the right leadership structure in place, develop the people who can carry it forward, and get the organization operating without me, recruiting and onboarding a permanent leader when needed. Usually a focused engagement measured in months, not years.
+That can mean diagnosing the situation and working alongside the existing leadership team. Or, when necessary, stepping in temporarily as CTO or VP Engineering.
+
+The goal is the same: understand what's actually happening, strengthen the system and the people inside it, and make myself unnecessary.
 
 [Let's talk about your situation →](https://calendly.com/paulo-andre/30min)
 

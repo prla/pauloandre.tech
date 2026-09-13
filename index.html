@@ -261,38 +261,40 @@ main { flex: 1 0 auto; }
 .logo[alt="Adverity"] { height: 22px; }
 [data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
 
-/* ---- FOR YOUR LEADERSHIP TEAM / INTERIM LEADERSHIP ---- */
-.leadership,
-.interim {
+/* ---- THREE WAYS TO WORK TOGETHER ---- */
+.ways {
   padding-top: clamp(32px, 6vh, 56px);
-  padding-bottom: clamp(32px, 6vh, 56px);
+  padding-bottom: clamp(8px, 1vh, 16px);
   border-top: 1px solid var(--rule);
-  scroll-margin-top: 24px;
 }
-.leadership h2,
-.interim h2 {
+.ways > .wrap > h2 {
   max-width: var(--measure);
   font-weight: 600;
   font-size: clamp(21px, 2.4vw, 26px);
   letter-spacing: -0.01em;
-  margin-bottom: 18px;
+  margin-bottom: clamp(28px, 5vh, 48px);
 }
-.leadership p.audience,
-.interim p.audience {
-  font-size: 14px;
+.mode {
+  padding-top: clamp(28px, 5vh, 44px);
+  padding-bottom: clamp(28px, 5vh, 44px);
+  scroll-margin-top: 24px;
+}
+.mode + .mode { border-top: 1px solid var(--rule); }
+.mode-number {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.mode h3 {
+  max-width: var(--measure);
+  font-weight: 600;
+  font-size: clamp(19px, 2.1vw, 23px);
+  letter-spacing: -0.01em;
   margin-bottom: 18px;
 }
-.leadership p.emphasis,
-.interim p.emphasis {
-  font-weight: 500;
-  color: var(--ink);
-  font-size: clamp(18px, 1.7vw, 21px);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-.leadership p,
-.interim p {
+.mode p {
   max-width: var(--measure);
   font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.6;
@@ -491,24 +493,34 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </section>
 
-  <section class="leadership" id="for-teams">
+  <section class="ways" id="work-together">
     <div class="wrap">
-      <h2>For your leadership team</h2>
-      <p class="audience">For CTOs, VPs of Engineering, founders, and People leads thinking about this for more than one person.</p>
-      <p class="emphasis">Make your managers better. Get your own time back.</p>
-      <p>I work across the whole layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.</p>
-      <p>Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do. It costs about the same as hiring one more engineer, and it compounds across everyone they manage.</p>
-      <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="leadership-team">Let's talk about your team →</a>
-    </div>
-  </section>
+      <h2>Three ways to work together</h2>
 
-  <section class="interim" id="interim">
-    <div class="wrap">
-      <h2>When you need someone to step in</h2>
-      <p class="emphasis">I build the leadership layer an engineering organization is missing, then make myself unnecessary.</p>
-      <p>Sometimes coaching isn't enough and the organization itself needs work. I step in as interim CTO or VP of Engineering when a company has outgrown its structure, too much depends on the CEO or a handful of people, or the management layer simply isn't there yet.</p>
-      <p>The job is to diagnose what's actually happening, put the right leadership structure in place, develop the people who can carry it forward, and get the organization operating without me, recruiting and onboarding a permanent leader when needed. Usually a focused engagement measured in months, not years.</p>
-      <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim">Let's talk about your situation →</a>
+      <div class="mode" id="with-you">
+        <span class="mode-number" aria-hidden="true">01</span>
+        <h3><span class="sr-only">With you — </span>A thinking partner for the decisions you can't delegate.</h3>
+        <p>I work one-to-one with CTOs, VPs, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.</p>
+        <p>Sometimes that's coaching. Sometimes it's advice from someone who has sat in the seat. Usually it's some combination of both.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="with-you">Let's talk about what's going on →</a>
+      </div>
+
+      <div class="mode" id="for-teams">
+        <span class="mode-number" aria-hidden="true">02</span>
+        <h3><span class="sr-only">With your leaders — </span>Make your managers better. Get your own time back.</h3>
+        <p>I work across the whole leadership layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.</p>
+        <p>Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="leadership-team">Let's talk about your team →</a>
+      </div>
+
+      <div class="mode" id="interim">
+        <span class="mode-number" aria-hidden="true">03</span>
+        <h3><span class="sr-only">Inside the organization — </span>Sometimes the problem isn't one person.</h3>
+        <p>I work directly with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, structural problems, a founder bottleneck, delivery that has stopped working, or a transition the existing team can't navigate alone.</p>
+        <p>That can mean diagnosing the situation and working alongside the existing leadership team. Or, when necessary, stepping in temporarily as CTO or VP Engineering.</p>
+        <p>The goal is the same: understand what's actually happening, strengthen the system and the people inside it, and make myself unnecessary.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim">Let's talk about your situation →</a>
+      </div>
     </div>
   </section>
 
