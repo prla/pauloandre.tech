@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<title>Paulo André · Liderança tecnológica quando não há guião</title>
+<meta name="description" content="Faço coaching a líderes de engenharia, aconselho equipas de liderança, e assumo funções interinas de CTO ou VP of Engineering quando as organizações precisam.">
+<link rel="canonical" href="https://pauloandre.tech/pt/">
+<meta property="og:title" content="Paulo André">
+<meta property="og:description" content="Faço coaching a líderes de engenharia, aconselho equipas de liderança, e assumo funções interinas de CTO ou VP of Engineering quando as organizações precisam.">
+<meta property="og:image" content="https://pauloandre.tech/images/paulo.jpg">
+<meta property="og:url" content="https://pauloandre.tech/pt/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Paulo André">
+<meta name="twitter:description" content="Faço coaching a líderes de engenharia, aconselho equipas de liderança, e assumo funções interinas de CTO ou VP of Engineering quando as organizações precisam.">
+<meta name="twitter:image" content="https://pauloandre.tech/images/paulo.jpg">
+<meta name="theme-color" content="#FFFFFF" id="theme-color-meta">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Paulo André",
+  "url": "https://pauloandre.tech",
+  "image": "https://pauloandre.tech/images/paulo.jpg",
+  "jobTitle": "Coach de Liderança Tecnológica, Consultor e Executivo Interino",
+  "description": "Faço coaching a líderes de engenharia, aconselho equipas de liderança, e assumo funções interinas de CTO ou VP of Engineering quando as organizações precisam.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Berlin",
+    "addressCountry": "DE"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/paulorlandre/",
+    "https://hagakure.substack.com/"
+  ]
+}
+</script>
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored === 'light' || stored === 'dark' ? stored : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-soft: #5C5C5C;
+  --rule: #E5E5E2;
+  --blue: #5384C1;
+  --copper: #A37F60;
+  --portrait-bg: #ECECE9;
+  --gutter: clamp(22px, 5vw, 56px);
+  --measure: 42rem; /* ~672px editorial line length */
+}
+
+[data-theme="dark"] {
+  --bg: #1B1814;
+  --ink: #ECE6D9;
+  --ink-soft: #A79E8E;
+  --rule: #2F2B25;
+  --blue: #8FB1D8;
+  --copper: #CD9974;
+  --portrait-bg: #1D1A16;
+}
+
+html { color-scheme: light dark; scroll-behavior: smooth; }
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { width: 100%; max-width: 60rem; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+/* ---- HEADER ---- */
+.site-header { padding-top: clamp(20px, 3vh, 32px); padding-bottom: clamp(20px, 3vh, 32px); }
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.wordmark {
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.top-bar-right { display: flex; align-items: center; gap: clamp(16px, 3vw, 30px); }
+.top-nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 30px); }
+.top-nav a {
+  color: var(--ink-soft);
+  font-size: 14px;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.top-nav a:hover { color: var(--ink); text-decoration: none; }
+.top-nav a.nav-cta {
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--ink);
+}
+.top-nav a.nav-cta:hover { opacity: 0.6; text-decoration: none; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  margin: -6px -6px -6px 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* ---- HERO ---- */
+main { flex: 1 0 auto; }
+.hero { padding-top: clamp(48px, 9vh, 104px); padding-bottom: clamp(56px, 11vh, 128px); }
+.hero-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 320px);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+  margin-top: clamp(40px, 6vh, 64px);
+}
+.hero-body { max-width: var(--measure); }
+
+.hero h1 {
+  font-family: 'Google Sans Code', 'Instrument Sans', monospace;
+  font-weight: 600;
+  font-size: clamp(33px, 5vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+/* Mobile-only line break before the closing clause (see media query) */
+.hero h1 .h1-break { display: none; }
+
+.hero p { margin-bottom: 22px; }
+.hero p.lead-in {
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.55;
+  color: var(--ink);
+}
+.hero p.situation,
+.hero p.credential { color: var(--ink-soft); }
+.hero p.emphasis {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.5;
+  margin-top: 32px;
+  margin-bottom: 36px;
+}
+
+.cta {
+  display: inline-block;
+  color: var(--ink);
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ink);
+  transition: opacity 0.2s ease;
+}
+.cta:hover { opacity: 0.6; text-decoration: none; }
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+  background: var(--portrait-bg);
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+/* ---- LOGO STRIP ---- */
+.logos { margin-top: clamp(48px, 9vh, 96px); }
+.logos-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.logos-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(20px, 2.6vw, 34px);
+}
+.logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: brightness(0) opacity(0.5);
+}
+/* Per-logo optical balancing: match cap-heights (icon+wordmark marks read
+   smaller) and nudge to a shared optical centerline (descenders/padding
+   inside each viewBox otherwise throw off box-centering). */
+.logo[alt="Spotify"] { height: 25px; }
+.logo[alt="Hotjar"] { height: 25px; transform: translateY(-1.5px); }
+.logo[alt="Enigma"] { height: 23px; transform: translateY(2px); }
+.logo[alt="Adverity"] { height: 22px; }
+[data-theme="dark"] .logo { filter: brightness(0) invert(1) opacity(0.55); }
+
+/* ---- THREE WAYS TO WORK TOGETHER ---- */
+.ways {
+  padding-top: clamp(32px, 6vh, 56px);
+  padding-bottom: clamp(8px, 1vh, 16px);
+  border-top: 1px solid var(--rule);
+}
+.ways > .wrap > h2 {
+  max-width: var(--measure);
+  font-weight: 600;
+  font-size: clamp(21px, 2.4vw, 26px);
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(28px, 5vh, 48px);
+}
+.mode {
+  padding-top: clamp(28px, 5vh, 44px);
+  padding-bottom: clamp(28px, 5vh, 44px);
+  scroll-margin-top: 24px;
+}
+.mode + .mode { border-top: 1px solid var(--rule); }
+.mode-number {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.mode h3 {
+  max-width: var(--measure);
+  font-weight: 600;
+  font-size: clamp(19px, 2.1vw, 23px);
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+.mode p {
+  max-width: var(--measure);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+
+/* ---- WRITING LINE ---- */
+.writing {
+  padding-top: clamp(28px, 5vh, 44px);
+  padding-bottom: clamp(28px, 5vh, 44px);
+  border-top: 1px solid var(--rule);
+}
+.writing p {
+  max-width: var(--measure);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.writing strong { color: var(--ink); font-weight: 500; }
+.read-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--rule);
+}
+.read-link:hover { border-color: var(--ink); text-decoration: none; }
+
+/* ---- FOOTER ---- */
+footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin-top: clamp(40px, 8vh, 96px);
+}
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  color: var(--ink-soft);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 720px) {
+  .hero-cols { grid-template-columns: 1fr; gap: clamp(24px, 5vw, 36px); }
+  .hero-portrait { order: -1; display: flex; justify-content: center; }
+  .portrait { max-width: 148px; }
+  .hero h1 {
+    font-size: clamp(23px, 6.2vw, 32px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .hero h1 .h1-break { display: inline; }
+}
+
+@media (max-width: 560px) {
+  .top-bar { flex-wrap: wrap; gap: 12px 0; }
+  .top-bar-right { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+  .top-nav { gap: 10px 16px; flex-wrap: wrap; }
+  .top-nav a { font-size: 13px; }
+  .logos-row {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    gap: 26px 44px;
+  }
+}
+</style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Mi Ri init Vi Gi Rr Wi Ji Bi capture calculateEventProperties tn register register_once register_for_session unregister unregister_for_session an getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync un identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty nn Xi createPersonProfile setInternalOrTestUser sn Hi cn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ki debug Lr rn getPageViewId captureTraceFeedback captureTraceMetric Di".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_jaKpCBZc0Hfd5SuvV7ZowLeI8rGtov27RMoHoUmyZcT', {
+  api_host: 'https://t.pauloandre.tech',
+  ui_host: 'https://eu.posthog.com',
+  defaults: '2026-01-30',
+  person_profiles: 'identified_only',
+  persistence: 'localStorage',
+  autocapture: false,
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeColorMeta = document.getElementById('theme-color-meta');
+  var THEME_COLORS = { light: '#FFFFFF', dark: '#1B1814' };
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeColorMeta) themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
+    }
+  }
+
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      posthog.capture('theme_toggled', { theme: next });
+    });
+  }
+
+  if (window.matchMedia) {
+    var mql = window.matchMedia('(prefers-color-scheme: dark)');
+    var mqlHandler = function (e) {
+      try { if (localStorage.getItem('theme')) return; } catch (err) {}
+      applyTheme(e.matches ? 'dark' : 'light');
+    };
+    if (mql.addEventListener) mql.addEventListener('change', mqlHandler);
+    else if (mql.addListener) mql.addListener(mqlHandler);
+  }
+
+  // Book a call clicks
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var src = link.dataset.source || 'unknown';
+      posthog.capture('book_call_clicked', { source: src });
+      posthog.capture('outbound_click', { destination: 'calendar', source: src });
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap top-bar">
+    <span class="wordmark">Paulo André</span>
+    <div class="top-bar-right">
+      <nav class="top-nav">
+        <a href="#work-together">Formas de trabalhar</a>
+        <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
+        <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://calendly.com/paulo-andre/30min" class="nav-cta" target="_blank" rel="noopener" data-source="header-pt">Fala comigo</a>
+      </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Mudar para tema escuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Os problemas mais difíceis em liderança tecnológica <br class="h1-break">não têm guião.</h1>
+      <div class="hero-cols">
+      <div class="hero-body">
+        <p class="lead-in">Trabalho com líderes tecnológicos e organizações que enfrentam problemas difíceis de liderança e de organização.</p>
+        <p class="situation">A engenharia não está a funcionar e não consegues bem explicar porquê. O teu CEO quer uma estratégia de IA para ontem. Estás a evitar uma decisão difícil sobre pessoas. O cargo que costumava servir-te já não serve. Ou simplesmente há algo que não está bem e estás demasiado perto para o ver com clareza.</p>
+        <p class="credential">Passei mais de 20 anos a construir e a liderar organizações tecnológicas. Às vezes ajuda ter do teu lado alguém que já viu muito disto antes.</p>
+        <p class="emphasis">O que é que te tira o sono?</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="cta" target="_blank" rel="noopener" data-source="hero-pt">Vamos falar →</a>
+      </div>
+      <div class="hero-portrait">
+        <img src="/images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
+      </div>
+      </div>
+      <div class="logos">
+        <h2 class="logos-label">Já trabalhei com líderes tecnológicos de empresas como</h2>
+        <div class="logos-row">
+          <img class="logo" src="/images/logos/spotify.svg" alt="Spotify" loading="lazy" decoding="async">
+          <img class="logo" src="/images/logos/hotjar.svg" alt="Hotjar" loading="lazy" decoding="async">
+          <img class="logo" src="/images/logos/enigma.svg" alt="Enigma" loading="lazy" decoding="async">
+          <img class="logo" src="/images/logos/adverity.svg" alt="Adverity" loading="lazy" decoding="async">
+          <img class="logo" src="/images/logos/deliveryhero.svg" alt="Delivery Hero" loading="lazy" decoding="async">
+          <img class="logo" src="/images/logos/amboss.svg" alt="AMBOSS" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ways" id="work-together">
+    <div class="wrap">
+      <h2>Três formas de trabalharmos juntos</h2>
+
+      <div class="mode" id="with-you">
+        <span class="mode-number" aria-hidden="true">01</span>
+        <h3><span class="sr-only">Contigo — </span>Um parceiro de pensamento para as decisões que não podes delegar.</h3>
+        <p>Trabalho a solo com CTOs, VPs, founders e outros líderes tecnológicos seniores que enfrentam decisões difíceis, transições, problemas de pessoas e complexidade organizacional.</p>
+        <p>Às vezes isso é coaching. Às vezes é o conselho de alguém que já esteve nessa cadeira. Normalmente é uma combinação das duas coisas.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="with-you-pt">Vamos falar sobre o que se passa →</a>
+      </div>
+
+      <div class="mode" id="for-teams">
+        <span class="mode-number" aria-hidden="true">02</span>
+        <h3><span class="sr-only">Com os teus líderes — </span>Constrói uma camada de liderança mais forte.</h3>
+        <p>Trabalho em toda a camada de liderança: novos managers que ainda precisam dos fundamentos, diretores a tomar decisões difíceis sobre pessoas e estrutura, líderes seniores em transições ambíguas e de alto risco.</p>
+        <p>Melhores managers resolvem mais coisas localmente. Menos escalonamentos chegam até ti. Mais do teu tempo fica livre para o trabalho que só tu podes fazer.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="leadership-team-pt">Vamos falar sobre a tua equipa →</a>
+      </div>
+
+      <div class="mode" id="interim">
+        <span class="mode-number" aria-hidden="true">03</span>
+        <h3><span class="sr-only">Dentro da organização — </span>Às vezes o problema não é uma pessoa.</h3>
+        <p>Trabalho diretamente com founders e líderes tecnológicos quando é a própria organização que precisa de atenção: responsabilidades pouco claras, lacunas de liderança, problemas estruturais, um founder que se tornou o gargalo, uma entrega que deixou de funcionar, ou uma transição que a equipa atual não consegue navegar sozinha.</p>
+        <p>Isso pode significar diagnosticar a situação e trabalhar lado a lado com a equipa de liderança existente. Ou, quando necessário, assumir temporariamente o papel de CTO ou VP Engineering.</p>
+        <p>O objetivo é sempre o mesmo: perceber o que está realmente a acontecer, reforçar o sistema e as pessoas dentro dele, e tornar-me dispensável.</p>
+        <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim-pt">Vamos falar sobre a tua situação →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="writing">
+    <div class="wrap">
+      <h2 class="sr-only">Escrita</h2>
+      <p><strong>Também escrevo o The Hagakure</strong>: ensaios sobre tecnologia, liderança, organizações, e a tentativa de dar sentido a uma indústria cada vez mais estranha.</p>
+      <a href="https://hagakure.substack.com/" class="read-link" target="_blank" rel="noopener">Lê o The Hagakure →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-bar">
+    <span>Paulo André · Berlim</span>
+    <span class="footer-links">
+      <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
