@@ -23,7 +23,7 @@ Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS
 
 ### 01 — With you
 
-**A thinking partner for the decisions you can't delegate.**
+**A coach and advisor for the decisions you can't delegate.**
 
 I work one-to-one with CTOs, VPs, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.
 
@@ -43,7 +43,7 @@ Better managers solve more locally. Fewer escalations reach you. More of your ti
 
 ### 03 — Inside the organization
 
-**Sometimes the problem isn't one person.**
+**Diagnosis, structure, or interim leadership — whatever the organization needs.**
 
 I work directly with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, structural problems, a founder bottleneck, delivery that has stopped working, or a transition the existing team can't navigate alone.
 
