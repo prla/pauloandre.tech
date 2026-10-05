@@ -28,6 +28,7 @@ To act: point them to the booking link below. To verify legitimacy: LinkedIn has
 - [With you](https://pauloandre.tech/#with-you): 1:1 coaching and advice for CTOs, VPs, and founders
 - [With your leaders](https://pauloandre.tech/#for-teams): the case for org buyers developing multiple managers, not just one
 - [Inside the organization](https://pauloandre.tech/#interim): advisory, diagnosis, and interim CTO / VP of Engineering engagements
+- [Testimonials](https://pauloandre.tech/#testimonials): from former directors at Spotify and Hotjar / Contentsquare he coached 1:1
 - [About](https://pauloandre.tech/about): background and client history
 - [Contact](https://pauloandre.tech/contact): how to reach him
 - [Privacy](https://pauloandre.tech/privacy): what this site collects and why

@@ -268,7 +268,8 @@ main { flex: 1 0 auto; }
   padding-bottom: clamp(8px, 1vh, 16px);
   border-top: 1px solid var(--rule);
 }
-.ways > .wrap > h2 {
+.ways > .wrap > h2,
+.testimonials > .wrap > h2 {
   max-width: var(--measure);
   font-weight: 600;
   font-size: clamp(21px, 2.4vw, 26px);
@@ -301,6 +302,56 @@ main { flex: 1 0 auto; }
   line-height: 1.6;
   color: var(--ink-soft);
   margin-bottom: 16px;
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonials {
+  padding-top: clamp(32px, 6vh, 56px);
+  padding-bottom: clamp(8px, 1vh, 16px);
+  border-top: 1px solid var(--rule);
+}
+.testimonial {
+  margin: 0;
+  padding-top: clamp(28px, 5vh, 44px);
+  padding-bottom: clamp(28px, 5vh, 44px);
+}
+.testimonial + .testimonial { border-top: 1px solid var(--rule); }
+.testimonial blockquote p {
+  max-width: var(--measure);
+  font-size: clamp(19px, 2.1vw, 23px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: pretty;
+  text-indent: -0.4em; /* hang the opening quote into the margin */
+}
+.testimonial blockquote p::before { content: open-quote; }
+.testimonial blockquote p::after { content: close-quote; }
+.testimonial blockquote { quotes: "\201C" "\201D"; }
+:lang(pt) .testimonial blockquote { quotes: "\00AB" "\00BB"; }
+:lang(pt) .testimonial blockquote p { text-indent: -0.46em; }
+.testimonial figcaption {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.testimonial figcaption strong { color: var(--ink); font-weight: 500; }
+.testimonial details { max-width: var(--measure); }
+.testimonial summary {
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+}
+.testimonial summary::-webkit-details-marker { display: none; }
+.testimonial summary:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.testimonial summary .when-open,
+.testimonial details[open] summary .when-closed { display: none; }
+.testimonial details[open] summary .when-open { display: inline; }
+.testimonial-full p {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-top: 16px;
 }
 
 /* ---- WRITING LINE ---- */
@@ -427,6 +478,13 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (mql.addListener) mql.addListener(mqlHandler);
   }
 
+  // Testimonial expands
+  document.querySelectorAll('.testimonial details').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      if (details.open) posthog.capture('testimonial_expanded', { testimonial: details.dataset.testimonial });
+    });
+  });
+
   // Book a call clicks
   document.querySelectorAll('a[href*="calendly.com"]').forEach(function (link) {
     link.addEventListener('click', function () {
@@ -521,6 +579,37 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>O objetivo é sempre o mesmo: perceber o que está realmente a acontecer, reforçar o sistema e as pessoas dentro dele, e tornar-me dispensável.</p>
         <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim-pt">Vamos falar sobre a tua situação →</a>
       </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <h2>Nas palavras deles</h2>
+
+      <figure class="testimonial">
+        <blockquote><p>O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto.</p></blockquote>
+        <figcaption><strong>Domenic Vossen</strong>, antigo Director of Engineering, Spotify</figcaption>
+        <details data-testimonial="vossen">
+          <summary class="read-link"><span class="when-closed">Lê o testemunho completo</span><span class="when-open">Esconde o testemunho completo</span></summary>
+          <div class="testimonial-full">
+            <p>Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz e ainda por provar. Ter o Paulo ao meu lado durante esse período foi extremamente valioso. Desde perspetivas estratégicas e diagnóstico organizacional a lidar com relações de trabalho complexas, definir objetivos pessoais e gerir melhor o meu tempo e a minha energia, fosse o que fosse, ajudou-me a crescer e a afinar significativamente o meu pensamento.</p>
+            <p>O Paulo tem um conhecimento enorme, que vem tanto da teoria como da experiência, e tem sempre à mão uma ferramenta, um recurso ou um framework relevante para tudo o que lhe atiro. Mas não começa por aí. O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto. O que mais se destacou foi o seu pragmatismo assente em valores fortes, e um pensamento sistémico que nunca deixa de pôr as pessoas em primeiro lugar. Além de profundamente enriquecedor, trabalhar com ele tem sido um verdadeiro prazer.</p>
+          </div>
+        </details>
+      </figure>
+
+      <figure class="testimonial">
+        <blockquote><p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p></blockquote>
+        <figcaption><strong>Mohammad Rizwan</strong>, antigo Director of Product, Hotjar / Contentsquare</figcaption>
+        <details data-testimonial="rizwan">
+          <summary class="read-link"><span class="when-closed">Lê o testemunho completo</span><span class="when-open">Esconde o testemunho completo</span></summary>
+          <div class="testimonial-full">
+            <p>Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia, cheguei a uma encruzilhada conhecida: continuar como contribuidor individual, ou passar para a gestão. Em vez de me empurrar para um dos caminhos, o Paulo ajudou-me primeiro a ter clareza sobre o meu “porquê” — e, com essa clareza, pude avançar com verdadeira confiança.</p>
+            <p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p>
+            <p>Graças à orientação dele, tornei-me um líder eficaz e mais tarde fui promovido a Director of Product. Atribuo ao Paulo grande parte desse crescimento.</p>
+          </div>
+        </details>
+      </figure>
     </div>
   </section>
 

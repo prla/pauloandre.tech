@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Paulo André's personal landing page (pauloandre.tech) — a single static HTML file. It has one job: get the right visitor (engineering leaders, from new managers to CTOs, VPs of Engineering, and founders) to think "I want to talk to this person" and book a call. A secondary job: make the three ways of working with Paulo (1:1, across a leadership layer, or inside the organization) obvious at a glance — see "Three ways to work together".
 
-Positioning: **"The hardest problems in technology leadership don't have playbooks."** Not a consulting site — no packages, pricing, methodology, or feature sections. The writing is the interface. Deletion is the strategy; resist adding sections beyond the three engagement modes already on the page. Those three modes are one section, not three separate pitches — they read as increasing scope (individual → leadership layer → organization), not as unrelated SKUs.
+Positioning: **"The hardest problems in technology leadership don't have playbooks."** Not a consulting site — no packages, pricing, methodology, or feature sections. The writing is the interface. Deletion is the strategy; resist adding sections beyond the three engagement modes and the testimonials already on the page. Those three modes are one section, not three separate pitches — they read as increasing scope (individual → leadership layer → organization), not as unrelated SKUs.
 
 No build step, no framework, no package manager.
 
@@ -41,8 +41,9 @@ In order:
 1. **Header** — wordmark left; Ways to work / Hagakure / LinkedIn / Talk to me + a light/dark theme toggle right. "Ways to work" is an in-page anchor (`#work-together`), not a route — it points at the section below.
 2. **Hero** — headline, four short paragraphs, an emphasis line, a single CTA, and the portrait alongside, followed by the logo strip (credibility content).
 3. **Three ways to work together** (`#work-together`) — one section, three stacked modes in increasing order of scope: **01 With you** (`#with-you`, 1:1 coaching/advisory), **02 With your leaders** (`#for-teams`, developing a whole management layer), **03 Inside the organization** (`#interim`, advisory/diagnosis up to interim CTO/VP Engineering). Each mode is a subtle numbered label (visually decorative, with a screen-reader-only text label), a headline, one to three short paragraphs, and one quiet CTA. Interim CTO/VP Engineering is the most intensive version of mode 03, not a separate standalone section — don't split it back out.
-4. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
-5. **Footer** — "© [year] Paulo André" and LinkedIn / Hagakure.
+4. **In their words** (`#testimonials`) — client testimonials, each a `<figure>`: a short verbatim excerpt as the visible pull quote, attribution, and the full note behind a native `<details>` toggle (fires PostHog `testimonial_expanded`). Pull quotes get typographic quotation marks via CSS (“ ” in English, « » on `/pt/`), with the opening mark hung into the margin — no oversized decorative quote glyphs, cards, headshots, or carousel. The `/pt/` page carries translated versions; `HOME_MARKDOWN` carries the full English text.
+5. **Writing line** — one paragraph pointing to Hagakure with a "Read Hagakure →" link.
+6. **Footer** — "© [year] Paulo André" and LinkedIn / Hagakure.
 
 ## Design conventions
 
@@ -57,7 +58,7 @@ Extremely restrained, editorial rather than SaaS. Preserve this when editing:
 ## Integrations (don't break these)
 
 - **Booking link**: `https://calendly.com/paulo-andre/30min` — every CTA points here. Clicks fire a PostHog `book_call_clicked` event via the `data-source` attribute.
-- **Analytics**: PostHog, initialized inline (`api_host: t.pauloandre.tech`). Also tracks `theme_toggled`.
+- **Analytics**: PostHog, initialized inline (`api_host: t.pauloandre.tech`). Also tracks `theme_toggled` and `testimonial_expanded`.
 - **Theme toggle**: light/dark, persisted to `localStorage`, respects `prefers-color-scheme`. An inline `<head>` script sets the theme before paint to avoid a flash.
 - **External links**: LinkedIn (`/in/paulorlandre/`) and Hagakure (`hagakure.substack.com`).
 

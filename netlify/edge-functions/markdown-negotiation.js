@@ -53,6 +53,22 @@ The goal is the same: understand what's actually happening, strengthen the syste
 
 [Let's talk about your situation →](https://calendly.com/paulo-andre/30min)
 
+## In their words
+
+> I first started working with Paulo when I took on an exciting and complex new project at Spotify, as engineering director for a greenfield, yet-to-be-proven product area. Having Paulo by my side during that time was incredibly valuable. From strategic insights and org debugging to navigating complex work relationships, determining personal goals and managing my time and energy more effectively, whatever it was, he helped me grow and significantly sharpen my thinking.
+>
+> Paulo has tremendous knowledge, drawn from both theory and experience, and always has a relevant tool, resource or framework at hand for whatever I've thrown at him. Yet he doesn't lead with it. His focus is first and foremost on me and my specific situation, and he offers suggestions only where they genuinely apply. What stood out most was his pragmatism grounded in strong values, and his systems thinking that always stays human-first. Beyond being deeply enriching, working with him has been an absolute pleasure.
+
+— **Domenic Vossen**, former Director of Engineering, Spotify
+
+> I worked with Paulo during my time at Hotjar, and his coaching was invaluable to my growth as a product leader. Like many people in tech, I'd hit a familiar fork in the road: remain an individual contributor, or move into management. Rather than pushing me toward one path, Paulo first helped me get clear on my "why" — and with that clarity, I could move forward with real confidence.
+>
+> I chose management, and Paulo guided me through the transition, helping me become the leader I actually wanted to be, not just one shaped by management books.
+>
+> Thanks to his guidance, I grew into an effective leader and was later promoted to Director of Product. I credit Paulo with a lot of that growth.
+
+— **Mohammad Rizwan**, former Director of Product, Hotjar / Contentsquare
+
 ## Writing
 
 I also write **The Hagakure**: essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
