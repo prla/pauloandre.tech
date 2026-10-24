@@ -5,9 +5,9 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I work with technology leaders and organizations dealing with difficult leadership and organizational problems.
+I coach and advise CTOs, VPs of Engineering and founders through difficult leadership and organizational problems. I'm based in Berlin.
 
-Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. Or something simply feels wrong and you're too close to see it clearly.
+Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. You don't know where you stand with your boss, so you're working to a bar nobody set. Or something simply feels wrong and you're too close to see it clearly.
 
 I've spent 20+ years building and leading technology organizations. Sometimes it helps to have someone who's seen a lot of this before in your corner.
 
@@ -25,7 +25,7 @@ Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS
 
 **A coach and advisor for the decisions you can't delegate.**
 
-I work one-to-one with CTOs, VPs, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.
+I work one-to-one with CTOs, VPs of Engineering, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.
 
 Sometimes that's coaching. Sometimes it's advice from someone who has sat in the seat. Usually it's some combination of both.
 
