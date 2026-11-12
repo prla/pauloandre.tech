@@ -11,8 +11,6 @@ Engineering isn't working and you can't quite explain why. Your CEO wants an AI 
 
 I've spent 20+ years building and leading technology organizations. Sometimes it helps to have someone who's seen a lot of this before in your corner.
 
-**What's keeping you awake at night?**
-
 [Let's talk →](https://calendly.com/paulo-andre/30min)
 
 ## Companies I've worked with
@@ -29,7 +27,7 @@ I work one-to-one with CTOs, VPs of Engineering, founders and other senior techn
 
 Sometimes that's coaching. Sometimes it's advice from someone who has sat in the seat. Usually it's some combination of both.
 
-[Let's talk about what's going on →](https://calendly.com/paulo-andre/30min)
+[Let's talk about your situation →](https://calendly.com/paulo-andre/30min)
 
 ### 02 — With your leaders
 
@@ -43,15 +41,13 @@ Better managers solve more locally. Fewer escalations reach you. More of your ti
 
 ### 03 — Inside the organization
 
-**Diagnosis, structure, or interim leadership — whatever the organization needs.**
+**Diagnosis, structure, interim leadership.**
 
-I work directly with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, structural problems, a founder bottleneck, delivery that has stopped working, or a transition the existing team can't navigate alone.
+I work with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, a founder bottleneck, delivery that has stopped working.
 
-That can mean diagnosing the situation and working alongside the existing leadership team. Or, when necessary, stepping in temporarily as CTO or VP Engineering.
+That can mean diagnosing it alongside your leadership team, or stepping in as interim CTO or VP Engineering. Either way, the goal is to strengthen the system and make myself unnecessary.
 
-The goal is the same: understand what's actually happening, strengthen the system and the people inside it, and make myself unnecessary.
-
-[Let's talk about your situation →](https://calendly.com/paulo-andre/30min)
+[Let's talk about your organization →](https://calendly.com/paulo-andre/30min)
 
 ## In their words
 
@@ -69,9 +65,9 @@ The goal is the same: understand what's actually happening, strengthen the syste
 
 — **Mohammad Rizwan**, former Director of Product, Hotjar / Contentsquare
 
-## Writing
+## The Hagakure
 
-I also write **The Hagakure**: essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
+I also write essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
 
 [Read The Hagakure →](https://hagakure.substack.com/)
 

@@ -70,18 +70,20 @@
   --blue: #5384C1;
   --copper: #A37F60;
   --portrait-bg: #ECECE9;
+  --mode-rule: #1A1A1A;
   --gutter: clamp(22px, 5vw, 56px);
   --measure: 42rem; /* ~672px editorial line length */
 }
 
 [data-theme="dark"] {
-  --bg: #1B1814;
-  --ink: #ECE6D9;
-  --ink-soft: #A79E8E;
-  --rule: #2F2B25;
+  --bg: #0F141A;
+  --ink: #FFFFFF;
+  --ink-soft: #9AA5B1;
+  --rule: #1A212A;
   --blue: #8FB1D8;
-  --copper: #CD9974;
-  --portrait-bg: #1D1A16;
+  --copper: #A9C7E8;
+  --portrait-bg: #161D26;
+  --mode-rule: #5B6878;
 }
 
 html { color-scheme: light dark; scroll-behavior: smooth; }
@@ -114,7 +116,7 @@ body {
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.wrap { width: 100%; max-width: 60rem; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+.wrap { width: 100%; max-width: 75rem; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 
 /* ---- HEADER ---- */
 .site-header { padding-top: clamp(20px, 3vh, 32px); padding-bottom: clamp(20px, 3vh, 32px); }
@@ -229,7 +231,7 @@ main { flex: 1 0 auto; }
   border-radius: 50%;
   background: var(--portrait-bg);
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 50% 50%;
 }
 
 /* ---- LOGO STRIP ---- */
@@ -273,61 +275,102 @@ main { flex: 1 0 auto; }
 
 /* ---- THREE WAYS TO WORK TOGETHER ---- */
 .ways {
-  padding-top: clamp(32px, 6vh, 56px);
-  padding-bottom: clamp(8px, 1vh, 16px);
+  padding-top: clamp(56px, 10vh, 96px);
+  padding-bottom: clamp(32px, 6vh, 64px);
   border-top: 1px solid var(--rule);
 }
 .ways > .wrap > h2,
-.testimonials > .wrap > h2 {
+.testimonials > .wrap > h2,
+.writing > .wrap > h2 {
   max-width: var(--measure);
+  font-family: 'Google Sans Code', 'Instrument Sans', monospace;
   font-weight: 600;
-  font-size: clamp(21px, 2.4vw, 26px);
-  letter-spacing: -0.01em;
+  font-size: clamp(26px, 3.4vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
   margin-bottom: clamp(28px, 5vh, 48px);
 }
-.mode {
+.modes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
   padding-top: clamp(28px, 5vh, 44px);
   padding-bottom: clamp(28px, 5vh, 44px);
+}
+.mode {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--mode-rule);
+  padding-top: 22px;
   scroll-margin-top: 24px;
 }
-.mode + .mode { border-top: 1px solid var(--rule); }
 .mode-number {
   display: block;
   font-size: 13px;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .mode h3 {
-  max-width: var(--measure);
+  font-family: 'Google Sans Code', 'Instrument Sans', monospace;
   font-weight: 600;
-  font-size: clamp(19px, 2.1vw, 23px);
-  letter-spacing: -0.01em;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
   margin-bottom: 18px;
 }
 .mode p {
-  max-width: var(--measure);
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-soft);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
+.mode .read-link { margin-top: auto; padding-top: 10px; align-self: flex-start; }
 
 /* ---- TESTIMONIALS ---- */
 .testimonials {
-  padding-top: clamp(32px, 6vh, 56px);
-  padding-bottom: clamp(8px, 1vh, 16px);
+  padding-top: clamp(56px, 10vh, 96px);
+  padding-bottom: clamp(32px, 6vh, 64px);
   border-top: 1px solid var(--rule);
 }
-.testimonial {
-  margin: 0;
-  padding-top: clamp(28px, 5vh, 44px);
+.carousel {
+  padding-top: clamp(28px, 5vh, 56px);
   padding-bottom: clamp(28px, 5vh, 44px);
 }
-.testimonial + .testimonial { border-top: 1px solid var(--rule); }
+/* extra room on the left so the hanging opening quote isn't clipped */
+.carousel-viewport { overflow: hidden; margin-left: -16px; padding-left: 16px; }
+.carousel-track { display: flex; gap: 44px; will-change: transform; }
+.carousel-track.is-animating { transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.carousel-card {
+  flex: 0 0 min(760px, 85%);
+  opacity: 0.3;
+  transition: opacity 0.6s ease;
+  cursor: pointer;
+}
+.carousel-card.is-active { opacity: 1; cursor: auto; }
+/* clicks on a faded card land on the card itself (which advances), not on its contents */
+.carousel-card:not(.is-active) * { pointer-events: none; }
+.carousel-nav { display: flex; gap: 12px; margin-top: 32px; }
+.carousel-arrow {
+  font: inherit;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--mode-rule);
+  cursor: pointer;
+}
+.carousel-arrow:hover { border-color: var(--ink); }
+.carousel-arrow:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track.is-animating, .carousel-card { transition: none; }
+}
+.testimonial { margin: 0; }
 .testimonial blockquote p {
-  max-width: var(--measure);
-  font-size: clamp(19px, 2.1vw, 23px);
+  font-size: clamp(22px, 2.6vw, 28px);
   line-height: 1.45;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -339,33 +382,38 @@ main { flex: 1 0 auto; }
 .testimonial blockquote { quotes: "\201C" "\201D"; }
 :lang(pt) .testimonial blockquote { quotes: "\00AB" "\00BB"; }
 :lang(pt) .testimonial blockquote p { text-indent: -0.46em; }
+.testimonial-note p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+.testimonial .more,
+.testimonial .less {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.testimonial .more:hover,
+.testimonial .less:hover { color: var(--ink); }
+.testimonial .more:focus-visible,
+.testimonial .less:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
 .testimonial figcaption {
   margin-top: 16px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink-soft);
 }
 .testimonial figcaption strong { color: var(--ink); font-weight: 500; }
-.testimonial details { max-width: var(--measure); }
-.testimonial summary {
-  display: inline-block;
-  list-style: none;
-  cursor: pointer;
-}
-.testimonial summary::-webkit-details-marker { display: none; }
-.testimonial summary:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
-.testimonial summary .when-open,
-.testimonial details[open] summary .when-closed { display: none; }
-.testimonial details[open] summary .when-open { display: inline; }
-.testimonial-full p {
-  font-size: clamp(16px, 1.4vw, 18px);
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin-top: 16px;
-}
 
 /* ---- WRITING LINE ---- */
 .writing {
-  padding-top: clamp(28px, 5vh, 44px);
+  padding-top: clamp(56px, 10vh, 96px);
   padding-bottom: clamp(28px, 5vh, 44px);
   border-top: 1px solid var(--rule);
 }
@@ -375,6 +423,7 @@ main { flex: 1 0 auto; }
   line-height: 1.6;
   color: var(--ink-soft);
 }
+.writing > .wrap > h2 + p { margin-top: clamp(28px, 5vh, 44px); }
 .writing strong { color: var(--ink); font-weight: 500; }
 .read-link {
   display: inline-block;
@@ -415,10 +464,13 @@ footer {
 .footer-links a:hover { color: var(--ink); }
 
 /* ---- RESPONSIVE ---- */
+@media (max-width: 860px) {
+  .modes { grid-template-columns: 1fr; gap: 40px; }
+  .mode { border-top: none; padding-top: 0; }
+}
 @media (max-width: 720px) {
   .hero-cols { grid-template-columns: 1fr; gap: clamp(24px, 5vw, 36px); }
-  .hero-portrait { order: -1; display: flex; justify-content: center; }
-  .portrait { max-width: 148px; }
+  .hero-portrait { display: none; }
   .hero h1 {
     font-size: clamp(23px, 6.2vw, 32px);
     line-height: 1.25;
@@ -455,7 +507,7 @@ posthog.init('phc_jaKpCBZc0Hfd5SuvV7ZowLeI8rGtov27RMoHoUmyZcT', {
 document.addEventListener('DOMContentLoaded', function () {
   var themeToggle = document.getElementById('theme-toggle');
   var themeColorMeta = document.getElementById('theme-color-meta');
-  var THEME_COLORS = { light: '#FFFFFF', dark: '#1B1814' };
+  var THEME_COLORS = { light: '#FFFFFF', dark: '#0F141A' };
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -487,12 +539,90 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (mql.addListener) mql.addListener(mqlHandler);
   }
 
-  // Testimonial expands
-  document.querySelectorAll('.testimonial details').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (details.open) posthog.capture('testimonial_expanded', { testimonial: details.dataset.testimonial });
+  // Testimonial "Read more" / "Show less": swap between the excerpt and the full note
+  document.querySelectorAll('.testimonial .more').forEach(function (more) {
+    var full = document.getElementById(more.getAttribute('aria-controls'));
+    var excerpt = more.closest('.testimonial-excerpt');
+    var less = full.querySelector('.less');
+    more.addEventListener('click', function () {
+      full.hidden = false;
+      excerpt.hidden = true;
+      more.setAttribute('aria-expanded', 'true');
+      less.focus();
+      posthog.capture('testimonial_expanded', { testimonial: more.dataset.testimonial });
+    });
+    less.addEventListener('click', function () {
+      full.hidden = true;
+      excerpt.hidden = false;
+      more.setAttribute('aria-expanded', 'false');
+      more.focus();
     });
   });
+
+  // Testimonial carousel: loops; the next card peeks at 30% and slides into focus
+  (function () {
+    var root = document.querySelector('.carousel');
+    if (!root) return;
+    var track = root.querySelector('.carousel-track');
+    var busy = false;
+    function cards() { return track.querySelectorAll('.carousel-card'); }
+    function step() { return cards()[0].offsetWidth + (parseFloat(getComputedStyle(track).columnGap) || 44); }
+    function setActive() {
+      cards().forEach(function (c, k) {
+        var on = k === 0;
+        c.classList.toggle('is-active', on);
+        if (on) c.removeAttribute('aria-hidden'); else c.setAttribute('aria-hidden', 'true');
+        c.querySelectorAll('button').forEach(function (b) { if (on) b.removeAttribute('tabindex'); else b.tabIndex = -1; });
+      });
+    }
+    function whenDone(fn) {
+      var called = false;
+      function end() { if (called) return; called = true; track.removeEventListener('transitionend', end); fn(); }
+      track.addEventListener('transitionend', end);
+      setTimeout(end, 700); // also covers reduced motion, where no transition fires
+    }
+    function next() {
+      if (busy) return;
+      busy = true;
+      var first = cards()[0];
+      first.classList.remove('is-active');
+      cards()[1].classList.add('is-active');
+      track.classList.add('is-animating');
+      track.style.transform = 'translateX(' + (-step()) + 'px)';
+      whenDone(function () {
+        track.classList.remove('is-animating');
+        track.appendChild(first);
+        track.style.transform = 'translateX(0)';
+        setActive();
+        busy = false;
+      });
+    }
+    function prev() {
+      if (busy) return;
+      busy = true;
+      var all = cards(), last = all[all.length - 1];
+      track.insertBefore(last, all[0]);
+      track.style.transform = 'translateX(' + (-step()) + 'px)';
+      track.getBoundingClientRect(); // commit the jump before animating back
+      cards()[1].classList.remove('is-active');
+      cards()[0].classList.add('is-active');
+      track.classList.add('is-animating');
+      track.style.transform = 'translateX(0)';
+      whenDone(function () {
+        track.classList.remove('is-animating');
+        setActive();
+        busy = false;
+      });
+    }
+    setActive();
+    root.querySelectorAll('.carousel-arrow').forEach(function (b) {
+      b.addEventListener('click', function () { if (b.dataset.dir === '1') next(); else prev(); });
+    });
+    track.addEventListener('click', function (e) {
+      var c = e.target.closest('.carousel-card');
+      if (c && !c.classList.contains('is-active')) next();
+    });
+  })();
 
   // Book a call clicks
   document.querySelectorAll('a[href*="calendly.com"]').forEach(function (link) {
@@ -539,11 +669,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <p class="lead-in">Sou coach e consultor de CTOs, VPs of Engineering e founders que enfrentam problemas difíceis de liderança e de organização. Estou baseado em Berlim.</p>
         <p class="situation">A engenharia não está a funcionar e não consegues bem explicar porquê. O teu CEO quer uma estratégia de IA para ontem. Estás a evitar uma decisão difícil sobre pessoas. O cargo que costumava servir-te já não serve. Não sabes bem onde estás com o teu chefe, por isso trabalhas para uma fasquia que ninguém definiu. Ou simplesmente há algo que não está bem e estás demasiado perto para o ver com clareza.</p>
         <p class="credential">Passei mais de 20 anos a construir e a liderar organizações tecnológicas. Às vezes ajuda ter do teu lado alguém que já viu muito disto antes.</p>
-        <p class="emphasis">O que é que te tira o sono?</p>
         <a href="https://calendly.com/paulo-andre/30min" class="cta" target="_blank" rel="noopener" data-source="hero-pt">Vamos falar →</a>
       </div>
       <div class="hero-portrait">
-        <img src="/images/paulo.jpg" width="900" height="857" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
+        <img src="/images/paulo.jpg" width="900" height="900" alt="Paulo André" class="portrait" fetchpriority="high" decoding="async">
       </div>
       </div>
       <div class="logos">
@@ -564,6 +693,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="wrap">
       <h2>Três formas de trabalharmos juntos</h2>
 
+      <div class="modes">
       <div class="mode" id="with-you">
         <span class="mode-number" aria-hidden="true">01</span>
         <h3><span class="sr-only">Contigo — </span>Um coach e conselheiro para as decisões que não podes delegar.</h3>
@@ -588,6 +718,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>O objetivo é sempre o mesmo: perceber o que está realmente a acontecer, reforçar o sistema e as pessoas dentro dele, e tornar-me dispensável.</p>
         <a href="https://calendly.com/paulo-andre/30min" class="read-link" target="_blank" rel="noopener" data-source="interim-pt">Vamos falar sobre a tua situação →</a>
       </div>
+      </div>
     </div>
   </section>
 
@@ -595,37 +726,81 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="wrap">
       <h2>Nas palavras deles</h2>
 
-      <figure class="testimonial">
-        <blockquote><p>O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto.</p></blockquote>
-        <figcaption><strong>Domenic Vossen</strong>, antigo Director of Engineering, Spotify</figcaption>
-        <details data-testimonial="vossen">
-          <summary class="read-link"><span class="when-closed">Lê o testemunho completo</span><span class="when-open">Esconde o testemunho completo</span></summary>
-          <div class="testimonial-full">
-            <p>Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz e ainda por provar. Ter o Paulo ao meu lado durante esse período foi extremamente valioso. Desde perspetivas estratégicas e diagnóstico organizacional a lidar com relações de trabalho complexas, definir objetivos pessoais e gerir melhor o meu tempo e a minha energia, fosse o que fosse, ajudou-me a crescer e a afinar significativamente o meu pensamento.</p>
-            <p>O Paulo tem um conhecimento enorme, que vem tanto da teoria como da experiência, e tem sempre à mão uma ferramenta, um recurso ou um framework relevante para tudo o que lhe atiro. Mas não começa por aí. O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto. O que mais se destacou foi o seu pragmatismo assente em valores fortes, e um pensamento sistémico que nunca deixa de pôr as pessoas em primeiro lugar. Além de profundamente enriquecedor, trabalhar com ele tem sido um verdadeiro prazer.</p>
+      <div class="carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+          <div class="carousel-card is-active">
+            <figure class="testimonial">
+              <blockquote><p>O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto.</p></blockquote>
+              <div class="testimonial-note">
+                <p class="testimonial-excerpt">Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz… <button type="button" class="more" aria-expanded="false" aria-controls="note-vossen-1" data-testimonial="vossen">Ler mais</button></p>
+                <div class="testimonial-full" id="note-vossen-1" hidden>
+                <p>Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz e ainda por provar. Ter o Paulo ao meu lado durante esse período foi extremamente valioso. Desde perspetivas estratégicas e diagnóstico organizacional a lidar com relações de trabalho complexas, definir objetivos pessoais e gerir melhor o meu tempo e a minha energia, fosse o que fosse, ajudou-me a crescer e a afinar significativamente o meu pensamento.</p>
+                <p>O Paulo tem um conhecimento enorme, que vem tanto da teoria como da experiência, e tem sempre à mão uma ferramenta, um recurso ou um framework relevante para tudo o que lhe atiro. Mas não começa por aí. O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto. O que mais se destacou foi o seu pragmatismo assente em valores fortes, e um pensamento sistémico que nunca deixa de pôr as pessoas em primeiro lugar. Além de profundamente enriquecedor, trabalhar com ele tem sido um verdadeiro prazer.</p>
+                <p><button type="button" class="less" aria-controls="note-vossen-1">Mostrar menos</button></p>
+                </div>
+              </div>
+              <figcaption><strong>Domenic Vossen</strong>, antigo Director of Engineering, Spotify</figcaption>
+            </figure>
           </div>
-        </details>
-      </figure>
-
-      <figure class="testimonial">
-        <blockquote><p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p></blockquote>
-        <figcaption><strong>Mohammad Rizwan</strong>, antigo Director of Product, Hotjar / Contentsquare</figcaption>
-        <details data-testimonial="rizwan">
-          <summary class="read-link"><span class="when-closed">Lê o testemunho completo</span><span class="when-open">Esconde o testemunho completo</span></summary>
-          <div class="testimonial-full">
-            <p>Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia, cheguei a uma encruzilhada conhecida: continuar como contribuidor individual, ou passar para a gestão. Em vez de me empurrar para um dos caminhos, o Paulo ajudou-me primeiro a ter clareza sobre o meu “porquê” — e, com essa clareza, pude avançar com verdadeira confiança.</p>
-            <p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p>
-            <p>Graças à orientação dele, tornei-me um líder eficaz e mais tarde fui promovido a Director of Product. Atribuo ao Paulo grande parte desse crescimento.</p>
+          <div class="carousel-card" aria-hidden="true">
+            <figure class="testimonial">
+              <blockquote><p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p></blockquote>
+              <div class="testimonial-note">
+                <p class="testimonial-excerpt">Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia… <button type="button" class="more" aria-expanded="false" aria-controls="note-rizwan-1" data-testimonial="rizwan">Ler mais</button></p>
+                <div class="testimonial-full" id="note-rizwan-1" hidden>
+                <p>Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia, cheguei a uma encruzilhada conhecida: continuar como contribuidor individual, ou passar para a gestão. Em vez de me empurrar para um dos caminhos, o Paulo ajudou-me primeiro a ter clareza sobre o meu “porquê” — e, com essa clareza, pude avançar com verdadeira confiança.</p>
+                <p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p>
+                <p>Graças à orientação dele, tornei-me um líder eficaz e mais tarde fui promovido a Director of Product. Atribuo ao Paulo grande parte desse crescimento.</p>
+                <p><button type="button" class="less" aria-controls="note-rizwan-1">Mostrar menos</button></p>
+                </div>
+              </div>
+              <figcaption><strong>Mohammad Rizwan</strong>, antigo Director of Product, Hotjar / Contentsquare</figcaption>
+            </figure>
           </div>
-        </details>
-      </figure>
+          <div class="carousel-card" aria-hidden="true">
+            <figure class="testimonial">
+              <blockquote><p>O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto.</p></blockquote>
+              <div class="testimonial-note">
+                <p class="testimonial-excerpt">Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz… <button type="button" class="more" aria-expanded="false" aria-controls="note-vossen-2" data-testimonial="vossen">Ler mais</button></p>
+                <div class="testimonial-full" id="note-vossen-2" hidden>
+                <p>Comecei a trabalhar com o Paulo quando assumi um projeto novo, entusiasmante e complexo no Spotify, como diretor de engenharia de uma área de produto criada de raiz e ainda por provar. Ter o Paulo ao meu lado durante esse período foi extremamente valioso. Desde perspetivas estratégicas e diagnóstico organizacional a lidar com relações de trabalho complexas, definir objetivos pessoais e gerir melhor o meu tempo e a minha energia, fosse o que fosse, ajudou-me a crescer e a afinar significativamente o meu pensamento.</p>
+                <p>O Paulo tem um conhecimento enorme, que vem tanto da teoria como da experiência, e tem sempre à mão uma ferramenta, um recurso ou um framework relevante para tudo o que lhe atiro. Mas não começa por aí. O foco dele está, antes de mais, em mim e na minha situação específica, e só sugere algo quando isso se aplica de facto. O que mais se destacou foi o seu pragmatismo assente em valores fortes, e um pensamento sistémico que nunca deixa de pôr as pessoas em primeiro lugar. Além de profundamente enriquecedor, trabalhar com ele tem sido um verdadeiro prazer.</p>
+                <p><button type="button" class="less" aria-controls="note-vossen-2">Mostrar menos</button></p>
+                </div>
+              </div>
+              <figcaption><strong>Domenic Vossen</strong>, antigo Director of Engineering, Spotify</figcaption>
+            </figure>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <figure class="testimonial">
+              <blockquote><p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p></blockquote>
+              <div class="testimonial-note">
+                <p class="testimonial-excerpt">Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia… <button type="button" class="more" aria-expanded="false" aria-controls="note-rizwan-2" data-testimonial="rizwan">Ler mais</button></p>
+                <div class="testimonial-full" id="note-rizwan-2" hidden>
+                <p>Trabalhei com o Paulo durante o meu tempo na Hotjar, e o coaching dele foi inestimável para o meu crescimento como líder de produto. Como tanta gente em tecnologia, cheguei a uma encruzilhada conhecida: continuar como contribuidor individual, ou passar para a gestão. Em vez de me empurrar para um dos caminhos, o Paulo ajudou-me primeiro a ter clareza sobre o meu “porquê” — e, com essa clareza, pude avançar com verdadeira confiança.</p>
+                <p>Escolhi a gestão, e o Paulo acompanhou-me na transição, ajudando-me a tornar-me o líder que eu realmente queria ser, e não apenas um líder moldado pelos livros de gestão.</p>
+                <p>Graças à orientação dele, tornei-me um líder eficaz e mais tarde fui promovido a Director of Product. Atribuo ao Paulo grande parte desse crescimento.</p>
+                <p><button type="button" class="less" aria-controls="note-rizwan-2">Mostrar menos</button></p>
+                </div>
+              </div>
+              <figcaption><strong>Mohammad Rizwan</strong>, antigo Director of Product, Hotjar / Contentsquare</figcaption>
+            </figure>
+          </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button type="button" class="carousel-arrow" data-dir="-1" aria-label="Testemunho anterior">←</button>
+          <button type="button" class="carousel-arrow" data-dir="1" aria-label="Testemunho seguinte">→</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="writing">
     <div class="wrap">
-      <h2 class="sr-only">Escrita</h2>
-      <p><strong>Também escrevo o The Hagakure</strong>: ensaios sobre tecnologia, liderança, organizações, e a tentativa de dar sentido a uma indústria cada vez mais estranha.</p>
+      <h2>The Hagakure</h2>
+      <p>Também escrevo ensaios sobre tecnologia, liderança, organizações, e a tentativa de dar sentido a uma indústria cada vez mais estranha.</p>
       <a href="https://hagakure.substack.com/" class="read-link" target="_blank" rel="noopener">Lê o The Hagakure →</a>
     </div>
   </section>
