@@ -573,7 +573,15 @@ document.addEventListener('DOMContentLoaded', function () {
         c.classList.toggle('is-active', on);
         if (on) c.removeAttribute('aria-hidden'); else c.setAttribute('aria-hidden', 'true');
         c.querySelectorAll('button').forEach(function (b) { if (on) b.removeAttribute('tabindex'); else b.tabIndex = -1; });
+        if (!on) collapse(c); // a card that leaves focus goes back to its excerpt, so the section shrinks back
       });
+    }
+    function collapse(c) {
+      var full = c.querySelector('.testimonial-full');
+      if (!full || full.hidden) return;
+      full.hidden = true;
+      c.querySelector('.testimonial-excerpt').hidden = false;
+      c.querySelector('.more').setAttribute('aria-expanded', 'false');
     }
     function whenDone(fn) {
       var called = false;
