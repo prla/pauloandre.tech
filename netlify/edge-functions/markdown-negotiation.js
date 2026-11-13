@@ -5,7 +5,7 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I coach and advise CTOs, VPs of Engineering and founders through difficult leadership and organizational problems. I'm based in Berlin.
+I coach and advise product and engineering leaders, from new managers to CTOs and founders, through difficult leadership and organizational problems. I'm based in Berlin.
 
 Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. You don't know where you stand with your boss, so you're working to a bar nobody set. Or something simply feels wrong and you're too close to see it clearly.
 
@@ -17,13 +17,15 @@ I've spent 20+ years building and leading technology organizations. Sometimes it
 
 Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS
 
+Around 900 coaching sessions with 85 leaders across 30 companies, including several years as resident leadership coach at Hotjar.
+
 ## Three ways to work together
 
 ### 01 — With you
 
 **A coach and advisor for the decisions you can't delegate.**
 
-I work one-to-one with CTOs, VPs of Engineering, founders and other senior technology leaders dealing with difficult decisions, transitions, people problems and organizational complexity.
+I work one-to-one with product and engineering leaders: managers and directors stepping into bigger roles, and CTOs, VPs and founders dealing with difficult decisions, transitions, people problems and organizational complexity.
 
 Sometimes that's coaching. Sometimes it's advice from someone who has sat in the seat. Usually it's some combination of both.
 
@@ -33,7 +35,7 @@ Sometimes that's coaching. Sometimes it's advice from someone who has sat in the
 
 **Build a stronger leadership layer.**
 
-I work across the whole leadership layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
+For CTOs, VPs and Heads of People who want their managers to grow, I work across the whole leadership layer: new managers who still need the fundamentals, directors making harder calls on people and structure, senior leaders in the middle of ambiguous, high-stakes transitions.
 
 Better managers solve more locally. Fewer escalations reach you. More of your time goes to the work only you can do.
 
@@ -41,11 +43,11 @@ Better managers solve more locally. Fewer escalations reach you. More of your ti
 
 ### 03 — Inside the organization
 
-**Diagnosis, structure, interim leadership.**
+**Interim and fractional leadership.**
 
-I work with founders and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, a founder bottleneck, delivery that has stopped working.
+I work with founders, CEOs and technology leaders when the organization itself needs attention: unclear accountability, leadership gaps, a founder bottleneck, delivery that has stopped working.
 
-That can mean diagnosing it alongside your leadership team, or stepping in as interim CTO or VP Engineering. Either way, the goal is to strengthen the system and make myself unnecessary.
+That can mean diagnosing it alongside your leadership team, or stepping in as interim or fractional CTO or VP Engineering. Either way, the goal is to strengthen the system and make myself unnecessary.
 
 [Let's talk about your organization →](https://calendly.com/paulo-andre/30min)
 
