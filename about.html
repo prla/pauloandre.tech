@@ -5,10 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <title>About · Paulo André</title>
-<meta name="description" content="20+ years building and leading technology organizations. Now I coach and advise CTOs, VPs of Engineering, and founders on problems that don't have a playbook.">
+<meta name="description" content="20+ years building and leading technology organizations. Now I coach and advise product and engineering leaders, from new managers to CTOs and founders, on problems that don't have a playbook.">
 <link rel="canonical" href="https://pauloandre.tech/about">
-<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1B1814" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" id="theme-color-meta">
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored === 'light' || stored === 'dark' ? stored : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -20,11 +31,13 @@
   --rule: #E5E5E2;
   --blue: #5384C1;
   --gutter: clamp(22px, 5vw, 56px);
+  --copper: #A37F60;
   --measure: 42rem;
 }
-@media (prefers-color-scheme: dark) {
-  :root { --bg: #1B1814; --ink: #ECE6D9; --ink-soft: #A79E8E; --rule: #2F2B25; --blue: #8FB1D8; }
-}
+[data-theme="dark"] { --bg: #0F141A; --ink: #FFFFFF; --ink-soft: #9AA5B1; --rule: #1A212A; --blue: #8FB1D8; --copper: #A9C7E8; }
+html { color-scheme: light dark; }
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background: var(--bg);
@@ -57,6 +70,16 @@ footer { flex-shrink: 0; border-top: 1px solid var(--rule); padding-top: 28px; p
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a { color: var(--ink-soft); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
 .footer-links a:hover { color: var(--ink); }
+.top-bar-right { display: flex; align-items: center; gap: clamp(16px, 3vw, 30px); }
+.theme-toggle { background: transparent; border: none; padding: 6px; margin: -6px -6px -6px 0; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: color 0.15s ease; }
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+@media (max-width: 560px) { .top-bar-right { gap: 16px; flex-wrap: wrap; justify-content: flex-end; } .top-nav { gap: 10px 16px; flex-wrap: wrap; } .top-nav a { font-size: 13px; } }
 </style>
 </head>
 <body>
@@ -64,11 +87,23 @@ footer { flex-shrink: 0; border-top: 1px solid var(--rule); padding-top: 28px; p
 <header class="site-header">
   <div class="wrap top-bar">
     <a class="wordmark" href="/">Paulo André</a>
+    <div class="top-bar-right">
     <nav class="top-nav">
+      <a href="/#work-together">Ways to work</a>
       <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">Hagakure</a>
       <a href="https://www.linkedin.com/in/paulorlandre/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://calendly.com/paulo-andre/30min" class="nav-cta" target="_blank" rel="noopener" data-source="about">Talk to me</a>
     </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -76,8 +111,8 @@ footer { flex-shrink: 0; border-top: 1px solid var(--rule); padding-top: 28px; p
   <div class="wrap">
     <h1>About</h1>
     <p>I've spent 20+ years building and leading technology organizations, as an engineer, as a manager, and eventually running engineering orgs end to end.</p>
-    <p>These days I coach and advise CTOs, VPs of Engineering, and technical founders working through problems that don't come with a playbook: engineering that's stopped working for reasons nobody can quite name, a leadership role that no longer fits, an organizational decision nobody wants to make.</p>
-    <p>I've worked with technology leaders from Spotify, Hotjar, Enigma, Adverity, Delivery Hero, and AMBOSS, among others.</p>
+    <p>These days I coach and advise product and engineering leaders, from managers stepping into bigger roles to CTOs and founders, working through problems that don't come with a playbook: engineering that's stopped working for reasons nobody can quite name, a leadership role that no longer fits, an organizational decision nobody wants to make. Sometimes I step in as interim or fractional CTO or VP Engineering.</p>
+    <p>I've worked with technology leaders from Spotify, Hotjar, Enigma, Adverity, Delivery Hero, and AMBOSS, among others: around 900 coaching sessions with 85 leaders across 30 companies, including several years as resident leadership coach at Hotjar.</p>
     <p>I'm based in Berlin. I also write <a href="https://hagakure.substack.com/" target="_blank" rel="noopener">The Hagakure</a>, essays about technology, leadership, and organizations.</p>
     <p><a href="https://calendly.com/paulo-andre/30min" target="_blank" rel="noopener" data-source="about-body">Book a call →</a></p>
   </div>
@@ -96,5 +131,34 @@ footer { flex-shrink: 0; border-top: 1px solid var(--rule); padding-top: 28px; p
   </div>
 </footer>
 
+<script>
+(function () {
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeColorMeta = document.getElementById('theme-color-meta');
+  var THEME_COLORS = { light: '#FFFFFF', dark: '#0F141A' };
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeColorMeta) themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+    if (themeToggle) themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+  if (window.matchMedia) {
+    var mql = window.matchMedia('(prefers-color-scheme: dark)');
+    var handler = function (e) {
+      try { if (localStorage.getItem('theme')) return; } catch (err) {}
+      applyTheme(e.matches ? 'dark' : 'light');
+    };
+    if (mql.addEventListener) mql.addEventListener('change', handler);
+    else if (mql.addListener) mql.addListener(handler);
+  }
+})();
+</script>
 </body>
 </html>
