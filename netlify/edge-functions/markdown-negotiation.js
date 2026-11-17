@@ -53,6 +53,18 @@ That can mean diagnosing it alongside your leadership team, or stepping in as in
 
 ## In their words
 
+> I've known Paulo for a long time. It started with him coaching managers who reported to me at Hotjar. Over time we connected and became friends through shared interests and values. I'm now lucky enough to be coached by him myself. That combination is rare! He knows me well enough to see my patterns, and he's professional enough to do something useful with that knowledge.
+>
+> What sets Paulo apart is that he coaches rather than mentors. Instead of telling you what to do in a given situation, he helps you build the muscle to work it out yourself. He asks the question that makes you look at the situation differently, then gives you something small and concrete to try before the next session. I leave with practical actions, not just advice.
+>
+> He is also candid. Paulo is firmly in my corner, but he will challenge me when I'm holding myself to an outdated idea of what a leader should be, or when my self-expectations are too high. He has a wide view of what I'm capable of, and he pays close attention to the details and to how you describe situations, picking up on a lot of signals between the lines. Often, simply hearing those observations played back to me is an eye-opener that helps me connect the dots.
+>
+> Above all, Paulo is genuinely interested in you as a person, not only in your professional role. He is dedicated to seeing you grow into a better leader and a better human being, and it shows in how he runs his sessions, how he follows up, and how much time he gives.
+>
+> Our conversations leave me clearer, calmer and more honest with myself. If you're a leader who wants to build your own judgment rather than borrow someone else's, I recommend working with Paulo.
+
+— **Clint Calleja**, Senior Director of Engineering, Contentsquare
+
 > I first started working with Paulo when I took on an exciting and complex new project at Spotify, as engineering director for a greenfield, yet-to-be-proven product area. Having Paulo by my side during that time was incredibly valuable. From strategic insights and org debugging to navigating complex work relationships, determining personal goals and managing my time and energy more effectively, whatever it was, he helped me grow and significantly sharpen my thinking.
 >
 > Paulo has tremendous knowledge, drawn from both theory and experience, and always has a relevant tool, resource or framework at hand for whatever I've thrown at him. Yet he doesn't lead with it. His focus is first and foremost on me and my specific situation, and he offers suggestions only where they genuinely apply. What stood out most was his pragmatism grounded in strong values, and his systems thinking that always stays human-first. Beyond being deeply enriching, working with him has been an absolute pleasure.
