@@ -344,7 +344,7 @@ main { flex: 1 0 auto; }
   padding-bottom: clamp(28px, 5vh, 44px);
 }
 /* extra room on the left so the hanging opening quote isn't clipped */
-.carousel-viewport { overflow: hidden; margin-left: -16px; padding-left: 16px; }
+.carousel-viewport { overflow: hidden; margin-left: -16px; padding-left: 16px; touch-action: pan-y; }
 .carousel-track { display: flex; gap: 44px; will-change: transform; }
 .carousel-track.is-animating { transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
 .carousel-card {
@@ -627,6 +627,19 @@ document.addEventListener('DOMContentLoaded', function () {
         busy = false;
       });
     }
+    // Swipe on touch screens: a mostly-horizontal swipe of 40px+ moves the carousel
+    var vp = root.querySelector('.carousel-viewport'), sx = null, sy = 0;
+    vp.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { sx = null; return; }
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    vp.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) { if (dx < 0) next(); else prev(); }
+    }, { passive: true });
+    vp.addEventListener('touchcancel', function () { sx = null; }, { passive: true });
     setActive();
     root.querySelectorAll('.carousel-arrow').forEach(function (b) {
       b.addEventListener('click', function () { if (b.dataset.dir === '1') next(); else prev(); });
