@@ -5,11 +5,9 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I coach and advise product and engineering leaders, from new managers to CTOs and founders, through difficult leadership and organizational problems. I'm based in Berlin.
+I help engineering organizations navigate change without losing their people or their momentum. Sometimes that means stepping in as an interim or fractional leader. Other times, coaching the managers who carry it.
 
-Engineering isn't working and you can't quite explain why. Your CEO wants an AI strategy yesterday. You're avoiding a difficult people decision. The role that used to fit you doesn't anymore. You don't know where you stand with your boss, so you're working to a bar nobody set. Or something simply feels wrong and you're too close to see it clearly.
-
-I've spent 20+ years building and leading technology organizations. Sometimes it helps to have someone who's seen a lot of this before in your corner.
+AI is changing how engineering teams work faster than organizations can adapt. But the challenges go deeper: unclear accountability, struggling managers, difficult people decisions, delivery that isn't working. I've spent 20+ years building and leading technology organizations, and I help leaders work through problems like these.
 
 [Let's talk →](https://calendly.com/paulo-andre/30min)
 
