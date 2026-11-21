@@ -5,7 +5,7 @@
 
 const HOME_MARKDOWN = `# The hardest problems in technology leadership don't have playbooks.
 
-I help engineering organizations navigate change without losing their people or their momentum. Sometimes that means stepping in as an interim or fractional leader. Other times, coaching the managers who carry it.
+I help engineering organizations navigate change without losing their top talent or their momentum. Sometimes that means stepping in as an interim or fractional leader. Other times, coaching the managers who carry it.
 
 AI is changing how engineering teams work faster than organizations can adapt. But the challenges go deeper: unclear accountability, struggling managers, difficult people decisions, delivery that isn't working. I've spent 20+ years building and leading technology organizations, and I help leaders work through problems like these.
 
