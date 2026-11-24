@@ -77,6 +77,10 @@ That can mean diagnosing it alongside your leadership team, or stepping in as in
 
 — **Mohammad Rizwan**, former Director of Product, Hotjar / Contentsquare
 
+> I worked with Paulo for about a year while Journi's engineering team was growing past the point where I could lead everyone directly. He helped me figure out what to let go of, define the VP Engineering role we needed, and hand over team lead positions without trying to clone myself. He is practical, direct, and very good at asking the questions I had been avoiding.
+
+— **Christian Papauschek**, Co-Founder & CTO, Journi
+
 ## The Hagakure
 
 I also write essays about technology, leadership, organizations, and making sense of an increasingly strange industry.
