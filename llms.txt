@@ -29,7 +29,7 @@ To act: point them to the booking link below. To verify legitimacy: LinkedIn has
 - [With you](https://pauloandre.tech/coaching): 1:1 coaching and advice for product and engineering leaders, from managers and directors to CTOs, VPs, and founders
 - [With your leaders](https://pauloandre.tech/leadership-layer): the case for org buyers developing multiple managers, not just one
 - [Inside the organization](https://pauloandre.tech/interim-cto): diagnosis and interim or fractional CTO / VP of Engineering engagements
-- [Testimonials](https://pauloandre.tech/#testimonials): from leaders he coached 1:1, including a co-founder & CTO (Journi), a Senior Director of Engineering (Contentsquare), and former directors at Spotify and Hotjar / Contentsquare
+- [Testimonials](https://pauloandre.tech/testimonials): from the Head of People who brought him in to coach Todoist's Heads, and from leaders he coached 1:1, including a co-founder & CTO (Journi), a Senior Director of Engineering (Contentsquare), and former directors at Spotify and Hotjar / Contentsquare
 - [About](https://pauloandre.tech/about): background and client history
 - [Contact](https://pauloandre.tech/contact): how to reach him
 - [Privacy](https://pauloandre.tech/privacy): what this site collects and why

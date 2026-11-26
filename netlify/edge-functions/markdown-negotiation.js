@@ -51,6 +51,20 @@ That can mean diagnosing it alongside your leadership team, or stepping in as in
 
 ## In their words
 
+> We're running a Leadership Coaching pilot this quarter, and it's a strong reminder of what a gift a dedicated coach is for any leader.
+>
+> Our goal was simple: give every Head at Todoist a space to work on their personal and team goals, while sparking more curiosity about coaching within their own leadership styles.
+>
+> After a decade of running growth and self-development perks, I've learned they are almost always the most underutilized benefits a company offers.
+>
+> If you have a development budget and don't have a dedicated coach, do yourself a favor, use that perk and book a session with Paulo André.
+>
+> Paulo brought serious experience and raised the bar for our team. What stood out most, though, was his ability to uncover core themes while deeply understanding Todoist's core values and how to elevate our egalitarian culture. That is what meaningful coaching looks like.
+>
+> Whether you're a leader looking for a coach or a People & Culture lead wanting to level up your team, Paulo André is the person to talk to.
+
+— **Nadia Vatalidis**, Head of People, Todoist
+
 > I've known Paulo for a long time. It started with him coaching managers who reported to me at Hotjar. Over time we connected and became friends through shared interests and values. I'm now lucky enough to be coached by him myself. That combination is rare! He knows me well enough to see my patterns, and he's professional enough to do something useful with that knowledge.
 >
 > What sets Paulo apart is that he coaches rather than mentors. Instead of telling you what to do in a given situation, he helps you build the muscle to work it out yourself. He asks the question that makes you look at the situation differently, then gives you something small and concrete to try before the next session. I leave with practical actions, not just advice.
@@ -80,6 +94,8 @@ That can mean diagnosing it alongside your leadership team, or stepping in as in
 > I worked with Paulo for about a year while Journi's engineering team was growing past the point where I could lead everyone directly. He helped me figure out what to let go of, define the VP Engineering role we needed, and hand over team lead positions without trying to clone myself. He is practical, direct, and very good at asking the questions I had been avoiding.
 
 — **Christian Papauschek**, Co-Founder & CTO, Journi
+
+[Read them all in full →](https://pauloandre.tech/testimonials)
 
 ## The Hagakure
 
