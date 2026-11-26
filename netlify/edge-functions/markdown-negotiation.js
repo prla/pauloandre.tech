@@ -13,7 +13,7 @@ AI is changing how engineering teams work faster than organizations can adapt. B
 
 ## Companies I've worked with
 
-Spotify, Hotjar, Enigma, Adverity, Delivery Hero, AMBOSS, Adobe, Todoist
+Adobe, Adverity, AMBOSS, Delivery Hero, Enigma, Hotjar, Spotify, Todoist
 
 Around 900 coaching sessions with 85 leaders across 30 companies, including several years as resident leadership coach at Hotjar.
 
