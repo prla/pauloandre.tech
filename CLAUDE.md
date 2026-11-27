@@ -61,7 +61,7 @@ Extremely restrained, editorial rather than SaaS. Preserve this when editing:
 ## Integrations (don't break these)
 
 - **Booking link**: `https://calendly.com/paulo-andre/30min` — every CTA points here. Clicks fire a PostHog `book_call_clicked` event via the `data-source` attribute.
-- **Analytics**: PostHog, initialized inline (`api_host: t.pauloandre.tech`). Also tracks `theme_toggled` and `testimonial_expanded`.
+- **Analytics**: PostHog, initialized inline in every page's `<head>` (`api_host: t.pauloandre.tech`; same snippet and `book_call_clicked` handler on each page, so new pages need it too; UTM tags on inbound links are captured with the pageview). Also tracks `theme_toggled` and `testimonial_expanded`.
 - **Theme toggle**: light/dark, persisted to `localStorage`, respects `prefers-color-scheme`. An inline `<head>` script sets the theme before paint to avoid a flash.
 - **External links**: LinkedIn (`/in/paulorlandre/`) and Hagakure (`hagakure.substack.com`).
 
